@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_base_color">#EFEFF4</color>
+
+    <color name="txt_9">#999999</color>
+    <color name="txt_6">#666666</color>
+    <color name="txt_3">#333333</color>
+
+    <color name="txt_gray">#929292</color>
+    <color name="txt_gray2">#FCEBEB</color>
+    <color name="txt_gray3">#EFEFEF</color>
+    <color name="txt_gray4">#FDFEFE</color>
+    <color name="txt_gray5">#D8D8D8</color>
+    <color name="txt_gray6">#8F8E94</color>
+    <color name="txt_gray7">#c8c9cc</color>
+    <color name="txt_gray8">#E4E4E4</color>
+    <color name="txt_gray9">#CCCCCC</color>
+    <color name="txt_gray10">#C7C7CD</color>
+    <color name="txt_gray11">#F7E2D8 </color>
+    <color name="txt_red2">#E74C3C</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white2">#44FFFFFF</color>
+    <color name="gray_white">#EA6659</color>
+
+    <color name="blue">#2E8ECE</color>
+
+    <color name="gray5">#555555</color>
+
+    <color name="label_text">#636363</color>
+    <color name="transparent">#00000000</color>
+    <color name="balck">#000000</color>
+
+    <color name="txt_green">#2BC36B</color>
+    <color name="product_red_bg">#E84C3D</color>
+    <color name="txt_red">#E40614</color>
+    <color name="orange">#F39800</color>
+    <color name="blue_tl">#5FA6DB</color>
+    <color name="light_blue">#007cc6</color>
+
+</resources>

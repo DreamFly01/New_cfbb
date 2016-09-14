@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.account.MyGiftActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp">
+
+        <com.cfbb.android.widget.PullDownView
+            android:id="@id/pullDownView"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridView
+                android:id="@id/gridView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:headerDividersEnabled="true"
+                android:horizontalSpacing="15dp"
+                android:numColumns="2"
+                android:listSelector="@drawable/transparent_bg"
+                android:scrollbars="none"
+                android:verticalSpacing="15dp">
+            </GridView>
+
+        </com.cfbb.android.widget.PullDownView>
+
+        <include layout="@layout/listview_emptyview"></include>
+
+        <com.cfbb.android.widget.YCLoadingBg
+            android:id="@+id/ycLoadingBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+
+    </FrameLayout>
+
+</LinearLayout>

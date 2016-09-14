@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ScrollView
+        android:id="@id/sc_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="29dp"
+            android:layout_marginRight="29dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29dp"
+                android:text="@string/vertify_result_str"
+                android:textColor="@color/balck"
+                android:textSize="@dimen/size_18" />
+
+            <com.cfbb.android.widget.MyGridView
+                android:id="@id/gv_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:horizontalSpacing="15dp"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="2"
+                android:verticalSpacing="15dip"></com.cfbb.android.widget.MyGridView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29dp"
+                android:text="@string/relative_data_str"
+                android:textColor="@color/balck"
+                android:textSize="@dimen/size_18" />
+
+            <com.cfbb.android.widget.MyGridView
+                android:id="@id/gv_02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:horizontalSpacing="20dp"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="2"
+                android:verticalSpacing="15dip"></com.cfbb.android.widget.MyGridView>
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>

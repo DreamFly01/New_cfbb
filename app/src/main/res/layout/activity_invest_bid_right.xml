@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autofit="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context=".features.account.withdrawAndrecharge.WithDrawRightActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/recharge_right_ico" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="@string/buy_right"
+                android:textColor="@color/txt_3"
+                android:textSize="@dimen/size_19" />
+
+        </LinearLayout>
+
+        <com.cfbb.android.widget.autoFit.AutofitTextView
+            android:id="@id/tv_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="@color/txt_3"
+            android:textSize="@dimen/size_16"
+            autofit:minTextSize="12sp" />
+
+
+    </RelativeLayout>
+
+    <ImageView style="@style/iv_gray_horizontal_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/account_details_bottom_bg"
+        android:orientation="vertical">
+
+        <ImageView style="@style/iv_gray_horizontal_line" />
+
+        <RelativeLayout
+            android:id="@id/rl_02"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_42"
+            android:background="@color/white">
+
+            <TextView
+                style="@style/account_set_txt"
+                android:text="@string/buy_money" />
+
+            <TextView
+                android:id="@id/tv_04"
+                style="@style/myinvest_txt_gray_style" />
+        </RelativeLayout>
+
+        <ImageView
+            style="@style/iv_gray_horizontal_line"
+            android:layout_marginLeft="15dp" />
+
+
+        <RelativeLayout
+            android:id="@id/rl_05"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_42"
+            android:background="@color/white">
+
+            <TextView
+                style="@style/account_set_txt"
+                android:text="@string/expect__moeny" />
+
+
+            <TextView
+                android:id="@id/tv_06"
+                style="@style/myinvest_txt_gray_style" />
+        </RelativeLayout>
+
+        <ImageView style="@style/iv_gray_horizontal_line" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="57dp"
+        android:background="@drawable/btn_red_selector"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_20" />
+</LinearLayout>

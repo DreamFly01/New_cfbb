@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/commom_dialog_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:gravity="center"
+        android:text="短信验证码"
+        android:textColor="@color/balck"
+        android:textSize="@dimen/size_18" />
+
+    <TextView
+        android:id="@id/tv_02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="11dp"
+        android:gravity="center"
+        android:text="   驻京的啊实践活动就撒谎的捐款活动就撒谎的金卡"
+        android:textColor="@color/balck"
+        android:textSize="@dimen/size_16" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_36"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/sms_bg"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@id/et_01"
+            android:layout_width="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/txt_gray10"
+            android:textSize="@dimen/size_14"
+            android:hint="请输入短信验证码"
+            android:layout_weight="1"
+            android:background="@drawable/transparent_bg" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@mipmap/vertical_line" />
+
+        <Button
+            android:id="@id/btn_commom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="9dp"
+            android:gravity="center"
+            android:text="重新获取"
+            android:background="@drawable/transparent_bg"
+            android:textColor="@color/txt_6"
+            android:textSize="@dimen/size_14" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_marginTop="11dp"
+        style="@style/iv_gray_horizontal_line" />
+
+    <LinearLayout
+        android:id="@id/ll_01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/transparent_bg"
+            android:text="@string/cancle"
+            android:textColor="@color/txt_red"
+            android:textSize="@dimen/size_18" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/commom_dialog_vertical_line" />
+
+        <Button
+            android:id="@id/btn_ok"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/transparent_bg"
+            android:text="@string/ok"
+            android:textColor="@color/txt_red"
+            android:textSize="@dimen/size_18" />
+    </LinearLayout>
+
+</LinearLayout>

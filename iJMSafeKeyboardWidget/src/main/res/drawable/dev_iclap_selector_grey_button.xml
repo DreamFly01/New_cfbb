@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <selector>
+        <item android:state_pressed="true">
+            <shape>
+                <corners android:radius="5dp" />
+
+                <solid android:color="@color/safeskb_bg_grey_click" />
+            </shape>
+        </item>
+        <item android:state_enabled="false">
+            <shape>
+                <corners android:radius="5dp" />
+
+                <solid android:color="@color/safeskb_bg_new_grey" />
+            </shape>
+        </item>
+        <item>
+            <shape>
+                <corners android:radius="5dp" />
+                <solid android:color="@color/safeskb_bg_grey_click" />
+            </shape>
+        </item>
+    </selector>
+
+</inset>

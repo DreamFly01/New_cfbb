@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_base_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/my_gift_item_bg"
+        android:orientation="vertical">
+
+        <com.cfbb.android.widget.roundedimageview.RoundedImageView
+            android:id="@id/iv_01"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            app:riv_border_color="@color/white"
+            app:riv_border_width="0dip"
+            android:layout_margin="1dp"
+            app:riv_corner_radius_bottom_left="0dp"
+            app:riv_corner_radius_bottom_right="0dp"
+            app:riv_corner_radius_top_left="3dp"
+            app:riv_corner_radius_top_right="3dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/my_gift_default" />
+
+        <TextView
+            android:id="@id/tv_02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="9dp"
+            android:text="好的哈接口的和发哈士大夫艰苦撒旦"
+            android:textColor="@color/balck"
+            android:textSize="@dimen/size_18" />
+
+        <TextView
+            android:id="@id/tv_03"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:text="财富中国三种是uaidjfs发士大夫 发士大夫"
+            android:textColor="@color/txt_3"
+            android:textSize="@dimen/size_16" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@id/tv_04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="2016-06-05"
+                android:textColor="@color/txt_6"
+                android:textSize="@dimen/size_16" />
+
+            <TextView
+                android:id="@id/tv_05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="审核组"
+                android:textSize="@dimen/size_16" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

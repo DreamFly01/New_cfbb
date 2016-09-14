@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.account.AccountSetActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                style="@style/iv_gray_horizontal_line"
+                android:layout_marginTop="28dp" />
+
+            <RelativeLayout
+                android:id="@id/rl_01"
+                style="@style/horizontal_wihte_item"
+                android:layout_height="66dp">
+
+                <ImageView
+                    android:id="@id/iv_01"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@mipmap/ava" />
+
+                <TextView
+                    android:id="@id/tv_06"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@id/iv_01"
+                    android:text=""
+                    android:textColor="@color/balck"
+                    android:textSize="@dimen/size_22" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+            </RelativeLayout>
+
+            <ImageView style="@style/iv_gray_horizontal_line" />
+
+            <ImageView
+                style="@style/iv_gray_horizontal_line"
+                android:layout_marginTop="28dp" />
+
+            <RelativeLayout
+                android:id="@id/rl_02"
+                style="@style/horizontal_wihte_item">
+
+                <TextView
+                    style="@style/account_set_txt"
+                    android:text="@string/certification_str" />
+
+                <TextView
+                    android:id="@id/tv_02"
+                    style="@style/account_set_txt2"
+                    android:layout_toLeftOf="@id/iv_07"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@id/iv_07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@id/rl_03"
+                style="@style/horizontal_wihte_item">
+
+                <TextView
+                    style="@style/account_set_txt"
+                    android:text="@string/mobile_phone_binding_str" />
+
+                <TextView
+                    android:id="@id/tv_03"
+                    style="@style/account_set_txt2"
+                    android:layout_toLeftOf="@id/iv_07"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@id/iv_07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@id/rl_04"
+                style="@style/horizontal_wihte_item">
+
+                <TextView
+                    style="@style/account_set_txt"
+                    android:text="@string/loging_password_str" />
+
+                <TextView
+                    android:id="@id/tv_04"
+                    style="@style/account_set_txt2"
+                    android:layout_toLeftOf="@id/iv_07"
+                    android:text="已设置" />
+
+                <ImageView
+                    android:id="@id/iv_07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@id/rl_05"
+                style="@style/horizontal_wihte_item">
+
+                <TextView
+                    style="@style/account_set_txt"
+                    android:text="@string/gesture_password_str" />
+
+                <TextView
+                    android:id="@id/tv_05"
+                    style="@style/account_set_txt2"
+                    android:layout_toLeftOf="@id/iv_07"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@id/iv_07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@id/rl_06"
+                style="@style/horizontal_wihte_item"
+                android:layout_marginTop="28dp">
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_alignParentTop="true" />
+
+                <TextView
+                    style="@style/account_set_txt"
+                    android:text="@string/about_us_str" />
+
+
+                <ImageView
+                    android:id="@id/iv_07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@id/rl_07"
+                style="@style/horizontal_wihte_item">
+
+                <TextView
+                    style="@style/account_set_txt"
+                    android:text="@string/feedback_str" />
+
+
+                <ImageView
+                    android:id="@id/iv_07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15dp" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@id/rl_08"
+                style="@style/horizontal_wihte_item">
+
+                <TextView
+                    style="@style/account_set_txt"
+                    android:text="@string/auto_invest_str" />
+
+
+                <ImageView
+                    android:id="@id/iv_07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@id/rl_09"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/item_withe_selector">
+
+                <TextView
+                    style="@style/account_set_txt"
+                    android:text="@string/helper_center_str" />
+
+
+                <ImageView
+                    android:id="@id/iv_07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+            </RelativeLayout>
+
+            <ImageView style="@style/iv_gray_horizontal_line" />
+
+
+            <ImageView
+                style="@style/iv_gray_horizontal_line"
+                android:layout_marginTop="28dp" />
+
+            <RelativeLayout
+                android:id="@id/rl_10"
+                style="@style/horizontal_wihte_item">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/exsit_login_str"
+                    android:textColor="@color/txt_red"
+                    android:textSize="@dimen/size_18" />
+
+            </RelativeLayout>
+
+            <ImageView
+                style="@style/iv_gray_horizontal_line"
+                android:layout_marginBottom="28dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

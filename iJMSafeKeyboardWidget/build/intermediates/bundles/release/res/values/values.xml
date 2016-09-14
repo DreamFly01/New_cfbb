@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#ff000000</color>
+    <color name="grey">#ffcccccc</color>
+    <color name="safe_complete_bg">#519dda</color>
+    <color name="safe_numskb_bg">#8c8c8c</color>
+    <color name="safe_numskb_click_bg">#d9d9d9</color>
+    <color name="safe_numskb_specialkey_foreground">#d1d5db</color>
+    <color name="safe_skbtitle_font">#999999</color>
+    <color name="safe_skbtitle_gb">#fafafa</color>
+    <color name="safeskb_bg_grey">#d2d5db</color>
+    <color name="safeskb_bg_grey_click">#d9d9d9</color>
+    <color name="safeskb_bg_new_grey">#adb4bd</color>
+    <color name="safeskb_click_bg">#8c8c8c</color>
+    <color name="safeskb_nomal_bg">#d1d5db</color>
+    <color name="white">#ffffffff</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="key_height">50.0dp</dimen>
+    <string name="ABC">ABC</string>
+    <string name="action_settings">Settings</string>
+    <string name="label_123">123</string>
+    <string name="label_abc">abc</string>
+    <string name="label_done">完成</string>
+    <string name="label_more">更多</string>
+    <string name="label_shift">Shift</string>
+    <string name="label_space">空格</string>
+    <string name="safename">财富中国安全键盘</string>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="IJMDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="IJMDialogAnim" parent="android:Animation">          
+		<item name="@android:windowEnterAnimation">@anim/skb_dialog_anim_enter</item>    
+        <item name="@android:windowExitAnimation">@anim/skb_dialog_anim_exit</item>     
+    </style>
+</resources>

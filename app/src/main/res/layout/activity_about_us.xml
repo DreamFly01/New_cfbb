@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.aboutus.AboutUsActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="55dp"
+        android:src="@mipmap/yuan_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/app_name"
+        android:layout_marginTop="14dp"
+        android:textSize="@dimen/size_17"
+        android:textColor="@color/balck" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical">
+
+        <ImageView
+            style="@style/iv_gray_horizontal_line" />
+
+        <RelativeLayout
+            android:id="@id/rl_01"
+            style="@style/horizontal_wihte_item"
+           >
+
+            <TextView
+                style="@style/account_set_txt"
+                android:text="版本" />
+
+            <TextView
+                android:id="@id/tv_02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:layout_alignParentRight="true"
+                android:text=""
+                android:textColor="@color/txt_gray6"
+                android:textSize="@dimen/size_18" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            style="@style/iv_gray_horizontal_line"
+            android:layout_marginLeft="15dp"
+            />
+
+        <RelativeLayout
+            android:id="@id/rl_02"
+            style="@style/horizontal_wihte_item">
+
+            <TextView
+                style="@style/account_set_txt"
+                android:text="客服电话" />
+
+            <TextView
+                android:id="@id/tv_04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/iv_07"
+                android:text=""
+                android:textColor="@color/txt_gray6"
+                android:textSize="@dimen/size_18" />
+
+            <ImageView
+                android:id="@id/iv_07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_ico" />
+        </RelativeLayout>
+
+        <ImageView
+            style="@style/iv_gray_horizontal_line"
+            android:layout_marginLeft="15dp"
+            />
+
+        <RelativeLayout
+            android:id="@id/rl_03"
+            style="@style/horizontal_wihte_item">
+
+            <TextView
+                style="@style/account_set_txt"
+                android:text="关于财富中国" />
+
+
+            <ImageView
+                android:id="@id/iv_07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_ico" />
+        </RelativeLayout>
+
+        <ImageView
+            style="@style/iv_gray_horizontal_line"/>
+
+    </LinearLayout>
+</LinearLayout>

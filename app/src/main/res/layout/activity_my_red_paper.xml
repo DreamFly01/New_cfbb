@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.account.MyRedPaperActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_weight="1">
+
+        <com.cfbb.android.widget.PullDownView
+            android:id="@id/pullDownView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           >
+
+            <ListView
+                android:id="@id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/transparent_bg"
+                android:divider="@drawable/transparent_bg"
+                android:headerDividersEnabled="true"
+                android:scrollbars="none">
+
+            </ListView>
+
+        </com.cfbb.android.widget.PullDownView>
+
+        <include layout="@layout/listview_emptyview"></include>
+
+        <com.cfbb.android.widget.YCLoadingBg
+            android:id="@+id/ycLoadingBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".features.account.myinvest.CompleteActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_base_color"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:layout_marginTop="28dp"
+                android:background="#40D471"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="106dp"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@id/tv_02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="22dp"
+                        android:includeFontPadding="false"
+                        android:text="--"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_40" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="2dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/current_interest_received_str"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_18" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#5CE192" />
+
+                <TextView
+                    android:id="@id/tv_03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:includeFontPadding="false"
+                    android:text="--"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_26" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="2dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/invest_total_moeny_str"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_16" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_marginTop="28dp" />
+
+                <RelativeLayout
+                    android:id="@id/rl_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/product_name" />
+
+                    <TextView
+                        android:id="@id/tv_04"
+                        style="@style/myinvest_txt_gray_style" />
+                </RelativeLayout>
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_marginLeft="15dp" />
+
+                <RelativeLayout
+                    android:id="@id/rl_06"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/returnmoney_way" />
+
+
+                    <TextView
+                        android:id="@id/tv_07"
+                        style="@style/myinvest_txt_gray_style" />
+                </RelativeLayout>
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_marginLeft="15dp" />
+
+                <RelativeLayout
+                    android:id="@id/rl_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/expect_year_of_rate_str" />
+
+                    <TextView
+                        android:id="@id/tv_05"
+                        style="@style/myinvest_txt_gray_style" />
+                </RelativeLayout>
+
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_marginLeft="15dp" />
+
+                <RelativeLayout
+                    android:id="@id/rl_05"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/invest_date_str" />
+
+
+                    <TextView
+                        android:id="@id/tv_06"
+                        style="@style/myinvest_txt_gray_style" />
+                </RelativeLayout>
+
+                <ImageView style="@style/iv_gray_horizontal_line" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <ImageView style="@style/iv_gray_horizontal_line" />
+
+
+                <RelativeLayout
+                    android:id="@id/rl_07"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/buy_time" />
+
+                    <TextView
+                        android:id="@id/tv_08"
+                        style="@style/myinvest_txt_gray_style" />
+                </RelativeLayout>
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                    android:layout_marginLeft="15dp" />
+
+                <RelativeLayout
+                    android:id="@id/rl_07"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/should_return_money_without_unit_str" />
+
+                    <TextView
+                        android:id="@id/tv_10"
+                        style="@style/myinvest_txt_gray_style" />
+                </RelativeLayout>
+
+                <ImageView style="@style/iv_gray_horizontal_line" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

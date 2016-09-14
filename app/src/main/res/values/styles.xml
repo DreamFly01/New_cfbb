@@ -1,0 +1,190 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@android:style/Theme.Light.NoTitleBar">
+
+        <!-- 设置没有标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置activity切换动画 -->
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+
+    </style>
+
+    <style name="MianWindowTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- 设置没有标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置activity切换动画 -->
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+    <!--
+     animation 样式
+     android:windowIsTranslucent)影响(android:windowAnimationStyle)Activity切换动画无效
+     设置Parent android:style/Animation.Translucent可解决
+   -->
+    <style name="activityAnimation">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_right_out</item>
+    </style>
+
+    <!--无敌菊花转 样式 -->
+    <style name="CustomProgress" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <style name="home_menu_txt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:textColor">@color/txt_gray8</item>
+        <item name="android:textSize">@dimen/size_16</item>
+    </style>
+
+    <style name="home_menu_linear">
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:background">@drawable/home_menu_item_selector</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="invest_bid_txt">
+        <item name="android:textColor">@color/txt_3</item>
+        <item name="android:textSize">@dimen/size_14</item>
+    </style>
+
+
+    <style name="account_set_txt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:textColor">@color/txt_3</item>
+        <item name="android:textSize">@dimen/size_18</item>
+    </style>
+
+    <style name="account_set_txt2">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:textColor">@color/txt_gray6</item>
+        <item name="android:textSize">@dimen/size_18</item>
+    </style>
+
+    <style name="btn_main_itmes">
+        <item name="android:textColor">@color/txt_red</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:paddingBottom">15dip</item>
+        <item name="android:paddingTop">15dip</item>
+    </style>
+
+    <style name="transparentFrameWindowStyle" parent="android:style/Theme.Dialog">
+
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@drawable/gray_bg</item>
+        <!--<item name="android:windowBackground">@drawable/gray_bg</item>-->
+        <item name="android:layout_marginTop">0dp</item>
+
+    </style>
+
+    <style name="main_menu_animstyle">
+
+        <item name="android:windowEnterAnimation">@anim/photo_dialog_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/photo_dialog_out_anim</item>
+    </style>
+
+    <style name="myinvest_txt_gray_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:text">-</item>
+        <item name="android:textColor">@color/txt_gray6</item>
+        <item name="android:textSize">@dimen/size_18</item>
+
+    </style>
+
+    <style name="txt_auto_invest_01_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">6dp</item>
+        <item name="android:textColor">@color/txt_6</item>
+        <item name="android:textSize">@dimen/size_14</item>
+
+    </style>
+
+    <style name="txt_auto_invest_02_style">
+        <item name="android:layout_marginTop">28dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/balck</item>
+        <item name="android:textSize">@dimen/size_14</item>
+    </style>
+
+    <!--账户详情页 菜单条目-->
+    <style name="account_txt">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/balck</item>
+        <item name="android:textSize">@dimen/size_18</item>
+        <item name="android:layout_marginLeft">@dimen/account_margin_left</item>
+    </style>
+
+    <style name="iv_gray_horizontal_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:src">#DDDCE1</item>
+    </style>
+
+
+    <!--统一的长条白底按钮-->
+    <style name="horizontal_wihte_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">@drawable/item_withe_selector</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <!--统一的红色长条按钮-->
+    <style name="horizontal_red_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:background">@drawable/btn_red_selector</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/size_20</item>
+    </style>
+
+    <!--统一的验证码按钮-->
+    <style name="identify_code_style">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginRight">15dp</item>
+    </style>
+
+</resources>

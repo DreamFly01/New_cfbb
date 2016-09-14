@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.aboutus.FeedBackActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/wihte_bg"
+        android:orientation="vertical">
+
+        <ImageView
+            style="@style/iv_gray_horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp" />
+
+        <EditText
+            android:id="@id/et_01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/wihte_bg"
+            android:gravity="top"
+            android:hint="请写下您的宝贵意见！"
+            android:inputType="textMultiLine"
+            android:minLines="7"
+            android:scrollbars="vertical"
+            android:textSize="@dimen/size_16" />
+
+        <TextView
+            android:id="@id/tv_03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="29dp"
+            android:text="200" />
+
+        <ImageView style="@style/iv_gray_horizontal_line" />
+    </LinearLayout>
+
+    <Button
+        android:id="@id/btn_ok"
+        style="@style/horizontal_red_item"
+        android:layout_marginTop="55dp"
+        android:enabled="false"
+        android:text="@string/commit_str" />
+</LinearLayout>

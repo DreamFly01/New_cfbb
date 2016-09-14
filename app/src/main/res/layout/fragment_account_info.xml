@@ -1,0 +1,214 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".features.account.accountdetails.AccountInfoFragment">
+
+
+    <ScrollView
+        android:id="@id/sc_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingTop="28dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="182dp"
+                android:background="@drawable/account_details_top_bg"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="106dp"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@id/tv_02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="22dp"
+                        android:includeFontPadding="false"
+                        android:text="--"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_40" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="2dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/account_total_money_str"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_18" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EB7769" />
+
+                <TextView
+                    android:id="@id/tv_03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:includeFontPadding="false"
+                    android:text="--"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_26" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="2dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/can_use_total_moeny_str"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_16" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/account_details_bottom_bg"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@id/rl_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/freen_moeny" />
+
+                    <TextView
+                        android:id="@id/tv_04"
+                        style="@style/myinvest_txt_gray_style" />
+                </RelativeLayout>
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"/>
+
+                <RelativeLayout
+                    android:id="@id/rl_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/account_details_height"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/bid_freen_moeny" />
+
+                    <TextView
+                        android:id="@id/tv_05"
+                        style="@style/myinvest_txt_gray_style" />
+                </RelativeLayout>
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line" />
+
+                <RelativeLayout
+                    android:id="@id/rl_05"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/account_details_height"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/withdraw_freen_moeny" />
+
+
+                    <TextView
+                        android:id="@id/tv_06"
+                        style="@style/myinvest_txt_gray_style" />
+                </RelativeLayout>
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line"
+                />
+
+
+                <RelativeLayout
+                    android:id="@id/rl_06"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/account_details_height"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/forget_bid_dopisit_moeny" />
+
+                    <TextView
+                        android:id="@id/tv_07"
+                        style="@style/myinvest_txt_gray_style" />
+                </RelativeLayout>
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line" />
+
+                <RelativeLayout
+                    android:id="@id/rl_07"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/account_details_height"
+                    android:background="@color/white">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/recharge_moeny" />
+
+
+                    <TextView
+                        android:id="@id/tv_08"
+                        style="@style/myinvest_txt_gray_style" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    style="@style/iv_gray_horizontal_line" />
+
+                <RelativeLayout
+                    android:id="@id/rl_07"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/account_details_height">
+
+                    <TextView
+                        style="@style/account_set_txt"
+                        android:text="@string/withdraw_moeny" />
+
+                    <TextView
+                        android:id="@id/tv_10"
+                        style="@style/myinvest_txt_gray_style" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.cfbb.android.widget.YCLoadingBg>
+
+</FrameLayout>

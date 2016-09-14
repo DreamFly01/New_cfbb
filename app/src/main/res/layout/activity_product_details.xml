@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context=".features.product.ProductDetailsActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <com.cfbb.android.widget.viewpagerindicator.YCPagerIndicator
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"></com.cfbb.android.widget.viewpagerindicator.YCPagerIndicator>
+
+    <ImageView
+        style="@style/iv_gray_horizontal_line" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@id/viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+    <Button
+        android:id="@id/btn_invest"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_product_invest_selector"
+        android:text="-"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_20" />
+
+</LinearLayout>

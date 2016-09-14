@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.authentication.RealNameAuthenticationActivity">
+
+    <include layout="@layout/view_header"></include>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ImageView style="@style/iv_gray_horizontal_line" />
+
+        <EditText
+            android:id="@id/et_01"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="15dp"
+            android:singleLine="true"
+            android:background="@drawable/transparent_bg"
+            android:hint="@string/please_enter_realusername_hint"
+            android:textColorHint="@color/txt_gray9"
+            android:textSize="@dimen/size_17" />
+
+        <ImageView
+            style="@style/iv_gray_horizontal_line"
+            android:layout_marginLeft="15dp" />
+
+        <EditText
+            android:id="@id/et_02"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/transparent_bg"
+            android:hint="@string/please_enter_idcrad_hint"
+            android:singleLine="true"
+            android:textColorHint="@color/txt_gray9"
+            android:textSize="@dimen/size_17" />
+
+        <ImageView style="@style/iv_gray_horizontal_line" />
+    </LinearLayout>
+
+    <Button
+        android:id="@id/btn_ok"
+        style="@style/horizontal_red_item"
+        android:layout_marginTop="55dp"
+        android:enabled="false"
+        android:text="@string/ok" />
+
+</LinearLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.account.AddBankActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开户名:"
+                android:textColor="@color/balck"
+                android:textSize="@dimen/size_18" />
+
+            <TextView
+                android:id="@id/tv_05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/balck"
+                android:textSize="@dimen/size_18" />
+        </LinearLayout>
+
+        <ImageView
+            style="@style/iv_gray_horizontal_line"
+            android:layout_marginTop="11dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"
+                android:text="@string/bank_num_str"
+                android:textColor="@color/txt_3"
+                android:textSize="@dimen/size_18" />
+
+            <EditText
+                android:id="@id/et_02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/transparent_bg"
+                android:hint="@string/please_enter_bank_num_hint"
+                android:inputType="numberDecimal"
+                android:maxLength="25"
+                android:textColorHint="#CCCCCC"
+                android:textSize="@dimen/size_18" />
+        </LinearLayout>
+
+        <ImageView style="@style/iv_gray_horizontal_line" />
+
+        <Button
+            android:id="@id/btn_ok"
+            android:layout_marginTop="28dp"
+            style="@style/horizontal_red_item"
+            android:enabled="false"
+            android:text="@string/next_step_str" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

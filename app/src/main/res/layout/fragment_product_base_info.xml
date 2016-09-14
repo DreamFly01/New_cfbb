@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.cfbb.android.widget.YCLoadingBg>
+
+
+    <ScrollView
+        android:id="@id/sc_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_base_color"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/product_red_bg"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="财富中国2121212122121"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_17" />
+
+                <FrameLayout
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <com.cfbb.android.widget.ColorArcProgressBar
+                        app:arc_width="260dp"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/bar1"
+                        app:is_need_content="false"
+                        app:front_color1="#FBD3CF"
+                        app:front_color2="#FFE7E5"
+                        app:front_color3="#FFE3DF"
+                        app:max_value="100"
+                        app:back_width="20dp"
+                        app:front_width="20dp"
+                        app:total_engle="270"
+                        app:back_color="#D44637"
+                        />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="0dp">
+
+                            <TextView
+                                android:id="@id/tv_11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:includeFontPadding="false"
+                                android:lineSpacingExtra="0dp"
+                                android:padding="0dp"
+                                android:text="12.25"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/size_44" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="0dp"
+                                android:gravity="bottom"
+                                android:paddingBottom="0dp"
+                                android:text="%"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/size_26" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@id/tv_13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="投资进度"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/size_15" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="剩余可投金额(元)"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/size_13" />
+
+                        <TextView
+                            android:id="@id/tv_02"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/product_txt_bg"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:text="0.00"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/size_17" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/gray_white"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/expect_year_of_rate_str"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/size_15" />
+
+                        <TextView
+                            android:id="@id/tv_03"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="-"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/size_18" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:scaleType="fitXY"
+                        android:src="#F2A098" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/invest_date_str"
+                            android:layout_marginRight="5dp"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/size_15" />
+
+                        <TextView
+                            android:id="@id/tv_04"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="-"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/size_19" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="7dp"
+                        android:scaleType="fitXY"
+                        android:src="#F2A098" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/loan_total_moeny"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/size_15" />
+
+                        <TextView
+                            android:id="@id/tv_05"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="0.00"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/size_19" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                style="@style/iv_gray_horizontal_line"
+                android:layout_marginTop="28dp"
+               />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="还款方式："
+                        android:textSize="@dimen/size_17"
+                        android:textColor="@color/txt_6" />
+
+                    <TextView
+                        android:id="@id/tv_07"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="按月付息，到期换本"
+                        android:textColor="@color/balck"
+                        android:textSize="@dimen/size_17"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="最小投标额度："
+                        android:textSize="@dimen/size_17"
+                        android:textColor="@color/txt_6" />
+
+                    <TextView
+                        android:id="@id/tv_08"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="100元"
+                        android:textColor="@color/balck"
+                        android:textSize="@dimen/size_17" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="投标总数："
+                        android:textSize="@dimen/size_17"
+                        android:textColor="@color/txt_6" />
+
+                    <TextView
+                        android:id="@id/tv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="14笔"
+                        android:textColor="@color/balck"
+                        android:textSize="@dimen/size_17" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="剩余时间："
+                        android:textSize="@dimen/size_17"
+                        android:textColor="@color/txt_6" />
+
+                    <TextView
+                        android:id="@id/tv_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="1天10时15分2秒"
+                        android:textColor="@color/balck"
+                        android:textSize="@dimen/size_17" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

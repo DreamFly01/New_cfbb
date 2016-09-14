@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context=".features.account.withdrawAndrecharge.WithDrawActivity">
+
+    <include layout="@layout/view_header"></include>
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+    <ViewStub
+        android:id="@id/viewStub_01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout="@layout/viewstub_recharge_first"/>
+
+    <ViewStub
+        android:id="@id/viewStub_02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout="@layout/viewstub_recharge_no_first"/>
+
+    <Button
+        android:id="@id/btn_ok"
+        style="@style/horizontal_red_item"
+        android:layout_marginTop="57dp"
+        android:text="@string/next_step_str"
+        android:enabled="false"
+         />
+
+</LinearLayout>

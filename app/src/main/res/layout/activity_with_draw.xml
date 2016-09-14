@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context=".features.account.withdrawAndrecharge.WithDrawActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@id/iv_01"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/temp1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_01"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@id/tv_03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/txt_3"
+                android:textSize="@dimen/size_18" />
+
+            <TextView
+                android:id="@id/tv_04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/txt_6"
+                android:textSize="@dimen/size_16" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView style="@style/iv_gray_horizontal_line" />
+
+    <TextView
+        android:id="@id/tv_05"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:text="-"
+        android:textColor="@color/txt_6"
+        android:textSize="@dimen/size_11" />
+
+    <ImageView
+        style="@style/iv_gray_horizontal_line"
+        android:layout_marginTop="29dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:text="提现金额"
+            android:textColor="@color/txt_3"
+            android:textSize="@dimen/size_18" />
+        <!--去掉默认光标-->
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <EditText
+            android:id="@id/et_01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/transparent_bg"
+            android:hint="请输入提现金额"
+            android:inputType="numberDecimal"
+            android:maxLength="11"
+            android:singleLine="true"
+            android:textColorHint="#CCCCCC"
+            android:textSize="@dimen/size_18" />
+    </LinearLayout>
+
+    <ImageView style="@style/iv_gray_horizontal_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="可提现金额:"
+            android:textColor="@color/txt_6"
+            android:textSize="@dimen/size_13" />
+
+        <TextView
+            android:id="@id/tv_06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-元"
+            android:textColor="@color/txt_6"
+            android:textSize="@dimen/size_13" />
+    </LinearLayout>
+
+
+    <ImageView
+        style="@style/iv_gray_horizontal_line"
+        android:layout_marginTop="29dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@id/et_02"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:background="@drawable/transparent_bg"
+            android:hint="请输入短信验证码"
+            android:maxLength="8"
+            android:textColorHint="#CCCCCC"
+            android:textSize="@dimen/size_18" />
+
+        <com.cfbb.android.widget.YCIdentifyCodeView
+            android:id="@id/yCIdentifyCodeView"
+            style="@style/identify_code_style" />
+
+
+    </LinearLayout>
+
+    <ImageView style="@style/iv_gray_horizontal_line" />
+
+    <Button
+        android:id="@id/btn_withdraw"
+        style="@style/horizontal_red_item"
+        android:layout_marginTop="57dp"
+        android:enabled="false"
+        android:text="提现申请"
+        />
+
+</LinearLayout>

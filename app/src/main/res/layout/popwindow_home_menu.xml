@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/transparent_bg">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/popwindow_home_menu_bg"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:id="@id/ll_01"
+            style="@style/home_menu_linear"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/home_recharge_menu_ico" />
+
+            <TextView
+                style="@style/home_menu_txt"
+                android:text="@string/recharge_moeny_str" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@id/iv_01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:src="@mipmap/home_menu_line"
+          />
+
+        <LinearLayout
+            android:id="@id/ll_02"
+            style="@style/home_menu_linear"
+           >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@mipmap/home_withdraw_menu_ico" />
+
+            <TextView
+                style="@style/home_menu_txt"
+                android:text="@string/withdraw_str" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@id/iv_02"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@mipmap/home_menu_line"
+           />
+
+        <LinearLayout
+            android:id="@id/ll_03"
+            style="@style/home_menu_linear">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/home_infocenter_menu_ico" />
+
+                <TextView
+                    android:id="@id/tv_num"
+                    android:visibility="gone"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:text="6"
+                    android:gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_10"
+
+                    android:background="@mipmap/red_point_bg"/>
+
+            </FrameLayout>
+            <TextView
+                style="@style/home_menu_txt"
+                android:text="@string/info_center_str" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:src="@mipmap/home_menu_line" />
+
+        <LinearLayout
+            android:id="@id/ll_04"
+            style="@style/home_menu_linear">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/hom_help_menu_ico" />
+
+            <TextView
+                style="@style/home_menu_txt"
+                android:text="@string/help_center_str" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

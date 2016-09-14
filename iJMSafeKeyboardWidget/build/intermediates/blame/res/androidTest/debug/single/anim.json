@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\skb_dialog_anim_exit.xml",
+        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\anim\\skb_dialog_anim_exit.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\skb_dialog_anim_enter.xml",
+        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\anim\\skb_dialog_anim_enter.xml"
+    }
+]

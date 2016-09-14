@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.account.AccountFragment">
+
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+
+    <com.cfbb.android.widget.PullDownView
+        android:id="@id/pullDownView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_base_color">
+
+        <ListView
+            android:id="@id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:divider="@drawable/app_base_listview_divider"
+            android:dividerHeight="15dp"
+            android:headerDividersEnabled="false"
+            android:scrollbars="none" />
+
+    </com.cfbb.android.widget.PullDownView>
+
+
+</LinearLayout>
+
+
+
+

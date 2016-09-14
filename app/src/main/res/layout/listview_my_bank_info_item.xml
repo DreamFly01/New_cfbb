@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/app_base_color"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@id/rl_01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="19dp"
+        android:background="@mipmap/bank_info_bg">
+
+        <ImageView
+            android:id="@id/iv_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:listSelector="#00000000"
+            android:layout_marginTop="10dp"
+            android:scaleType="matrix"/>
+
+        <TextView
+            android:id="@id/tv_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="-"
+            android:textColor="@color/txt_3"
+            android:textSize="@dimen/size_26" />
+
+    </RelativeLayout>
+
+</LinearLayout>

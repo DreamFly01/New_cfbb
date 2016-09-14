@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/transparent_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="@mipmap/update_dialog_header_bg">
+
+                <TextView
+                    android:id="@id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
+                    android:text="【2.0】新版上线"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_16" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@id/iv_delete1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"
+                android:scaleType="centerCrop"
+                android:background="@mipmap/cha_ico" />
+
+            <ProgressBar
+                android:id="@+id/pb_progressbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_gravity="bottom"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/wihte_bg"
+            android:padding="15dp"
+            android:textColor="@color/txt_9"
+            android:textSize="@dimen/size_14" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/wihte_bg"
+            android:paddingTop="10dp">
+
+            <Button
+                android:id="@id/btn_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/btn_update_dialog_selector"
+                android:text="@string/update_at_once"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_16" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/update_dialog_bottom_bg"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+
+</LinearLayout>

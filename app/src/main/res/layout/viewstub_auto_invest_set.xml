@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingLeft="15dp"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/txt_auto_invest_02_style"
+            android:text="自动投资金额" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="自动投资金额">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@id/rb_01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/txt_auto_invest_01_style"
+                    android:text="按账户可用余额投资" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@id/rb_02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/txt_auto_invest_01_style"
+                    android:text="按固定金额(每次)" />
+
+                <EditText
+                    android:id="@id/et_01"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:inputType="numberDecimal"
+                    android:maxLength="9"
+                    android:singleLine="true" />
+
+                <TextView
+                    style="@style/txt_auto_invest_01_style"
+                    android:text="元" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@id/rb_03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/txt_auto_invest_01_style"
+                    android:text="按借款标总额比例" />
+
+                <EditText
+                    android:id="@id/et_02"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:inputType="numberDecimal"
+                    android:maxLength="9"
+                    android:singleLine="true" />
+
+                <TextView
+                    style="@style/txt_auto_invest_01_style"
+                    android:text="%" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@id/rb_04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/txt_auto_invest_01_style"
+                    android:text="账户保留余额" />
+
+                <EditText
+                    android:id="@id/et_03"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:inputType="numberDecimal"
+                    android:maxLength="9"
+                    android:singleLine="true" />
+
+                <TextView
+                    style="@style/txt_auto_invest_01_style"
+                    android:text="元" />
+
+            </LinearLayout>
+
+        </RadioGroup>
+
+        <TextView
+            style="@style/txt_auto_invest_02_style"
+            android:layout_marginTop="28dp"
+            android:text="借款利率(若均不填写，则默认为不限利率)" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@id/et_04"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:inputType="numberDecimal"
+                android:maxLength="5"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/txt_auto_invest_01_style"
+                android:text="%" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-" />
+
+            <EditText
+                android:id="@id/et_05"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:maxLength="5"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/txt_auto_invest_01_style"
+                android:text="%" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/txt_auto_invest_02_style"
+            android:text="借款期限(若均不填写，则默认为不限期限)" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="天标"
+                android:textColor="@color/txt_6"
+                android:textSize="@dimen/size_14"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@id/rb_05"
+                style="@style/txt_auto_invest_01_style"
+                android:text="天标"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@id/et_06"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:inputType="number"
+                android:maxLength="3"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/txt_auto_invest_01_style"
+                android:text="天" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-" />
+
+            <EditText
+                android:id="@id/et_07"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:inputType="number"
+                android:maxLength="3"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/txt_auto_invest_01_style"
+                android:text="天" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@id/rb_06"
+                style="@style/txt_auto_invest_01_style"
+                android:text="月标" />
+
+            <EditText
+                android:id="@id/et_08"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:inputType="number"
+                android:maxLength="3" />
+
+            <TextView
+                style="@style/txt_auto_invest_01_style"
+                android:text="个月" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-" />
+
+            <EditText
+                android:id="@id/et_09"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp" />
+
+            <TextView
+                style="@style/txt_auto_invest_01_style"
+                android:inputType="number"
+                android:maxLength="3"
+                android:text="个月" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/txt_auto_invest_02_style"
+            android:text="还款方式" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@id/cb_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false" />
+
+            <TextView
+                style="@style/txt_auto_invest_01_style"
+                android:text="一次性" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@id/cb_02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false" />
+
+            <TextView
+                style="@style/txt_auto_invest_01_style"
+                android:text="按月等额本息" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@id/cb_03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false" />
+
+            <TextView
+                style="@style/txt_auto_invest_01_style"
+                android:text="按月付息到期还本" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

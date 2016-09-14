@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="product_tab_names">
+        <item>基本信息</item>
+        <item>项目信息</item>
+        <item>审核信息</item>
+        <item>投标记录</item>
+    </string-array>
+
+    <string-array name="product2_tab_names">
+        <item>基本信息</item>
+        <item>计划说明</item>
+        <item>计划进度</item>
+        <item>投标记录</item>
+        <item>计划运作流程</item>
+    </string-array>
+
+
+    <string-array name="days">
+        <item>10天</item>
+        <item>11天</item>
+        <item>12天</item>
+        <item>13天</item>
+        <item>14天</item>
+        <item>15天</item>
+        <item>16天</item>
+        <item>17天</item>
+        <item>18天</item>
+        <item>19天</item>
+        <item>20天</item>
+        <item>21天</item>
+        <item>22天</item>
+        <item>23天</item>
+        <item>24天</item>
+        <item>25天</item>
+        <item>26天</item>
+        <item>27天</item>
+        <item>28天</item>
+        <item>29天</item>
+        <item>30天</item>
+    </string-array>
+
+    <string-array name="months">
+        <item>2月</item>
+        <item>3月</item>
+        <item>4月</item>
+        <item>5月</item>
+        <item>6月</item>
+        <item>7月</item>
+        <item>8月</item>
+        <item>9月</item>
+        <item>10月</item>
+        <item>11月</item>
+        <item>12月</item>
+    </string-array>
+
+    <string-array name="bidDays">
+        <item>1天</item>
+        <item>2天</item>
+        <item>3天</item>
+        <item>4天</item>
+        <item>5天</item>
+        <item>6天</item>
+        <item>7天</item>
+        <item>8天</item>
+        <item>9天</item>
+        <item>10天</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.gesture.GestureSetActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/gray_horizontal_drawable" />
+
+    <RelativeLayout
+        android:id="@id/rl_01"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/account_set_txt"
+            android:text="@string/gesture_password_str" />
+
+
+        <com.cfbb.android.widget.YCToggleButton
+            android:id="@id/yCToggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:enabled="true"
+            app:bmHeight="70dp"
+            app:bmWidth="50dp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="@drawable/gray_horizontal_drawable" />
+
+    <LinearLayout
+        android:id="@id/ll_02"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/white">
+
+            <TextView
+                style="@style/account_set_txt"
+                android:text="@string/modify_gesture_password_str" />
+
+            <ImageView
+                android:id="@id/iv_07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_ico" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@drawable/gray_horizontal_drawable" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

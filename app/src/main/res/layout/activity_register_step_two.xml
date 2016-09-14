@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context=".features.account.changephone.ChangeMobilePhoneStepOneActivity">
+
+    <include layout="@layout/view_header"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ImageView style="@style/iv_gray_horizontal_line" />
+
+        <EditText
+            android:id="@id/et_01"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/transparent_bg"
+            android:hint="请输入手机号码"
+            android:inputType="number"
+            android:maxLength="14"
+            android:singleLine="true"
+            android:textColorHint="#CCCCCC"
+            android:textSize="@dimen/size_18" />
+
+        <ImageView
+            style="@style/iv_gray_horizontal_line"
+            android:layout_marginLeft="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@id/et_02"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/transparent_bg"
+                android:hint="请输入短信验证码"
+                android:maxLength="8"
+                android:singleLine="true"
+                android:textColorHint="#CCCCCC"
+                android:textSize="@dimen/size_18" />
+
+            <com.cfbb.android.widget.YCIdentifyCodeView
+                android:id="@id/yCIdentifyCodeView"
+                style="@style/identify_code_style" />
+
+
+        </LinearLayout>
+
+        <ImageView style="@style/iv_gray_horizontal_line" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="57dp"
+        android:background="@drawable/btn_red_selector"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_20" />
+
+
+</LinearLayout>
