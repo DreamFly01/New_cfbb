@@ -18,7 +18,6 @@ import static com.cfbb.android.commom.utils.secure.CheckDebugableFlag.checkeDebu
 public final class MyApplication extends Application {
 
     private static MyApplication myApplication;
-
     //是否可以弹出手势密码
     private boolean mGestureCanShow = true;
 

@@ -987,6 +987,29 @@ public class RetrofitClient {
                 .CheckRegisterStep(WrapParams(map, context)), context, observer);
     }
 
+    /***
+     * 宝付充值
+     *
+     * @param observer
+     */
+    public static Subscription BaoFuRecarge(BaseResultBean<RechargeResultInfoBean> testResult, String no_agree, String amount, String bank_card_no, Context context, YCNetSubscriber<RechargeResultInfoBean> observer) {
+
+        Map<String, String> map = new TreeMap<>();
+        if (StrUtil.isEmpty(no_agree)) {
+            map.put("no_agree", "");
+        } else {
+            map.put("no_agree", no_agree);
+        }
+        if (StrUtil.isEmpty(bank_card_no)) {
+            map.put("bank_card_no", "");
+        } else {
+            map.put("bank_card_no", bank_card_no);
+        }
+        map.put("amount", amount);
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .BaoFuRechargeSDK(WrapParams(map, context)), context, observer);
+    }
 
     /***
      * 包装请求后再发起请求

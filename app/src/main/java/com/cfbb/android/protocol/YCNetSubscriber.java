@@ -94,7 +94,7 @@ public abstract class YCNetSubscriber<T> extends Subscriber<T> {
 
     @Override
     public void onNext(T o) {
-
+        dismissLoadingView();
         if (BuildConfig.DEBUG) {
             //在测试环境下，默认弹出验证码
             if (o instanceof VertifyCodeInfoBean) {

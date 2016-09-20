@@ -663,4 +663,16 @@ public interface APIService {
     @POST("check_register")
     Observable<BaseResultBean> CheckRegisterStep(@FieldMap Map<String, String> params);
 
+
+    /***
+     * 宝付充值SDK
+     *
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/baofooRecharge")
+    Observable<BaseResultBean<RechargeResultInfoBean>> BaoFuRechargeSDK(@FieldMap Map<String, String> params);
+
+
 }

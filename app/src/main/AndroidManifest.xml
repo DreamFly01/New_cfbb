@@ -162,7 +162,8 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".features.gesture.GestureSetActivity" />
-
+        <activity android:name="com.baofoo.sdk.vip.BaofooPayActivity"
+            android:theme="@android:style/Theme.NoTitleBar"   />
         <receiver android:name=".features.gesture.YCSystemReceiver">
             <intent-filter android:priority="10000">
                 <action android:name="android.intent.action.CLOSE_SYSTEM_DIALOGS" />
@@ -173,18 +174,7 @@
         <activity android:name=".features.account.releaseLoan.ReleaseLoanActivity" />
         <activity android:name=".features.account.releaseLoan.AddLoanActivity" />
 
-        <!-- LLYT SDK START -->
-        <activity
-            android:name="com.yintong.secure.activity.BaseActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="adjustResize" />
 
-        <service
-            android:name="com.yintong.secure.service.PayService"
-            android:exported="false" />
-        <!-- LLYT SDK END -->
 
         <!--正式354888ee21-->
         <!--测试d499d74490-->
