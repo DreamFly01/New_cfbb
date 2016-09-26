@@ -519,10 +519,10 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
                     if (e.code == 2) {
                         //code  2  代表未认证
                         dismissLoadingView();
-                        ycDialogUtils.showDialog(getResources().getString(R.string.dialog_kindly_title), e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
+                        ycDialogUtils.showAuthenticationDialog(e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
                             @Override
-                            public void onFirstBtnClick(View v) {
-                                //ok
+                            public void onSecondBtnClick(View v) {
+
                                 ycDialogUtils.DismissMyDialog();
                                 Bundle bundle = new Bundle();
                                 bundle.putString(RealNameAuthenticationActivity.SHOW_BACK_TXT, getResources().getString(R.string.nav_home));
@@ -532,7 +532,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
                             }
 
                             @Override
-                            public void onSecondBtnClick(View v) {
+                            public void onFirstBtnClick(View v) {
                                 ycDialogUtils.DismissMyDialog();
                             }
                         }, true);

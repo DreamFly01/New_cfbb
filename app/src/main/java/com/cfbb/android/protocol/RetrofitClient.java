@@ -17,6 +17,7 @@ import com.cfbb.android.protocol.bean.AccountInvestInfoBean;
 import com.cfbb.android.protocol.bean.AccountLoanInfoBean;
 import com.cfbb.android.protocol.bean.AccountSetInfoBean;
 import com.cfbb.android.protocol.bean.AutoInvestInfoBean;
+import com.cfbb.android.protocol.bean.BankBean;
 import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.BidRecordBean;
 import com.cfbb.android.protocol.bean.BindPhoneBean;
@@ -382,7 +383,7 @@ public class RetrofitClient {
      *
      * @param observer
      */
-    public static Subscription GetMyBankInfo(BaseResultBean<List<MyBankInfoBean>> testResult, Context context, YCNetSubscriber<List<MyBankInfoBean>> observer) {
+    public static Subscription GetMyBankInfo(BaseResultBean<MyBankInfoBean> testResult, Context context, YCNetSubscriber<MyBankInfoBean> observer) {
 
         Map<String, String> map = new TreeMap<>();
         return doRequest(testResult, RetrofitProxy
@@ -988,28 +989,18 @@ public class RetrofitClient {
     }
 
     /***
-     * 宝付充值
+     * 获取支持的银行卡列表
      *
      * @param observer
      */
-    public static Subscription BaoFuRecarge(BaseResultBean<RechargeResultInfoBean> testResult, String no_agree, String amount, String bank_card_no, Context context, YCNetSubscriber<RechargeResultInfoBean> observer) {
+    public static Subscription getSupportBankList(BaseResultBean<List<BankBean>> testResult, Context context, YCNetSubscriber<List<BankBean>> observer) {
 
         Map<String, String> map = new TreeMap<>();
-        if (StrUtil.isEmpty(no_agree)) {
-            map.put("no_agree", "");
-        } else {
-            map.put("no_agree", no_agree);
-        }
-        if (StrUtil.isEmpty(bank_card_no)) {
-            map.put("bank_card_no", "");
-        } else {
-            map.put("bank_card_no", bank_card_no);
-        }
-        map.put("amount", amount);
         return doRequest(testResult, RetrofitProxy
                 .getApiService(context)
-                .BaoFuRechargeSDK(WrapParams(map, context)), context, observer);
+                .GetSupportBankList(WrapParams(map, context)), context, observer);
     }
+
 
     /***
      * 包装请求后再发起请求

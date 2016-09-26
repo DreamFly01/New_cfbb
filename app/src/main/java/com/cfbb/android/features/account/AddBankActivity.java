@@ -32,9 +32,8 @@ public class AddBankActivity extends BaseActivity {
     private TextView tv_khm;
     private EditText et_02;
     private YCLoadingBg ycLoadingBg;
-
-
     private YCDialogUtils ycDialogUtils;
+
 
     @Override
     protected void initContentView(Bundle savedInstanceState) {

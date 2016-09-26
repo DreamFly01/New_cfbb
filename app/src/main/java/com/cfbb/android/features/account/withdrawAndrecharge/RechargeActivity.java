@@ -1,6 +1,8 @@
 package com.cfbb.android.features.account.withdrawAndrecharge;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -30,10 +32,15 @@ import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.protocol.APIException;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
+import com.cfbb.android.protocol.bean.BankBean;
+import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.protocol.bean.RechargeResultInfoBean;
 import com.cfbb.android.widget.YCLoadingBg;
 import com.cfbb.android.widget.dialog.YCDialogUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 充值
@@ -131,6 +138,11 @@ public class RechargeActivity extends BaseActivity {
 
     private boolean isFristRecharge = false;
 
+
+    private ImageView ivHint;
+    private TextView tvAccountBalance;
+    private TextView etBank;
+
     private void FillView() {
 
         if (rechargeInfo != null) {
@@ -138,12 +150,15 @@ public class RechargeActivity extends BaseActivity {
                 isFristRecharge = true;
                 ViewStub stub = (ViewStub) findViewById(R.id.viewStub_01);
                 stub.inflate();
-
                 tv_khm = (TextView) findViewById(R.id.tv_05);
                 et_money = (EditText) findViewById(R.id.et_01);
                 tv_khm.setText(rechargeInfo.accountName);
                 et_bankNum = (EditText) findViewById(R.id.et_02);
-
+                ivHint = (ImageView) findViewById(R.id.iv_06);
+                tvAccountBalance = (TextView) findViewById(R.id.tv_06);
+                etBank = (TextView) findViewById(R.id.tv_08);
+                ivHint.setOnClickListener(this);
+                etBank.setOnClickListener(this);
                 et_money.addTextChangedListener(mTextWatcher);
                 et_bankNum.addTextChangedListener(mTextWatcher2);
                 et_bankNum.addTextChangedListener(new TextWatchForBankNumber(et_bankNum));
@@ -196,8 +211,91 @@ public class RechargeActivity extends BaseActivity {
                     }
                 }
                 break;
+            //提示
+            case R.id.iv_06:
+                ycDialogUtils.showSingleDialog(getResources().getString(R.string.CardholderExplain), "为了您的账户资金安全，只能绑定持卡人本人的银行卡。<br/>获取更多帮助，请致电财富中国客服400-000-3658 ", new YCDialogUtils.MySingleBtnclickLisener() {
+                    @Override
+                    public void onBtnClick(View v) {
+                        ycDialogUtils.DismissMyDialog();
+                    }
+                }, true);
+                break;
+            //选择银行卡
+            case R.id.tv_08:
+                GetSupportBank();
+                break;
         }
     }
+
+    private List<BankBean> bankList;
+
+    private void GetSupportBank() {
+        if (bankList == null) {
+
+
+            BaseResultBean<List<BankBean>> result = new BaseResultBean<>();
+            List<BankBean> cs = new ArrayList<>();
+            BankBean bean = new BankBean();
+            bean.bankCode = "1";
+            bean.bankName = "中国银行";
+            cs.add(bean);
+
+            bean = new BankBean();
+            bean.bankCode = "2";
+            bean.bankName = "建设银行";
+            cs.add(bean);
+
+            bean = new BankBean();
+            bean.bankCode = "3";
+            bean.bankName = "农业银行";
+            cs.add(bean);
+
+
+            bean = new BankBean();
+            bean.bankCode = "4";
+            bean.bankName = "工商银行";
+            cs.add(bean);
+
+            result.data = cs;
+            result.code = 1;
+
+            RetrofitClient.getSupportBankList(result, this, new YCNetSubscriber<List<BankBean>>(this,true) {
+                @Override
+                public void onYcNext(List<BankBean> model) {
+                    bankList = model;
+                    CeateChooseBankDilaog();
+                }
+            });
+
+        } else {
+            CeateChooseBankDilaog();
+        }
+    }
+
+    private void CeateChooseBankDilaog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(RechargeActivity.this);
+        builder.setIcon(R.drawable.ic_launcher);
+        builder.setTitle(R.string.please_choose_bank_hint);
+        List<String> bankBeanList = new ArrayList<>();
+        for (BankBean bankBean : bankList) {
+            bankBeanList.add(bankBean.bankName);
+        }
+        final String[] cities = bankBeanList.toArray(new String[0]);
+        builder.setItems(cities, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                etBank.setText(cities[which]);
+                etBank.setTag(bankList.get(which).bankCode);
+                if (StrUtil.isEmpty(et_money.getText().toString()) || StrUtil.isEmpty(et_bankNum.getText().toString()) || etBank.getTag() == null||StrUtil.isEmpty(etBank.getTag().toString())) {
+                    btn_nextStep.setEnabled(false);
+                } else {
+                    btn_nextStep.setEnabled(true);
+                }
+            }
+        });
+        builder.show();
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -249,8 +347,8 @@ public class RechargeActivity extends BaseActivity {
             @Override
             public void onYcNext(RechargeResultInfoBean model) {
                 Intent payintent = new Intent(RechargeActivity.this, BaofooPayActivity.class);
-                payintent.putExtra(BaofooPayActivity.PAY_TOKEN,model.payParams);
-                payintent.putExtra(BaofooPayActivity.PAY_BUSINESS, true);
+                payintent.putExtra(BaofooPayActivity.PAY_TOKEN, model.payParams);
+                payintent.putExtra(BaofooPayActivity.PAY_BUSINESS, false);
                 startActivityForResult(payintent,
                         REQUEST_CODE_BAOFOO_SDK);
 
@@ -369,7 +467,7 @@ public class RechargeActivity extends BaseActivity {
                 }
             } else {
                 bankNum = et_bankNum.getText().toString().trim();
-                if (StrUtil.isEmpty(money) || StrUtil.isEmpty(bankNum)) {
+                if (StrUtil.isEmpty(money) || StrUtil.isEmpty(bankNum)|| etBank.getTag() == null|| StrUtil.isEmpty(etBank.getTag().toString())) {
                     btn_nextStep.setEnabled(false);
                 } else {
                     btn_nextStep.setEnabled(true);
@@ -409,7 +507,7 @@ public class RechargeActivity extends BaseActivity {
             et_bankNum.addTextChangedListener(mTextWatcher2);
 
             editMoeny = et_money.getText().toString().trim();
-            if (StrUtil.isEmpty(editMoeny) || StrUtil.isEmpty(bankNum)) {
+            if (StrUtil.isEmpty(editMoeny) || StrUtil.isEmpty(bankNum) || etBank.getTag() == null||StrUtil.isEmpty(etBank.getTag().toString())) {
                 btn_nextStep.setEnabled(false);
             } else {
                 btn_nextStep.setEnabled(true);

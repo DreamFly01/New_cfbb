@@ -109,5 +109,7 @@
     <item name="cb_02" type="id">btn_withdraw</item>
     <item name="cb_03" type="id">btn_withdraw</item>
     <item name="tv_junp" type="id">false</item>
+    <item name="tv_15" type="id">false</item>
+    <item name="tv_16" type="id">false</item>
 
 </resources>

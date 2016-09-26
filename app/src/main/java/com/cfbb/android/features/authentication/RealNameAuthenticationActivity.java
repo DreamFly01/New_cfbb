@@ -147,7 +147,7 @@ public class RealNameAuthenticationActivity extends BaseActivity {
 
             @Override
             public void onYcNext(Object model) {
-                ycDialogUtils.showSingleDialog(getResources().getString(R.string.dialog_title), getString(R.string.authentication_right), new YCDialogUtils.MySingleBtnclickLisener() {
+                ycDialogUtils.showSingleDialog(getResources().getString(R.string.dialog_title), getString(R.string.AuthenticationOKHintRight), new YCDialogUtils.MySingleBtnclickLisener() {
                     @Override
                     public void onBtnClick(View v) {
                         ycDialogUtils.DismissMyDialog();

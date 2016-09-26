@@ -7,6 +7,7 @@ import com.cfbb.android.protocol.bean.AccountInvestInfoBean;
 import com.cfbb.android.protocol.bean.AccountLoanInfoBean;
 import com.cfbb.android.protocol.bean.AccountSetInfoBean;
 import com.cfbb.android.protocol.bean.AutoInvestInfoBean;
+import com.cfbb.android.protocol.bean.BankBean;
 import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.BidRecordBean;
 import com.cfbb.android.protocol.bean.BindPhoneBean;
@@ -665,14 +666,15 @@ public interface APIService {
 
 
     /***
-     * 宝付充值SDK
+     * 获取支持的银行卡列表
      *
      * @param params
      * @return
      */
     @FormUrlEncoded
     @POST("user/baofooRecharge")
-    Observable<BaseResultBean<RechargeResultInfoBean>> BaoFuRechargeSDK(@FieldMap Map<String, String> params);
+    Observable<BaseResultBean<List<BankBean>>> GetSupportBankList(@FieldMap Map<String, String> params);
+
 
 
 }
