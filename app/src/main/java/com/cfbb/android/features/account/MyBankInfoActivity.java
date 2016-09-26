@@ -1,6 +1,7 @@
 package com.cfbb.android.features.account;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,7 +50,7 @@ public class MyBankInfoActivity extends BaseActivity {
     private TextView tv_investingMoney;
     private TextView tv_hint;
     private LinearLayout ll_moneyDetails;
-
+    private LinearLayout getLl_moneyDetailsContent;
 
     @Override
     public void setUpViews() {
@@ -74,22 +75,30 @@ public class MyBankInfoActivity extends BaseActivity {
         tv_investingMoney = (TextView) findViewById(R.id.tv_15);
         tv_hint = (TextView) findViewById(R.id.tv_16);
         ll_moneyDetails = (LinearLayout) findViewById(R.id.ll_01);
-
+        getLl_moneyDetailsContent = (LinearLayout) findViewById(R.id.ll_02);
         FillView();
 
     }
 
     private void FillView() {
-        if(null != myBankInfo)
-        {
-            ImageWithGlideUtils.lodeFromUrl(myBankInfo.imageUrl,R.mipmap.yuan_logo,iv_bankLogo,this);
-            tv_bankName.setText(myBankInfo.);
+        if (null != myBankInfo) {
+            ImageWithGlideUtils.lodeFromUrl(myBankInfo.imageUrl, R.mipmap.yuan_logo, iv_bankLogo, this);
+            tv_bankName.setText(myBankInfo.bankName);
+            tv_bankNum.setText(myBankInfo.bankNum);
+            tv_userName.setText(myBankInfo.realName);
+            tv_inUseMoney.setText(myBankInfo.inUseMoeny);
+            tv_accountBlance.setText(myBankInfo.accountBalance);
+            tv_holdingMoney.setText(myBankInfo.holdingMoney);
+            tv_investingMoney.setText(myBankInfo.investingMoney);
+            tv_hint.setText(Html.fromHtml(myBankInfo.inUseMoeny));
         }
     }
 
     @Override
     public void setUpLisener() {
         tv_back.setOnClickListener(this);
+        iv_deleteViewBtn.setOnClickListener(this);
+        ll_moneyDetails.setOnClickListener(this);
     }
 
 
@@ -109,10 +118,19 @@ public class MyBankInfoActivity extends BaseActivity {
                 finish();
                 break;
             // 解绑
-            case R.id.btn_gono_xj:
+            case R.id.iv_02:
                 DeleteBank();
                 break;
-
+            //下拉显示
+            case R.id.ll_01:
+                if (getLl_moneyDetailsContent.getVisibility() == View.VISIBLE) {
+                    iv_arrow.setImageResource(R.mipmap.arrow_red_up);
+                    getLl_moneyDetailsContent.setVisibility(View.GONE);
+                } else {
+                    iv_arrow.setImageResource(R.mipmap.arrow_red_down);
+                    getLl_moneyDetailsContent.setVisibility(View.VISIBLE);
+                }
+                break;
 
         }
     }

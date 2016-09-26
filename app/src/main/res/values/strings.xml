@@ -108,6 +108,7 @@
     <string name="withdraw_bank_str">提现银行卡</string>
     <string name="withdraw_submit_right_str">提现申请已提交</string>
     <string name="recharge">充值</string>
+    <string name="bind_and_recharge">绑定并充值银行卡</string>
     <string name="withdraw_right">提现成功</string>
     <string name="rechargemoeny_str">充值金额</string>
     <string name="next_step_str">下一步</string>

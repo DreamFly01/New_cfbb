@@ -65,6 +65,15 @@ public interface APIService {
      */
     int OK_CODE = 1;
     /***
+     * 未实名认证
+     */
+    int NO_AUTHENTICATION_CODE = 2;
+    /***
+     * 无绑定银行卡
+     */
+    int NO_BANKINFO_CODE = 4;
+
+    /***
      * API host,后续url不要开头带/
      */
     String HOST = MyJni.getInstance().getHostAdd();

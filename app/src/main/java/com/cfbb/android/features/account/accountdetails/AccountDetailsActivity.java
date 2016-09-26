@@ -148,9 +148,9 @@ public class AccountDetailsActivity extends BaseActivity {
                 if (e.code == 2) {
                     //code  2  代表未认证
                     dismissLoadingView();
-                    ycDialogUtils.showDialog(getResources().getString(R.string.dialog_kindly_title), e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
+                    ycDialogUtils.showAuthenticationDialog(e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
                         @Override
-                        public void onFirstBtnClick(View v) {
+                        public void onSecondBtnClick(View v) {
                             //ok
                             ycDialogUtils.DismissMyDialog();
                             Bundle bundle = new Bundle();
@@ -161,7 +161,7 @@ public class AccountDetailsActivity extends BaseActivity {
                         }
 
                         @Override
-                        public void onSecondBtnClick(View v) {
+                        public void onFirstBtnClick(View v) {
                             ycDialogUtils.DismissMyDialog();
                         }
                     }, true);

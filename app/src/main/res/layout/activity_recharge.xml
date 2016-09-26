@@ -27,7 +27,7 @@
     <Button
         android:id="@id/btn_ok"
         style="@style/horizontal_red_item"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="33dp"
         android:text="@string/next_step_str"
         android:enabled="false"
          />

@@ -517,7 +517,7 @@ public class RetrofitClient {
      *
      * @param observer
      */
-    public static Subscription Recarge(BaseResultBean<RechargeResultInfoBean> testResult, String no_agree, String amount, String bank_card_no, Context context, YCNetSubscriber<RechargeResultInfoBean> observer) {
+    public static Subscription Recarge(BaseResultBean<RechargeResultInfoBean> testResult, String no_agree, String amount, String bank_card_no,String selected_card, Context context, YCNetSubscriber<RechargeResultInfoBean> observer) {
 
         Map<String, String> map = new TreeMap<>();
         if (StrUtil.isEmpty(no_agree)) {
@@ -531,6 +531,8 @@ public class RetrofitClient {
             map.put("bank_card_no", bank_card_no);
         }
         map.put("amount", amount);
+        //1 绑定卡 0 输入卡号
+        map.put("selected_card", selected_card);
         return doRequest(testResult, RetrofitProxy
                 .getApiService(context)
                 .RechargeSDK(WrapParams(map, context)), context, observer);

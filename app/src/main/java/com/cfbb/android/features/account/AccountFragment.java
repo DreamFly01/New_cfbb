@@ -33,10 +33,10 @@ import com.cfbb.android.features.account.releaseLoan.AddLoanActivity;
 import com.cfbb.android.features.account.withdrawAndrecharge.RechargeActivity;
 import com.cfbb.android.features.authentication.RealNameAuthenticationActivity;
 import com.cfbb.android.protocol.APIException;
+import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
 import com.cfbb.android.protocol.bean.AccountInfoBean;
-import com.cfbb.android.protocol.bean.CertificationResultBean;
 import com.cfbb.android.protocol.bean.MyBankInfoBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.widget.PullDownView;
@@ -266,6 +266,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
             case R.id.rl_07:
                 JumpCenter.JumpActivity(getActivity(), MyGiftActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
                 break;
+            //充值
             case R.id.tv_02:
                 doRechargePre();
                 break;
@@ -290,48 +291,29 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
     }
 
     private void goToMyBankInfo() {
+
         addSubscription(RetrofitClient.GetMyBankInfo(null, getActivity(), new YCNetSubscriber<MyBankInfoBean>(getActivity(), true) {
 
             @Override
             public void onYcNext(MyBankInfoBean model) {
-                if (model != null) {
-
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable(MyBankInfoActivity.MY_BANK_INFO, model);
-                    JumpCenter.JumpActivity(getActivity(), MyBankInfoActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
-
-                } else {
-                     goToAddBank();
-                }
-            }
-
-        }));
-    }
-
-    private void goToAddBank() {
-        addSubscription(RetrofitClient.getCertificationInfo(null, this, new YCNetSubscriber<CertificationResultBean>(this, true) {
-
-
-
-            @Override
-            public void onYcNext(CertificationResultBean model) {
-                JumpCenter.JumpActivity(MyBankInfoActivity.this, AddBankActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(MyBankInfoActivity.MY_BANK_INFO, model);
+                JumpCenter.JumpActivity(getActivity(), MyBankInfoActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
             }
 
             @Override
             public void onYCError(APIException e) {
-                if (e.code == 2) {
-                    //code  2  代表未认证
-                    dismissLoadingView();
+                dismissLoadingView();
+                if (e.code == APIService.NO_AUTHENTICATION_CODE) {
+                    //code 2  代表未认证
                     ycDialogUtils.showDialog(getResources().getString(R.string.dialog_kindly_title), e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
                         @Override
                         public void onFirstBtnClick(View v) {
                             //ok
                             ycDialogUtils.DismissMyDialog();
                             Bundle bundle = new Bundle();
-                            bundle.putString(RealNameAuthenticationActivity.SHOW_BACK_TXT, getResources().getString(R.string.my_bankcard_list_str));
-                            bundle.putSerializable(RealNameAuthenticationActivity.NEXT_ACTIVITY_CLASS, AddBankActivity.class);
-                            JumpCenter.JumpActivity(MyBankInfoActivity.this, RealNameAuthenticationActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+                            bundle.putString(RealNameAuthenticationActivity.SHOW_BACK_TXT, getResources().getString(R.string.nav_account));
+                            JumpCenter.JumpActivity(getActivity(), RealNameAuthenticationActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
 
                         }
 
@@ -341,9 +323,12 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                         }
                     }, true);
 
-
+                }
+                if (e.code == APIService.NO_BANKINFO_CODE) {
+                    //code == 4  代表无绑定银行卡
+                    goToAddBank();
                 } else {
-                    ycDialogUtils.showSingleDialog(MyBankInfoActivity.this.getResources().getString(R.string.dialog_title), MyBankInfoActivity.this.getResources().getString(R.string.request_erro_str), new YCDialogUtils.MySingleBtnclickLisener() {
+                    ycDialogUtils.showSingleDialog(getActivity().getResources().getString(R.string.dialog_title), getActivity().getResources().getString(R.string.request_erro_str), new YCDialogUtils.MySingleBtnclickLisener() {
                         @Override
                         public void onBtnClick(View v) {
                             ycDialogUtils.DismissMyDialog();
@@ -352,8 +337,14 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                 }
 
             }
+
         }));
     }
+
+    private void goToAddBank() {
+
+    }
+
 
     private void doRechargePre() {
         addSubscription(RetrofitClient.GetRechargeInitalInfo(null, getActivity(), new YCNetSubscriber<RechargeInfoBean>(getActivity(), true) {

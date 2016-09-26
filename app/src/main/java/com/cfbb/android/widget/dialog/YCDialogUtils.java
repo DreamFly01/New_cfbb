@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.CountDownTimer;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -81,6 +82,16 @@ public class YCDialogUtils {
         if (null != this.mActivity && !mActivity.isFinishing()) {
             this.mySingleBtnclickLisener = mySingleBtnclickLisener;
             CreateSingle(title, showMsg, isAutoCanlce);
+        }
+
+    }
+
+    public void showSingle2Dialog(String title, String showMsg, MySingleBtnclickLisener mySingleBtnclickLisener,
+                                 boolean isAutoCanlce) {
+
+        if (null != this.mActivity && !mActivity.isFinishing()) {
+            this.mySingleBtnclickLisener = mySingleBtnclickLisener;
+            CreateSingle2(title, showMsg, isAutoCanlce);
         }
 
     }
@@ -187,7 +198,40 @@ public class YCDialogUtils {
             mDialog.setContentView(view);
         }
     }
+    private void CreateSingle2(String title, String showMsg, boolean c) {
 
+        if (null != this.mActivity && !this.mActivity.isFinishing()) {
+
+            // 构建对话框对象
+            Builder builder = new Builder(this.mActivity);
+            mDialog = builder.create();
+            // 是否点击屏幕外面自动消失
+            mDialog.setCanceledOnTouchOutside(c);
+            mDialog.setCancelable(c);
+
+            mDialog.show();
+
+            // 如果要得到这个布局上的控件的话，就用 dialog.findViewById()
+            // 要特别注意的是,dialog.show(),一定要放在dialog.setContentView()的前面
+            View view = ((LayoutInflater) this.mActivity
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+                    .inflate(R.layout.commom_single_dialog_layout, null);
+            TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
+            TextView tv_content = (TextView) view.findViewById(R.id.tv_02);
+
+            btn_ok = (Button) view.findViewById(R.id.btn_ok);
+            tv_title.setText(title);
+            tv_content.setGravity(Gravity.LEFT|Gravity.CENTER);
+            tv_content.setText(Html.fromHtml(showMsg));
+            btn_ok.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mySingleBtnclickLisener.onBtnClick(v);
+                }
+            });
+            mDialog.setContentView(view);
+        }
+    }
     private void CreateCall(String showMsg, boolean c) {
 
         if (null != this.mActivity && !this.mActivity.isFinishing()) {

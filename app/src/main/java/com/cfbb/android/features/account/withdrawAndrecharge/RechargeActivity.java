@@ -46,6 +46,7 @@ import java.util.List;
  * 充值
  */
 public class RechargeActivity extends BaseActivity {
+
     //申请READ_PHONE_STATE权限
     private final static int REQUEST_READ_PHONE_STATE = 1001;
     public static final String SHOW_BACK_TXT = "show_back_txt";
@@ -82,6 +83,7 @@ public class RechargeActivity extends BaseActivity {
     @Override
     public void getDataOnCreate() {
         if (rechargeInfo == null) {
+
             addSubscription(RetrofitClient.GetRechargeInitalInfo(null, this, new YCNetSubscriber<RechargeInfoBean>(RechargeActivity.this) {
 
                 @Override
@@ -146,7 +148,9 @@ public class RechargeActivity extends BaseActivity {
     private void FillView() {
 
         if (rechargeInfo != null) {
+
             if (rechargeInfo.rechargeState == RechargeStateEnum.FIRST_RECHARGE.getValue()) {
+                tv_title.setText(getResources().getString(R.string.bind_and_recharge));
                 isFristRecharge = true;
                 ViewStub stub = (ViewStub) findViewById(R.id.viewStub_01);
                 stub.inflate();
@@ -213,7 +217,7 @@ public class RechargeActivity extends BaseActivity {
                 break;
             //提示
             case R.id.iv_06:
-                ycDialogUtils.showSingleDialog(getResources().getString(R.string.CardholderExplain), "为了您的账户资金安全，只能绑定持卡人本人的银行卡。<br/>获取更多帮助，请致电财富中国客服400-000-3658 ", new YCDialogUtils.MySingleBtnclickLisener() {
+                ycDialogUtils.showSingle2Dialog(getResources().getString(R.string.CardholderExplain), "为了您的账户资金安全，只能绑定持卡人本人的银行卡。<br/>获取更多帮助，请致电财富中国客服400-000-3658 ", new YCDialogUtils.MySingleBtnclickLisener() {
                     @Override
                     public void onBtnClick(View v) {
                         ycDialogUtils.DismissMyDialog();
@@ -259,7 +263,7 @@ public class RechargeActivity extends BaseActivity {
             result.data = cs;
             result.code = 1;
 
-            RetrofitClient.getSupportBankList(result, this, new YCNetSubscriber<List<BankBean>>(this,true) {
+            RetrofitClient.getSupportBankList(result, this, new YCNetSubscriber<List<BankBean>>(this, true) {
                 @Override
                 public void onYcNext(List<BankBean> model) {
                     bankList = model;
@@ -286,7 +290,7 @@ public class RechargeActivity extends BaseActivity {
             public void onClick(DialogInterface dialog, int which) {
                 etBank.setText(cities[which]);
                 etBank.setTag(bankList.get(which).bankCode);
-                if (StrUtil.isEmpty(et_money.getText().toString()) || StrUtil.isEmpty(et_bankNum.getText().toString()) || etBank.getTag() == null||StrUtil.isEmpty(etBank.getTag().toString())) {
+                if (StrUtil.isEmpty(et_money.getText().toString()) || StrUtil.isEmpty(et_bankNum.getText().toString()) || etBank.getTag() == null || StrUtil.isEmpty(etBank.getTag().toString())) {
                     btn_nextStep.setEnabled(false);
                 } else {
                     btn_nextStep.setEnabled(true);
@@ -342,7 +346,8 @@ public class RechargeActivity extends BaseActivity {
 
         //TestResultUtils.getSussefulResult29()
 
-        addSubscription(RetrofitClient.Recarge(null, rechargeInfo.noAgree, money, bankNum, this, new YCNetSubscriber<RechargeResultInfoBean>(this, true) {
+        String selected_crad = isFristRecharge ? "0" : "1";
+        addSubscription(RetrofitClient.Recarge(null, rechargeInfo.noAgree, money, bankNum, selected_crad, this, new YCNetSubscriber<RechargeResultInfoBean>(this, true) {
 
             @Override
             public void onYcNext(RechargeResultInfoBean model) {
@@ -351,7 +356,6 @@ public class RechargeActivity extends BaseActivity {
                 payintent.putExtra(BaofooPayActivity.PAY_BUSINESS, false);
                 startActivityForResult(payintent,
                         REQUEST_CODE_BAOFOO_SDK);
-
             }
         }));
     }
@@ -467,7 +471,7 @@ public class RechargeActivity extends BaseActivity {
                 }
             } else {
                 bankNum = et_bankNum.getText().toString().trim();
-                if (StrUtil.isEmpty(money) || StrUtil.isEmpty(bankNum)|| etBank.getTag() == null|| StrUtil.isEmpty(etBank.getTag().toString())) {
+                if (StrUtil.isEmpty(money) || StrUtil.isEmpty(bankNum) || etBank.getTag() == null || StrUtil.isEmpty(etBank.getTag().toString())) {
                     btn_nextStep.setEnabled(false);
                 } else {
                     btn_nextStep.setEnabled(true);
@@ -507,7 +511,7 @@ public class RechargeActivity extends BaseActivity {
             et_bankNum.addTextChangedListener(mTextWatcher2);
 
             editMoeny = et_money.getText().toString().trim();
-            if (StrUtil.isEmpty(editMoeny) || StrUtil.isEmpty(bankNum) || etBank.getTag() == null||StrUtil.isEmpty(etBank.getTag().toString())) {
+            if (StrUtil.isEmpty(editMoeny) || StrUtil.isEmpty(bankNum) || etBank.getTag() == null || StrUtil.isEmpty(etBank.getTag().toString())) {
                 btn_nextStep.setEnabled(false);
             } else {
                 btn_nextStep.setEnabled(true);
