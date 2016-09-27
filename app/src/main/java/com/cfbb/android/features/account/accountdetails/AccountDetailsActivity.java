@@ -21,6 +21,7 @@ import com.cfbb.android.features.account.withdrawAndrecharge.RechargeRightActivi
 import com.cfbb.android.features.account.withdrawAndrecharge.WithDrawActivity;
 import com.cfbb.android.features.authentication.RealNameAuthenticationActivity;
 import com.cfbb.android.protocol.APIException;
+import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
@@ -145,9 +146,8 @@ public class AccountDetailsActivity extends BaseActivity {
 
             @Override
             public void onYCError(APIException e) {
-                if (e.code == 2) {
-                    //code  2  代表未认证
-                    dismissLoadingView();
+                if (e.code == APIService.NO_AUTHENTICATION_CODE) {
+
                     ycDialogUtils.showAuthenticationDialog(e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
                         @Override
                         public void onSecondBtnClick(View v) {
@@ -155,7 +155,7 @@ public class AccountDetailsActivity extends BaseActivity {
                             ycDialogUtils.DismissMyDialog();
                             Bundle bundle = new Bundle();
                             bundle.putString(RealNameAuthenticationActivity.SHOW_BACK_TXT, getResources().getString(R.string.account_details_str));
-                            bundle.putSerializable(RealNameAuthenticationActivity.NEXT_ACTIVITY_CLASS, RechargeActivity.class);
+                            bundle.putSerializable(RealNameAuthenticationActivity.NEXT_ACTIVITY_CLASS, AccountDetailsActivity.class);
                             JumpCenter.JumpActivity(AccountDetailsActivity.this, RealNameAuthenticationActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
 
                         }
@@ -164,6 +164,7 @@ public class AccountDetailsActivity extends BaseActivity {
                         public void onFirstBtnClick(View v) {
                             ycDialogUtils.DismissMyDialog();
                         }
+
                     }, true);
 
                 } else {

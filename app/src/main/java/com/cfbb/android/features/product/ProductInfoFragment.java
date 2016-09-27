@@ -60,7 +60,6 @@ public class ProductInfoFragment extends BaseFragment {
 
         mWebView = (WebView) view.findViewById(R.id.webView);
         ycLoadingBg = (YCLoadingBg) view.findViewById(R.id.ycLoadingBg);
-        ycLoadingBg.setContentView(mWebView);
         ConfigWebView();
     }
 

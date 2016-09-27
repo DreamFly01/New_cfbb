@@ -50,7 +50,6 @@ public class ProductBaseInfoFragment extends BaseFragment {
     private TextView tv_prograss;
     private CountDownTimer countDownTimer;
     private YCLoadingBg ycLoadingBg;
-    private ScrollView scrollView;
     private ProductBaseInfoBean productBase;
 
 
@@ -81,8 +80,6 @@ public class ProductBaseInfoFragment extends BaseFragment {
     @Override
     public void setUpViews(View view) {
         ycLoadingBg = (YCLoadingBg) view.findViewById(R.id.ycLoadingBg);
-        scrollView = (ScrollView) view.findViewById(R.id.sc_view);
-        ycLoadingBg.setContentView(scrollView);
         tv_prograss = (TextView) view.findViewById(R.id.tv_11);
         tv_productName = (TextView) view.findViewById(R.id.tv_title);
         tv_remiansMoney = (TextView) view.findViewById(R.id.tv_02);

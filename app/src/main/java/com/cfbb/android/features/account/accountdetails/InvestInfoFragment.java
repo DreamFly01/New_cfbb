@@ -127,7 +127,6 @@ public class InvestInfoFragment extends BaseFragment {
         tv_06 = (TextView) view.findViewById(R.id.tv_07);
         ycLoading = (YCLoadingBg) view.findViewById(R.id.ycLoadingBg);
         sc_view = (ScrollView) view.findViewById(R.id.sc_view);
-        ycLoading.setContentView(sc_view);
     }
 
     @Override

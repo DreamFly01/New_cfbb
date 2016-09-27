@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -48,6 +47,10 @@ import com.cfbb.android.widget.dialog.YCDialogUtils;
  */
 public class AccountFragment extends BaseFragment implements View.OnClickListener {
 
+    private static final int IS_CHANGE_USER_PHOTO = 1001;
+    private AccountInfoBean accountInfoBean;
+    private Boolean is_open_eye = true;
+
     private ImageView iv_potoh;
     private TextView tv_userName;
     private TextView tv_recharge_money;
@@ -65,22 +68,11 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
     private RelativeLayout rl_my_bankcard_list;
     private RelativeLayout rl_my_red_paper;
     private TextView tv_red_pokage_num;
-    private Boolean is_open_eye = true;
     private YCLoadingBg ycLoadingBg;
-    private LinearLayout ll_bg;
-    private AccountInfoBean accountInfoBean;
-    private Intent intent;
-
     private RelativeLayout rl_gift;
     private TextView tv_gift;
-
-    private static final int IS_CHANGE_USER_PHOTO = 1001;
-
-
     private PullDownView pullDowmView;
     private ListView listView;
-
-
     private YCDialogUtils ycDialogUtils;
 
     public AccountFragment() {
@@ -151,8 +143,6 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
         ycLoadingBg = (YCLoadingBg) view.findViewById(R.id.ycLoadingBg);
 
-        ll_bg = (LinearLayout) viewHeader.findViewById(R.id.ll_05);
-        ycLoadingBg.setContentView(ll_bg);
         iv_potoh = (ImageView) viewHeader.findViewById(R.id.iv_01);
         tv_userName = (TextView) viewHeader.findViewById(R.id.tv_title);
         tv_recharge_money = (TextView) viewHeader.findViewById(R.id.tv_02);
@@ -306,19 +296,22 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                 dismissLoadingView();
                 if (e.code == APIService.NO_AUTHENTICATION_CODE) {
                     //code 2  代表未认证
-                    ycDialogUtils.showDialog(getResources().getString(R.string.dialog_kindly_title), e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
+                    ycDialogUtils.showAuthenticationDialog(e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
+
                         @Override
-                        public void onFirstBtnClick(View v) {
+                        public void onSecondBtnClick(View v) {
+
                             //ok
                             ycDialogUtils.DismissMyDialog();
                             Bundle bundle = new Bundle();
                             bundle.putString(RealNameAuthenticationActivity.SHOW_BACK_TXT, getResources().getString(R.string.nav_account));
+                            bundle.putSerializable(RealNameAuthenticationActivity.NEXT_ACTIVITY_CLASS, RechargeActivity.class);
                             JumpCenter.JumpActivity(getActivity(), RealNameAuthenticationActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
 
                         }
 
                         @Override
-                        public void onSecondBtnClick(View v) {
+                        public void onFirstBtnClick(View v) {
                             ycDialogUtils.DismissMyDialog();
                         }
                     }, true);
@@ -326,7 +319,9 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                 }
                 if (e.code == APIService.NO_BANKINFO_CODE) {
                     //code == 4  代表无绑定银行卡
-                    goToAddBank();
+                    Bundle bundle = new Bundle();
+                    bundle.putString(AddBankActivity.BACK_TXT, getString(R.string.nav_account));
+                    JumpCenter.JumpActivity(getActivity(), AddBankActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
                 } else {
                     ycDialogUtils.showSingleDialog(getActivity().getResources().getString(R.string.dialog_title), getActivity().getResources().getString(R.string.request_erro_str), new YCDialogUtils.MySingleBtnclickLisener() {
                         @Override
@@ -340,11 +335,6 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
         }));
     }
-
-    private void goToAddBank() {
-
-    }
-
 
     private void doRechargePre() {
         addSubscription(RetrofitClient.GetRechargeInitalInfo(null, getActivity(), new YCNetSubscriber<RechargeInfoBean>(getActivity(), true) {
@@ -360,12 +350,11 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
             @Override
             public void onYCError(APIException e) {
-                if (e.code == 2) {
-                    //code  2  代表未认证
-                    dismissLoadingView();
-                    ycDialogUtils.showDialog(getResources().getString(R.string.dialog_kindly_title), e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
+                if (e.code == APIService.NO_AUTHENTICATION_CODE) {
+
+                    ycDialogUtils.showAuthenticationDialog(e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
                         @Override
-                        public void onFirstBtnClick(View v) {
+                        public void onSecondBtnClick(View v) {
                             //ok
                             ycDialogUtils.DismissMyDialog();
                             Bundle bundle = new Bundle();
@@ -376,7 +365,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                         }
 
                         @Override
-                        public void onSecondBtnClick(View v) {
+                        public void onFirstBtnClick(View v) {
                             ycDialogUtils.DismissMyDialog();
                         }
                     }, true);

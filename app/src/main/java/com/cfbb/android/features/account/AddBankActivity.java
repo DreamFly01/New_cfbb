@@ -1,5 +1,7 @@
 package com.cfbb.android.features.account;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,20 +14,28 @@ import com.baidu.mobstat.StatService;
 import com.cfbb.android.R;
 import com.cfbb.android.commom.baseview.BaseActivity;
 import com.cfbb.android.commom.textwatch.TextWatchForBankNumber;
+import com.cfbb.android.commom.utils.activityJump.JumpCenter;
 import com.cfbb.android.commom.utils.base.KeyboardUtils;
 import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.protocol.APIException;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
+import com.cfbb.android.protocol.bean.BankBean;
+import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.CertificationResultBean;
 import com.cfbb.android.widget.YCLoadingBg;
 import com.cfbb.android.widget.dialog.YCDialogUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /***
  * 添加银行卡
  */
 public class AddBankActivity extends BaseActivity {
 
+
+    public static final String BACK_TXT = "back_txt";
     private TextView tv_back;
     private TextView tv_title;
     private Button btn_nextStep;
@@ -33,12 +43,18 @@ public class AddBankActivity extends BaseActivity {
     private EditText et_02;
     private YCLoadingBg ycLoadingBg;
     private YCDialogUtils ycDialogUtils;
-
+    private String back_txt;
 
     @Override
     protected void initContentView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_add_bank);
+        mIntent = getIntent();
+        if (null != mIntent) {
+            back_txt = mIntent.getExtras().getString(BACK_TXT);
+        }
     }
+
+    private TextView etBank;
 
     @Override
     public void setUpViews() {
@@ -51,10 +67,14 @@ public class AddBankActivity extends BaseActivity {
         tv_back = (TextView) findViewById(R.id.tv_back);
         tv_title = (TextView) findViewById(R.id.tv_title);
 
-        tv_title.setText(getResources().getString(R.string.add_bank_str));
-        tv_back.setText(getResources().getString(R.string.my_bankcard_list_str));
+        tv_title.setText(getResources().getString(R.string.bind_bank_str));
+        if (StrUtil.isEmpty(back_txt)) {
+            tv_back.setText(getResources().getString(R.string.app_name));
+        } else {
+            tv_back.setText(back_txt);
+        }
         tv_back.setVisibility(View.VISIBLE);
-
+        etBank = (TextView) findViewById(R.id.tv_08);
         et_02.addTextChangedListener(mTextWatcher);
         et_02.addTextChangedListener(new TextWatchForBankNumber(et_02));
 
@@ -75,15 +95,86 @@ public class AddBankActivity extends BaseActivity {
             case R.id.tv_back:
                 finish();
                 break;
-            //下一步
+            //添加银行卡
             case R.id.btn_ok:
                 if (CheckInput()) {
                     Submit();
                 }
                 break;
+            //选择银行卡
+            case R.id.tv_08:
+                GetSupportBank();
+                break;
         }
     }
 
+    private List<BankBean> bankList;
+
+    private void GetSupportBank() {
+        if (bankList == null) {
+
+            BaseResultBean<List<BankBean>> result = new BaseResultBean<>();
+            List<BankBean> cs = new ArrayList<>();
+            BankBean bean = new BankBean();
+            bean.bankCode = "1";
+            bean.bankName = "中国银行";
+            cs.add(bean);
+
+            bean = new BankBean();
+            bean.bankCode = "2";
+            bean.bankName = "建设银行";
+            cs.add(bean);
+
+            bean = new BankBean();
+            bean.bankCode = "3";
+            bean.bankName = "农业银行";
+            cs.add(bean);
+
+
+            bean = new BankBean();
+            bean.bankCode = "4";
+            bean.bankName = "工商银行";
+            cs.add(bean);
+
+            result.data = cs;
+            result.code = 1;
+
+            RetrofitClient.getSupportBankList(result, this, new YCNetSubscriber<List<BankBean>>(this, true) {
+                @Override
+                public void onYcNext(List<BankBean> model) {
+                    bankList = model;
+                    CeateChooseBankDilaog();
+                }
+            });
+
+        } else {
+            CeateChooseBankDilaog();
+        }
+    }
+
+    private void CeateChooseBankDilaog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(AddBankActivity.this);
+        builder.setIcon(R.drawable.ic_launcher);
+        builder.setTitle(R.string.please_choose_bank_hint);
+        List<String> bankBeanList = new ArrayList<>();
+        for (BankBean bankBean : bankList) {
+            bankBeanList.add(bankBean.bankName);
+        }
+        final String[] cities = bankBeanList.toArray(new String[0]);
+        builder.setItems(cities, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                etBank.setText(cities[which]);
+                etBank.setTag(bankList.get(which).bankCode);
+                if (StrUtil.isEmpty(et_02.getText().toString()) || etBank.getTag() == null || StrUtil.isEmpty(etBank.getTag().toString())) {
+                    btn_nextStep.setEnabled(false);
+                } else {
+                    btn_nextStep.setEnabled(true);
+                }
+            }
+        });
+        builder.show();
+    }
 
     @Override
     public void getDataOnCreate() {
@@ -114,20 +205,12 @@ public class AddBankActivity extends BaseActivity {
     }
 
     private void Submit() {
-        KeyboardUtils.hideSoftInput(this,et_02 );
+        KeyboardUtils.hideSoftInput(this, et_02);
         addSubscription(RetrofitClient.AddBank(null, bankNo, this, new YCNetSubscriber(this, true) {
 
             @Override
             public void onYcNext(Object model) {
-
-                ycDialogUtils.showSingleDialog(getResources().getString(R.string.dialog_title), getResources().getString(R.string.add_right), new YCDialogUtils.MySingleBtnclickLisener() {
-                    @Override
-                    public void onBtnClick(View v) {
-                        ycDialogUtils.DismissMyDialog();
-                        finish();
-                    }
-                }, false);
-
+                JumpCenter.JumpActivity(AddBankActivity.this, MyBankInfoActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, true);
             }
 
         }));
@@ -139,6 +222,7 @@ public class AddBankActivity extends BaseActivity {
 
         bankNo = et_02.getText().toString().replace(" ", "");
         if (StrUtil.isEmpty(bankNo)) {
+
             ycDialogUtils.showSingleDialog(getResources().getString(R.string.dialog_title), getResources().getString(R.string.bank_no_can_not_be_empty), new YCDialogUtils.MySingleBtnclickLisener() {
                 @Override
                 public void onBtnClick(View v) {
@@ -175,7 +259,7 @@ public class AddBankActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        KeyboardUtils.hideSoftInput(this,et_02 );
+        KeyboardUtils.hideSoftInput(this, et_02);
         StatService.onPause(this);
     }
 
@@ -186,7 +270,7 @@ public class AddBankActivity extends BaseActivity {
         super.onResume();
         StatService.onResume(this);
         if (!hasShow) {
-            KeyboardUtils.hideSoftInput(this,et_02 );
+            KeyboardUtils.hideSoftInput(this, et_02);
             hasShow = true;
         }
     }

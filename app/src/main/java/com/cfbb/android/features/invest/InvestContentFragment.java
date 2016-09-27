@@ -203,7 +203,6 @@ public class InvestContentFragment extends BaseFragment implements  AbsListView.
         tv_invest_rate_typeName = (TextView) view.findViewById(R.id.tv_03);
 
         pullDownView = (PullDownView) view.findViewById(R.id.pullDownView);
-        ycLoadingBg.setContentView(pullDownView);
         listView = (ListView) view.findViewById(R.id.listView);
 
         investAdaptor = new investAdaptor(getActivity(), new investAdaptor.InvestOnclickLisenr() {

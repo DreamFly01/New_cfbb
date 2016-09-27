@@ -66,13 +66,11 @@ public class BidRecordFragment extends BaseFragment implements AbsListView.OnScr
 
         ll_bg = (LinearLayout) view.findViewById(R.id.ll_01);
         ycLoadingBg = (YCLoadingBg) view.findViewById(R.id.ycLoadingBg);
-        ycLoadingBg.setContentView(ll_bg);
         listView = (ListView) view.findViewById(R.id.listView);
         bidRecordAdaptor = new BidRecordAdaptor(getActivity());
         listView.setOnScrollListener(this);
 
         footerView = new LinearLayout(getActivity());
-
         View tempView = LayoutInflater.from(getActivity()).inflate(R.layout.listview_no_more_data_item, null);
         tempView.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
         tv_no_data = (TextView) (tempView.findViewById(R.id.tv_no_data));
@@ -81,6 +79,7 @@ public class BidRecordFragment extends BaseFragment implements AbsListView.OnScr
         footerView.setVisibility(View.GONE);
         listView.addFooterView(footerView);
         listView.setAdapter(bidRecordAdaptor);
+
     }
 
     @Override

@@ -58,7 +58,6 @@ public class PlanExplainFragment extends BaseFragment {
     public void setUpViews(View view) {
         mWebView = (WebView) view.findViewById(R.id.webView);
         ycLoadingBg = (YCLoadingBg) view.findViewById(R.id.ycLoadingBg);
-        ycLoadingBg.setContentView(mWebView);
         ConfigWebView();
     }
 

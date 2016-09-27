@@ -135,7 +135,6 @@ public class AccountInfoFragment extends BaseFragment {
         tv_08 = (TextView) view.findViewById(R.id.tv_10);
         ycLoading = (YCLoadingBg) view.findViewById(R.id.ycLoadingBg);
         sc_view = (ScrollView) view.findViewById(R.id.sc_view);
-        ycLoading.setContentView(sc_view);
     }
 
     @Override

@@ -57,16 +57,12 @@ public class VertifyInfoFragment extends BaseFragment {
 
 
     private YCLoadingBg ycLoadingBg;
-    private ScrollView mWebView;
 
     @Override
     public void setUpViews(View view) {
-        mWebView = (ScrollView) view.findViewById(R.id.sc_view);
         ycLoadingBg = (YCLoadingBg) view.findViewById(R.id.ycLoadingBg);
-        ycLoadingBg.setContentView(mWebView);
         gv_vertify_result = (MyGridView) view.findViewById(R.id.gv_01);
         gv_vertify_images = (MyGridView) view.findViewById(R.id.gv_02);
-
     }
 
     @Override

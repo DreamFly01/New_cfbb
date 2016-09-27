@@ -98,7 +98,6 @@ public class RechargeRightActivity extends BaseActivity {
     private void TurnToOtherActivity() {
 
         if (turnToActivity == null) {
-
             Bundle bundle = new Bundle();
             if (index != MainFragmentEnum.INVALID.getValue()) {
                 bundle.putInt(MainActivity.SHOW_FRAGMENT_INDEX, index);

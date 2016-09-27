@@ -171,7 +171,7 @@
     <!--统一的红色长条按钮-->
     <style name="horizontal_red_item">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">38dp</item>
+        <item name="android:layout_height">44dp</item>
         <item name="android:background">@drawable/btn_red_selector</item>
         <item name="android:layout_marginLeft">15dp</item>
         <item name="android:layout_marginRight">15dp</item>

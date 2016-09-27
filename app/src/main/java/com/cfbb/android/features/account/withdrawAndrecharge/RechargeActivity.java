@@ -67,6 +67,7 @@ public class RechargeActivity extends BaseActivity {
     @Override
     protected void initContentView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_recharge);
+
         mIntent = getIntent();
         if (mIntent != null) {
             bundle = mIntent.getExtras();
@@ -114,7 +115,6 @@ public class RechargeActivity extends BaseActivity {
 
         ycDialogUtils = new YCDialogUtils(this);
         ycLoadingBg = (YCLoadingBg) findViewById(R.id.ycLoadingBg);
-
         btn_nextStep = (Button) findViewById(R.id.btn_ok);
         tv_back = (TextView) findViewById(R.id.tv_back);
         tv_title = (TextView) findViewById(R.id.tv_title);
@@ -129,29 +129,25 @@ public class RechargeActivity extends BaseActivity {
     }
 
     private RechargeInfoBean rechargeInfo = null;
-
     private TextView tv_khm;
     private EditText et_money;
     private EditText et_bankNum;
-
     private ImageView iv_bank;
     private TextView tv_bankName;
     private TextView tv_bankNum;
-
-    private boolean isFristRecharge = false;
-
-
     private ImageView ivHint;
     private TextView tvAccountBalance;
-    private TextView etBank;
+    private boolean isFristRecharge = false;
 
     private void FillView() {
 
         if (rechargeInfo != null) {
-
+            ycLoadingBg.dissmiss();
             if (rechargeInfo.rechargeState == RechargeStateEnum.FIRST_RECHARGE.getValue()) {
+
                 tv_title.setText(getResources().getString(R.string.bind_and_recharge));
                 isFristRecharge = true;
+
                 ViewStub stub = (ViewStub) findViewById(R.id.viewStub_01);
                 stub.inflate();
                 tv_khm = (TextView) findViewById(R.id.tv_05);
@@ -160,9 +156,10 @@ public class RechargeActivity extends BaseActivity {
                 et_bankNum = (EditText) findViewById(R.id.et_02);
                 ivHint = (ImageView) findViewById(R.id.iv_06);
                 tvAccountBalance = (TextView) findViewById(R.id.tv_06);
-                etBank = (TextView) findViewById(R.id.tv_08);
+                tv_bankName = (TextView) findViewById(R.id.tv_08);
+                tvAccountBalance.setText(rechargeInfo.accountBalance);
                 ivHint.setOnClickListener(this);
-                etBank.setOnClickListener(this);
+                tv_bankName.setOnClickListener(this);
                 et_money.addTextChangedListener(mTextWatcher);
                 et_bankNum.addTextChangedListener(mTextWatcher2);
                 et_bankNum.addTextChangedListener(new TextWatchForBankNumber(et_bankNum));
@@ -172,10 +169,11 @@ public class RechargeActivity extends BaseActivity {
                 ViewStub stub = (ViewStub) findViewById(R.id.viewStub_02);
                 stub.inflate();
                 et_money = (EditText) findViewById(R.id.et_01);
-                // et_bankNum = (EditText) findViewById(R.id.et_02);
                 iv_bank = (ImageView) findViewById(R.id.iv_01);
                 tv_bankName = (TextView) findViewById(R.id.tv_03);
                 tv_bankNum = (TextView) findViewById(R.id.tv_04);
+                tvAccountBalance = (TextView) findViewById(R.id.tv_06);
+                tvAccountBalance.setText(rechargeInfo.accountBalance);
 
                 ImageWithGlideUtils.lodeFromUrl(rechargeInfo.imageUrl, iv_bank, this);
                 tv_bankName.setText(rechargeInfo.bankName);
@@ -201,7 +199,7 @@ public class RechargeActivity extends BaseActivity {
             case R.id.tv_back:
                 finish();
                 break;
-            //下一步
+            //提交充值
             case R.id.btn_ok:
                 //权限检查
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
@@ -288,9 +286,9 @@ public class RechargeActivity extends BaseActivity {
         builder.setItems(cities, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                etBank.setText(cities[which]);
-                etBank.setTag(bankList.get(which).bankCode);
-                if (StrUtil.isEmpty(et_money.getText().toString()) || StrUtil.isEmpty(et_bankNum.getText().toString()) || etBank.getTag() == null || StrUtil.isEmpty(etBank.getTag().toString())) {
+                tv_bankName.setText(cities[which]);
+                tv_bankName.setTag(bankList.get(which).bankCode);
+                if (StrUtil.isEmpty(et_money.getText().toString()) || StrUtil.isEmpty(et_bankNum.getText().toString()) || tv_bankName.getTag() == null || StrUtil.isEmpty(tv_bankName.getTag().toString())) {
                     btn_nextStep.setEnabled(false);
                 } else {
                     btn_nextStep.setEnabled(true);
@@ -323,7 +321,7 @@ public class RechargeActivity extends BaseActivity {
     private String bankNum;
 
     private void RechargeOK() {
-        //  Bundle bundle = new Bundle();
+
         bundle.putString(RechargeRightActivity.RECHARGE_MOENY, money + Const.YUAN_STR);
         if (rechargeInfo.rechargeState != RechargeStateEnum.FIRST_RECHARGE.getValue()) {
             bundle.putString(RechargeRightActivity.RECHARGE_BANK_STR, rechargeInfo.bankNum);
@@ -471,7 +469,7 @@ public class RechargeActivity extends BaseActivity {
                 }
             } else {
                 bankNum = et_bankNum.getText().toString().trim();
-                if (StrUtil.isEmpty(money) || StrUtil.isEmpty(bankNum) || etBank.getTag() == null || StrUtil.isEmpty(etBank.getTag().toString())) {
+                if (StrUtil.isEmpty(money) || StrUtil.isEmpty(bankNum) || tv_bankName.getTag() == null || StrUtil.isEmpty(tv_bankName.getTag().toString())) {
                     btn_nextStep.setEnabled(false);
                 } else {
                     btn_nextStep.setEnabled(true);
@@ -511,7 +509,7 @@ public class RechargeActivity extends BaseActivity {
             et_bankNum.addTextChangedListener(mTextWatcher2);
 
             editMoeny = et_money.getText().toString().trim();
-            if (StrUtil.isEmpty(editMoeny) || StrUtil.isEmpty(bankNum) || etBank.getTag() == null || StrUtil.isEmpty(etBank.getTag().toString())) {
+            if (StrUtil.isEmpty(editMoeny) || StrUtil.isEmpty(bankNum) || tv_bankName.getTag() == null || StrUtil.isEmpty(tv_bankName.getTag().toString())) {
                 btn_nextStep.setEnabled(false);
             } else {
                 btn_nextStep.setEnabled(true);

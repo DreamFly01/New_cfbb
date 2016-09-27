@@ -40,16 +40,7 @@ public class YCLoadingBg extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    // private View contentView;
-
     private YCErroLisener ycErro;
-
-    public void setContentView(View view) {
-        // if (view == null) {
-        //     throw new IllegalArgumentException("ContentView can not be null!");
-        //  }
-        //  this.contentView = view;
-    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -85,9 +76,7 @@ public class YCLoadingBg extends LinearLayout implements View.OnClickListener {
 
     private AnimationDrawable spinner;
 
-
     public void showErroBg(YCErroLisener ycerro) {
-
         this.ycErro = ycerro;
         setVisibility(View.VISIBLE);
         iv_loading.setVisibility(View.GONE);
@@ -99,7 +88,6 @@ public class YCLoadingBg extends LinearLayout implements View.OnClickListener {
 
 
     public void showLoadingBg() {
-
         setVisibility(View.VISIBLE);
         iv_loading.setVisibility(View.VISIBLE);
         ll_erro_bg.setVisibility(View.GONE);
@@ -109,15 +97,7 @@ public class YCLoadingBg extends LinearLayout implements View.OnClickListener {
 
 
     public void dissmiss() {
-        // if (contentView == null) {
-        //     throw new IllegalArgumentException("ContentView can not be null!");
-        // }
-        //   spinner.stop();
-        // iv_loading.clearAnimation();
         setVisibility(View.GONE);
-        // ll_loading_bg.setVisibility(View.GONE);
-        // ll_erro_bg.setVisibility(View.GONE);
-        //contentView.setVisibility(View.VISIBLE);
     }
 
 }

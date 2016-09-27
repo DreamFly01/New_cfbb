@@ -33,6 +33,7 @@ import com.cfbb.android.features.main.MainActivity;
 import com.cfbb.android.features.product.ProductDetailsActivity;
 import com.cfbb.android.features.webview.OtherActivity;
 import com.cfbb.android.protocol.APIException;
+import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
 import com.cfbb.android.protocol.bean.HomeInfoBean;
@@ -62,10 +63,8 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     private ListView listView;
     private ImageView iv_menu;
     private View viewHeader;
-    private LayoutInflater mInflater;
     private homeAdaptor mHomeAdaptor;
     private HomeInfoBean homeInfoBean;
-    private Intent intent;
     private YCLoadingBg ycLoadingBg;
     private ViewFlipper homepage_notice_vf;
     private LinearLayout ll_hot_hotitem;
@@ -84,13 +83,9 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     private LinearLayout ll_withdraw;
     private LinearLayout ll_infocenter;
     private LinearLayout ll_helpercenter;
-    private ImageView iv_line1;
-    private ImageView iv_line2;
     private YCDialogUtils ycDialogUtils;
 
-
     private ConvenientBanner convenientBanner;//顶部广告栏控件
-
 
     public HomeFragment() {
         // Required empty public constructor
@@ -101,18 +96,15 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
         super.onAttach(context);
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-
     @Override
     public int initContentView() {
         return R.layout.fragment_home;
     }
-
 
     @Override
     public void getDataOnActivityCreated() {
@@ -129,17 +121,19 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
                 initRollNotice();
                 FillHeaderView(homeInfoBean);
                 ycLoadingBg.dissmiss();
+
             }
 
             @Override
             public void onYCError(APIException e) {
-       //          super.onError(e);
+
                 ycLoadingBg.showErroBg(new YCLoadingBg.YCErroLisener() {
                     @Override
                     public void onTryAgainClick() {
                         getDataOnActivityCreated();
                     }
                 });
+
             }
 
             @Override
@@ -186,9 +180,8 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
         ycDialogUtils = new YCDialogUtils(getActivity());
         ycLoadingBg = (YCLoadingBg) view.findViewById(R.id.ycLoadingBg);
         pullDowmView = (PullDownView) view.findViewById(R.id.pullDownView);
-        ycLoadingBg.setContentView(pullDowmView);
-        listView = (ListView) view.findViewById(R.id.listView);
 
+        listView = (ListView) view.findViewById(R.id.listView);
         iv_menu = (ImageView) view.findViewById(R.id.iv_02);
         iv_menu.setVisibility(View.VISIBLE);
 
@@ -211,7 +204,6 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
         listView.setHeaderDividersEnabled(true);
         listView.addHeaderView(viewHeader);
 
-
         mHomeAdaptor = new homeAdaptor(getActivity().getApplicationContext(), new homeAdaptor.homeAdaptorClickInterface() {
             @Override
             public void OnInvestClick(int position) {
@@ -223,6 +215,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     }
 
     public void TurnToInvestActivity(String prodcutId, String loanTypeId) {
+
         Bundle bundle = new Bundle();
         bundle.putString(InvestBidActivity.SHOW_BACK_TXT, getResources().getString(R.string.nav_home));
         bundle.putString(InvestBidActivity.PRODUCT_ID, prodcutId);
@@ -230,6 +223,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
         bundle.putInt(InvestBidActivity.INVEST_TURN_TO_MAIN_INDEX, MainFragmentEnum.HOME.getValue());
         bundle.putSerializable(JumpCenter.TO_ACTIVITY, InvestBidActivity.class);
         JumpCenter.JumpActivity(getActivity(), InvestBidActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+
     }
 
     /***
@@ -285,9 +279,6 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
         }
     }
 
-    /**
-     * 网络图片加载
-     */
     public class NetworkImageHolderView implements Holder<HomeInfoBean.AdsBean> {
         private ImageView imageView;
 
@@ -380,8 +371,6 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
             // 一个自定义的布局，作为显示的内容
             View contentView = LayoutInflater.from(getActivity()).inflate(
                     R.layout.popwindow_home_menu, null);
-            iv_line1 = (ImageView) contentView.findViewById(R.id.iv_01);
-            iv_line2 = (ImageView) contentView.findViewById(R.id.iv_02);
             ll_recharge = (LinearLayout) contentView.findViewById(R.id.ll_01);
             ll_recharge.setOnClickListener(this);
             ll_withdraw = (LinearLayout) contentView.findViewById(R.id.ll_02);
@@ -410,7 +399,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
             popupWindow.showAsDropDown(iv_menu, 0, 0);
         } else {
 
-            if(UserBiz.getInstance(getActivity()).CheckLoginState()) {
+            if (UserBiz.getInstance(getActivity()).CheckLoginState()) {
                 addSubscription(RetrofitClient.GetUnReadMsgCount(null, getActivity(), new YCNetSubscriber<UserMsgBean>(getActivity()) {
 
                     @Override
@@ -516,10 +505,10 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
 
                 @Override
                 public void onYCError(APIException e) {
-                    if (e.code == 2) {
-                        //code  2  代表未认证
-                        dismissLoadingView();
+                    if (e.code == APIService.NO_AUTHENTICATION_CODE) {
+
                         ycDialogUtils.showAuthenticationDialog(e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
+
                             @Override
                             public void onSecondBtnClick(View v) {
 
@@ -535,6 +524,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
                             public void onFirstBtnClick(View v) {
                                 ycDialogUtils.DismissMyDialog();
                             }
+
                         }, true);
 
                     } else {

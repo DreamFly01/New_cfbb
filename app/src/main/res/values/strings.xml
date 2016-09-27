@@ -125,7 +125,7 @@
     <string name="remains_can_buy_money_str">产品剩余可投金额:</string>
     <string name="yuan_str">元</string>
     <string name="back_str">返回</string>
-    <string name="add_bank_str">添加银行卡</string>
+    <string name="bind_bank_str">绑定银行卡</string>
     <string name="delete_str">删除</string>
     <string name="latested_str">最新</string>
     <string name="commit_str">提交</string>
@@ -213,7 +213,8 @@
     <string name="invest_moeny_must_lower_can_investMoeny"> 购买金额必须小于等于剩余可投金额!</string>
     <string name="invest_moeny_must_lower_accountMoeny"> 购买金额必须小于等于账户可用余额!</string>
 
-
+    <string name="view_details">查看详情</string>
+    <string name="collected">收起</string>
     <!--dialog str-->
     <string name="camera">拍照</string>
     <string name="get_accros_potho">从手机相册中选取</string>
