@@ -19,6 +19,14 @@ import com.cfbb.android.widget.YCLoadingBg;
  */
 public class AccountInfoFragment extends BaseFragment {
 
+    public boolean isInit() {
+        return isInit;
+    }
+
+    public void setInit(boolean init) {
+        isInit = init;
+    }
+
     private boolean isInit =true; // 是否可以开始加载数据
 
     private TextView tv_01;

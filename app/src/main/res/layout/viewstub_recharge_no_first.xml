@@ -60,9 +60,7 @@
 
     </LinearLayout>
 
-    <ImageView
-        style="@style/iv_gray_horizontal_line"
-        android:layout_marginTop="14dp" />
+    <ImageView style="@style/iv_gray_horizontal_line" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -113,9 +111,9 @@
 
         <TextView
             android:id="@id/tv_06"
-            android:layout_marginLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:text="-"
             android:textColor="@color/txt_9"
             android:textSize="@dimen/size_15" />

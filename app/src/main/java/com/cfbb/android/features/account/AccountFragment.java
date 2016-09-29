@@ -21,6 +21,7 @@ import com.cfbb.android.commom.state.AccountTurnWhereEnum;
 import com.cfbb.android.commom.state.IsHidenMoneyShowEnum;
 import com.cfbb.android.commom.state.LoanReleasedStateEnum;
 import com.cfbb.android.commom.state.MainFragmentEnum;
+import com.cfbb.android.commom.state.RechargeStateEnum;
 import com.cfbb.android.commom.utils.activityJump.JumpCenter;
 import com.cfbb.android.commom.utils.base.PhoneUtils;
 import com.cfbb.android.commom.utils.image.ImageWithGlideUtils;
@@ -36,6 +37,7 @@ import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
 import com.cfbb.android.protocol.bean.AccountInfoBean;
+import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.MyBankInfoBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.widget.PullDownView;
@@ -282,6 +284,22 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
     private void goToMyBankInfo() {
 
+        BaseResultBean<MyBankInfoBean> result = new BaseResultBean<>();
+        MyBankInfoBean myBankInfoBean = new MyBankInfoBean();
+        myBankInfoBean.canDelete = -1;
+        myBankInfoBean.accountBalance = "200.0元";
+        myBankInfoBean.bankCardId = "1111";
+        myBankInfoBean.bankName = "人民银行";
+        myBankInfoBean.bankNum = "24234234234234324234";
+        myBankInfoBean.hint = "替上帝啊上帝说的好好<br/>1.就是看见分列式送到附近<br/>2.结婚jfk是";
+        myBankInfoBean.holdingMoney = "522.0元";
+        myBankInfoBean.imageUrl = "56";
+        myBankInfoBean.inUseMoeny = "566565.0元";
+        myBankInfoBean.realName = "发射点";
+        result.code = APIService.NO_AUTHENTICATION_CODE;
+        result.data = myBankInfoBean;
+        result.msg = "sdsdsdsd";
+
         addSubscription(RetrofitClient.GetMyBankInfo(null, getActivity(), new YCNetSubscriber<MyBankInfoBean>(getActivity(), true) {
 
             @Override
@@ -293,7 +311,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
             @Override
             public void onYCError(APIException e) {
-                dismissLoadingView();
+
                 if (e.code == APIService.NO_AUTHENTICATION_CODE) {
                     //code 2  代表未认证
                     ycDialogUtils.showAuthenticationDialog(e.getMessage(), new YCDialogUtils.MyTwoBtnclickLisener() {
@@ -301,7 +319,6 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                         @Override
                         public void onSecondBtnClick(View v) {
 
-                            //ok
                             ycDialogUtils.DismissMyDialog();
                             Bundle bundle = new Bundle();
                             bundle.putString(RealNameAuthenticationActivity.SHOW_BACK_TXT, getResources().getString(R.string.nav_account));
@@ -316,8 +333,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                         }
                     }, true);
 
-                }
-                if (e.code == APIService.NO_BANKINFO_CODE) {
+                } else if (e.code == APIService.NO_BANKINFO_CODE) {
                     //code == 4  代表无绑定银行卡
                     Bundle bundle = new Bundle();
                     bundle.putString(AddBankActivity.BACK_TXT, getString(R.string.nav_account));
@@ -341,11 +357,34 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
             @Override
             public void onYcNext(RechargeInfoBean model) {
-                Bundle bundle = new Bundle();
-                bundle.putString(RechargeActivity.SHOW_BACK_TXT, getResources().getString(R.string.nav_account));
-                bundle.putInt(RechargeActivity.RECHARGE_RIGHT_TURN_TO_MAIN_INDEX, MainFragmentEnum.ACCOUNT.getValue());
-                bundle.putParcelable(RechargeActivity.RECHARGEINFO_DATA, model);
-                JumpCenter.JumpActivity(getActivity(), RechargeActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+                if (model.rechargeState == RechargeStateEnum.FIRST_RECHARGE.getValue()) {
+                    ycDialogUtils.showBindBankDialog(getString(R.string.bind_bankcrad_hint), new YCDialogUtils.MyTwoBtnclickLisener() {
+
+                        @Override
+                        public void onSecondBtnClick(View v) {
+
+                            ycDialogUtils.DismissMyDialog();
+                            Bundle bundle = new Bundle();
+                            bundle.putString(AddBankActivity.BACK_TXT, getString(R.string.nav_account));
+                            JumpCenter.JumpActivity(getActivity(), AddBankActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+
+                        }
+
+                        @Override
+                        public void onFirstBtnClick(View v) {
+                            ycDialogUtils.DismissMyDialog();
+                        }
+
+                    }, true);
+
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString(RechargeActivity.SHOW_BACK_TXT, getResources().getString(R.string.nav_account));
+                    bundle.putInt(RechargeActivity.RECHARGE_RIGHT_TURN_TO_MAIN_INDEX, MainFragmentEnum.ACCOUNT.getValue());
+                    bundle.putParcelable(RechargeActivity.RECHARGEINFO_DATA, model);
+                    JumpCenter.JumpActivity(getActivity(), RechargeActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+
+                }
             }
 
             @Override

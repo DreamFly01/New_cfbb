@@ -194,7 +194,7 @@
     <string name="loan_bid_rate_can_not_be_empty">借款标总额比例不能为空!</string>
     <string name="account_remains_moeny_can_not_be_empty">账户余额不能为空!</string>
     <string name="check_delete">是否确认删除？</string>
-    <string name="sure_to_delete_bank">您确认解绑银行卡？</string>
+    <string name="sure_to_delete_bank">您确认删除银行卡？</string>
     <string name="erro_rate_range">利率范围填写有误!</string>
     <string name="erro_loan_bid_range"> 借款期限填写有误!</string>
     <string name="auto_invest_moeny_must_be_choose"> 自动投资金额必选!</string>
@@ -241,11 +241,14 @@
     <string name="Badly">糟糕了</string>
     <string name="waitStr">等会儿</string>
     <string name="goAuthentication">去认证</string>
+    <string name="goBindBank">去绑定</string>
     <string name="AuthenticationOKHintRight">身份证认证成功!现在去绑定银行卡，就可以充值啦!</string>
     <string name="please_choose_bank_hint">请选择银行</string>
     <string name="choose_bank">选择银行</string>
     <string name="idCradStr">证件号码</string>
     <string name="bind_bank">绑定银行卡</string>
+    <string name="bind_bank_hint"><![CDATA["为了您的账户资金安全，只能绑定持卡人本人的银行卡。<br/>获取更多帮助，请致电财富中国客服400-000-3658 "]]></string>
+    <string name="bind_bankcrad_hint">您还未绑定银行卡，暂时无法充值。现在去绑定银行卡吧!</string>
 
 
 </resources>

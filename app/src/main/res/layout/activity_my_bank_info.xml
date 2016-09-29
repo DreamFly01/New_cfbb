@@ -9,6 +9,11 @@
 
     <include layout="@layout/view_header"></include>
 
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="98dp"
@@ -64,7 +69,7 @@
             android:gravity="center|right">
 
             <ImageView
-                android:id="@id/iv_02"
+                android:id="@id/iv_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -72,7 +77,6 @@
                 android:layout_marginRight="23dp"
                 android:src="@mipmap/can_unbundling_ico" />
         </LinearLayout>
-
 
     </LinearLayout>
 
@@ -92,7 +96,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="45dp"
                 android:text="持卡人"
                 android:textColor="@color/txt_6"
                 android:textSize="@dimen/size_18" />
@@ -112,7 +116,8 @@
             android:layout_marginLeft="15dp" />
 
         <RelativeLayout
-            android:id="@id/ll_01"
+
+            android:id="@id/ll_05"
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:background="@color/white"
@@ -125,7 +130,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
                 android:gravity="center"
-                android:text="在用资金"
+                android:text="该卡在用资金"
                 android:textColor="@color/txt_0"
                 android:textSize="@dimen/size_18" />
 
@@ -141,7 +146,7 @@
                 android:textSize="@dimen/size_18" />
 
             <TextView
-                android:id="@id/iv_03"
+                android:id="@id/tv_17"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -156,40 +161,13 @@
         <ImageView style="@style/iv_gray_horizontal_line" />
 
         <LinearLayout
-            android:id="@id/ll_02"
+            android:id="@id/ll_06"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:gravity="center"
-                    android:text="账户余额"
-                    android:textColor="@color/txt_6"
-                    android:textSize="@dimen/size_18" />
-
-                <TextView
-                    android:id="@id/tv_13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="36dp"
-                    android:gravity="center"
-                    android:text="-"
-                    android:textColor="@color/txt_6"
-                    android:textSize="@dimen/size_18" />
-            </LinearLayout>
-
-            <ImageView
-                style="@style/iv_gray_horizontal_line"
-                android:layout_marginLeft="15dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -200,9 +178,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="35dp"
                     android:gravity="center"
-                    android:text="持有中"
+                    android:text="账户总额"
                     android:textColor="@color/txt_6"
                     android:textSize="@dimen/size_18" />
 
@@ -230,9 +208,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="35dp"
                     android:gravity="center"
-                    android:text="投标中"
+                    android:text="待收总额"
                     android:textColor="@color/txt_6"
                     android:textSize="@dimen/size_18" />
 

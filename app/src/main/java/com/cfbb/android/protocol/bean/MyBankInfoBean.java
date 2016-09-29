@@ -13,8 +13,7 @@ public class MyBankInfoBean implements Parcelable {
     public String bankNum;
     public String accountBalance;
     public String holdingMoney;
-    public String investingMoney;
-    public int    canDelete;
+    public int canDelete;
     public String hint;
     public String realName;
     public String bankName;
@@ -32,7 +31,6 @@ public class MyBankInfoBean implements Parcelable {
         dest.writeString(this.bankNum);
         dest.writeString(this.accountBalance);
         dest.writeString(this.holdingMoney);
-        dest.writeString(this.investingMoney);
         dest.writeInt(this.canDelete);
         dest.writeString(this.hint);
         dest.writeString(this.realName);
@@ -49,12 +47,11 @@ public class MyBankInfoBean implements Parcelable {
         this.bankNum = in.readString();
         this.accountBalance = in.readString();
         this.holdingMoney = in.readString();
-        this.investingMoney = in.readString();
         this.canDelete = in.readInt();
         this.hint = in.readString();
         this.realName = in.readString();
         this.bankName = in.readString();
-        this.inUseMoeny= in.readString();
+        this.inUseMoeny = in.readString();
     }
 
     public static final Parcelable.Creator<MyBankInfoBean> CREATOR = new Parcelable.Creator<MyBankInfoBean>() {

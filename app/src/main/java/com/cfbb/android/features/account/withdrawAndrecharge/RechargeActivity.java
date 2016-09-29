@@ -215,7 +215,7 @@ public class RechargeActivity extends BaseActivity {
                 break;
             //提示
             case R.id.iv_06:
-                ycDialogUtils.showSingle2Dialog(getResources().getString(R.string.CardholderExplain), "为了您的账户资金安全，只能绑定持卡人本人的银行卡。<br/>获取更多帮助，请致电财富中国客服400-000-3658 ", new YCDialogUtils.MySingleBtnclickLisener() {
+                ycDialogUtils.showSingle2Dialog(getResources().getString(R.string.CardholderExplain),  getString(R.string.bind_bank_hint), new YCDialogUtils.MySingleBtnclickLisener() {
                     @Override
                     public void onBtnClick(View v) {
                         ycDialogUtils.DismissMyDialog();
@@ -234,34 +234,7 @@ public class RechargeActivity extends BaseActivity {
     private void GetSupportBank() {
         if (bankList == null) {
 
-
-            BaseResultBean<List<BankBean>> result = new BaseResultBean<>();
-            List<BankBean> cs = new ArrayList<>();
-            BankBean bean = new BankBean();
-            bean.bankCode = "1";
-            bean.bankName = "中国银行";
-            cs.add(bean);
-
-            bean = new BankBean();
-            bean.bankCode = "2";
-            bean.bankName = "建设银行";
-            cs.add(bean);
-
-            bean = new BankBean();
-            bean.bankCode = "3";
-            bean.bankName = "农业银行";
-            cs.add(bean);
-
-
-            bean = new BankBean();
-            bean.bankCode = "4";
-            bean.bankName = "工商银行";
-            cs.add(bean);
-
-            result.data = cs;
-            result.code = 1;
-
-            RetrofitClient.getSupportBankList(result, this, new YCNetSubscriber<List<BankBean>>(this, true) {
+            RetrofitClient.getSupportBankList(null, this, new YCNetSubscriber<List<BankBean>>(this, true) {
                 @Override
                 public void onYcNext(List<BankBean> model) {
                     bankList = model;
@@ -276,7 +249,7 @@ public class RechargeActivity extends BaseActivity {
 
     private void CeateChooseBankDilaog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(RechargeActivity.this);
-        builder.setIcon(R.drawable.ic_launcher);
+        builder.setIcon(R.mipmap.icon_tu);
         builder.setTitle(R.string.please_choose_bank_hint);
         List<String> bankBeanList = new ArrayList<>();
         for (BankBean bankBean : bankList) {
@@ -322,6 +295,9 @@ public class RechargeActivity extends BaseActivity {
 
     private void RechargeOK() {
 
+       // money ="100.0";
+       // bankNum ="100000";
+
         bundle.putString(RechargeRightActivity.RECHARGE_MOENY, money + Const.YUAN_STR);
         if (rechargeInfo.rechargeState != RechargeStateEnum.FIRST_RECHARGE.getValue()) {
             bundle.putString(RechargeRightActivity.RECHARGE_BANK_STR, rechargeInfo.bankNum);
@@ -364,6 +340,8 @@ public class RechargeActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+      // RechargeOK();
 
         if (requestCode == REQUEST_CODE_BAOFOO_SDK) {
             String result = "";

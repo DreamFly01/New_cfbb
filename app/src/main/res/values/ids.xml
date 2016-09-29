@@ -111,5 +111,8 @@
     <item name="tv_junp" type="id">false</item>
     <item name="tv_15" type="id">false</item>
     <item name="tv_16" type="id">false</item>
+    <item name="tv_17" type="id">false</item>
+    <item name="iv_12" type="id">false</item>
+    <item name="ll_06" type="id">false</item>
 
 </resources>

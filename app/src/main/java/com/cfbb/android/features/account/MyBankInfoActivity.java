@@ -5,6 +5,7 @@ import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baidu.mobstat.StatService;
@@ -13,8 +14,10 @@ import com.cfbb.android.commom.baseview.BaseActivity;
 import com.cfbb.android.commom.utils.activityJump.JumpCenter;
 import com.cfbb.android.commom.utils.image.ImageWithGlideUtils;
 import com.cfbb.android.protocol.APIException;
+import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
+import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.MyBankInfoBean;
 import com.cfbb.android.widget.YCLoadingBg;
 import com.cfbb.android.widget.dialog.YCDialogUtils;
@@ -50,9 +53,9 @@ public class MyBankInfoActivity extends BaseActivity {
     private TextView tv_arrow;
     private TextView tv_accountBlance;
     private TextView tv_holdingMoney;
-    private TextView tv_investingMoney;
+
     private TextView tv_hint;
-    private LinearLayout ll_moneyDetails;
+    private RelativeLayout ll_moneyDetails;
     private LinearLayout getLl_moneyDetailsContent;
 
     @Override
@@ -68,17 +71,18 @@ public class MyBankInfoActivity extends BaseActivity {
         ycLoadingBg = (YCLoadingBg) findViewById(R.id.ycLoadingBg);
         iv_bankLogo = (ImageView) findViewById(R.id.iv_01);
         tv_bankName = (TextView) findViewById(R.id.tv_10);
-        iv_deleteViewBtn = (ImageView) findViewById(R.id.iv_02);
+        iv_deleteViewBtn = (ImageView) findViewById(R.id.iv_12);
         tv_bankNum = (TextView) findViewById(R.id.tv_11);
         tv_userName = (TextView) findViewById(R.id.tv_05);
         tv_inUseMoney = (TextView) findViewById(R.id.tv_12);
-        tv_arrow = (TextView) findViewById(R.id.iv_03);
-        tv_accountBlance = (TextView) findViewById(R.id.tv_13);
-        tv_holdingMoney = (TextView) findViewById(R.id.tv_14);
-        tv_investingMoney = (TextView) findViewById(R.id.tv_15);
+        tv_arrow = (TextView) findViewById(R.id.tv_17);
+
+        tv_accountBlance = (TextView) findViewById(R.id.tv_14);
+        tv_holdingMoney = (TextView) findViewById(R.id.tv_15);
+
         tv_hint = (TextView) findViewById(R.id.tv_16);
-        ll_moneyDetails = (LinearLayout) findViewById(R.id.ll_01);
-        getLl_moneyDetailsContent = (LinearLayout) findViewById(R.id.ll_02);
+        ll_moneyDetails = (RelativeLayout) findViewById(R.id.ll_05);
+        getLl_moneyDetailsContent = (LinearLayout) findViewById(R.id.ll_06);
 
         FillView();
 
@@ -86,15 +90,14 @@ public class MyBankInfoActivity extends BaseActivity {
 
     private void FillView() {
         if (null != myBankInfo) {
-            ImageWithGlideUtils.lodeFromUrl(myBankInfo.imageUrl, iv_bankLogo, this);
+            ImageWithGlideUtils.lodeFromUrl(myBankInfo.imageUrl, R.mipmap.default_bank_bg,iv_bankLogo, this);
             tv_bankName.setText(myBankInfo.bankName);
             tv_bankNum.setText(myBankInfo.bankNum);
             tv_userName.setText(myBankInfo.realName);
             tv_inUseMoney.setText(myBankInfo.inUseMoeny);
             tv_accountBlance.setText(myBankInfo.accountBalance);
             tv_holdingMoney.setText(myBankInfo.holdingMoney);
-            tv_investingMoney.setText(myBankInfo.investingMoney);
-            tv_hint.setText(Html.fromHtml(myBankInfo.inUseMoeny));
+            tv_hint.setText(Html.fromHtml(myBankInfo.hint));
             if (myBankInfo.canDelete == 1) {
                 iv_deleteViewBtn.setImageResource(R.mipmap.can_unbundling_ico);
             } else {
@@ -108,6 +111,22 @@ public class MyBankInfoActivity extends BaseActivity {
     }
 
     private void getData() {
+
+        BaseResultBean<MyBankInfoBean> result = new BaseResultBean<>();
+        MyBankInfoBean myBankInfoBean = new MyBankInfoBean();
+        myBankInfoBean.canDelete=-1;
+        myBankInfoBean.accountBalance="200.0元";
+        myBankInfoBean.bankCardId="1111";
+        myBankInfoBean.bankName="人民银行";
+        myBankInfoBean.bankNum="24234234234234324234";
+        myBankInfoBean.hint="替上帝啊上帝说的好好<br/>1.就是看见分列式送到附近<br/>2.结婚jfk是";
+        myBankInfoBean.holdingMoney="522.0元";
+        myBankInfoBean.imageUrl="56";
+        myBankInfoBean.inUseMoeny="566565.0元";
+        myBankInfoBean.holdingMoney="54545.0元";
+        myBankInfoBean.realName="发射点";
+        result.code = APIService.OK_CODE;
+        result.data= myBankInfoBean;
 
         RetrofitClient.GetMyBankInfo(null, this, new YCNetSubscriber<MyBankInfoBean>(this) {
             @Override
@@ -125,6 +144,7 @@ public class MyBankInfoActivity extends BaseActivity {
                     }
                 });
             }
+
         });
     }
 
@@ -132,7 +152,7 @@ public class MyBankInfoActivity extends BaseActivity {
     public void setUpLisener() {
         tv_back.setOnClickListener(this);
         iv_deleteViewBtn.setOnClickListener(this);
-        ll_moneyDetails.setOnClickListener(this);
+        tv_arrow.setOnClickListener(this);
     }
 
 
@@ -141,7 +161,6 @@ public class MyBankInfoActivity extends BaseActivity {
         super.onResume();
         StatService.onResume(this);
     }
-
 
     @Override
     public void onUserClick(View v) {
@@ -152,11 +171,11 @@ public class MyBankInfoActivity extends BaseActivity {
                 finish();
                 break;
             // 解绑
-            case R.id.iv_02:
+            case R.id.iv_12:
                 DeleteBank();
                 break;
             //下拉显示
-            case R.id.ll_01:
+            case R.id.tv_17:
                 if (getLl_moneyDetailsContent.getVisibility() == View.VISIBLE) {
                     tv_arrow.setText(R.string.view_details);
                     getLl_moneyDetailsContent.setVisibility(View.GONE);
@@ -172,29 +191,43 @@ public class MyBankInfoActivity extends BaseActivity {
 
     private void DeleteBank() {
 
-        ycDialogUtils.showDialog(getResources().getString(R.string.dialog_kindly_title), getString(R.string.sure_to_delete_bank), new YCDialogUtils.MyTwoBtnclickLisener() {
-            @Override
-            public void onFirstBtnClick(View v) {
-                //ok
-                ycDialogUtils.DismissMyDialog();
-                addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
+        if (myBankInfo.canDelete == 1) {
+            ycDialogUtils.showDialog(getResources().getString(R.string.dialog_kindly_title), getString(R.string.sure_to_delete_bank), new YCDialogUtils.MyTwoBtnclickLisener() {
+                @Override
+                public void onFirstBtnClick(View v) {
+                    //ok
+                    ycDialogUtils.DismissMyDialog();
+                    addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
 
-                    @Override
-                    public void onYcNext(Object model) {
-                        //跳转绑定
-                        Bundle bundle = new Bundle();
-                        bundle.putString(AddBankActivity.BACK_TXT, getString(R.string.nav_account));
-                        JumpCenter.JumpActivity(MyBankInfoActivity.this, AddBankActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, true);
-                    }
+                        @Override
+                        public void onYcNext(Object model) {
+                            //跳转绑定
+                            Bundle bundle = new Bundle();
+                            bundle.putString(AddBankActivity.BACK_TXT, getString(R.string.nav_account));
+                            JumpCenter.JumpActivity(MyBankInfoActivity.this, AddBankActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, true);
+                        }
 
-                }));
-            }
+                    }));
+                }
 
-            @Override
-            public void onSecondBtnClick(View v) {
-                ycDialogUtils.DismissMyDialog();
-            }
-        }, true);
+                @Override
+                public void onSecondBtnClick(View v) {
+                    ycDialogUtils.DismissMyDialog();
+                }
+            }, true);
+
+        } else {
+
+            //不可删除，但是设计要显示提示信息，从后台获取错误信息给提示
+            addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
+
+                @Override
+                public void onYcNext(Object model) {
+                }
+
+            }));
+
+        }
 
     }
 

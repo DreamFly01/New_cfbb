@@ -15,7 +15,9 @@ import android.widget.TextView;
 
 import com.cfbb.android.R;
 import com.cfbb.android.commom.baseview.BaseActivity;
+import com.cfbb.android.commom.state.RechargeStateEnum;
 import com.cfbb.android.commom.utils.activityJump.JumpCenter;
+import com.cfbb.android.features.account.AddBankActivity;
 import com.cfbb.android.features.account.withdrawAndrecharge.RechargeActivity;
 import com.cfbb.android.features.account.withdrawAndrecharge.RechargeRightActivity;
 import com.cfbb.android.features.account.withdrawAndrecharge.WithDrawActivity;
@@ -135,12 +137,37 @@ public class AccountDetailsActivity extends BaseActivity {
 
             @Override
             public void onYcNext(RechargeInfoBean model) {
+                accountInfoFragment.setInit(true);
+                if (model.rechargeState == RechargeStateEnum.FIRST_RECHARGE.getValue()) {
 
-                Bundle bundle = new Bundle();
-                bundle.putString(RechargeActivity.SHOW_BACK_TXT, getResources().getString(R.string.account_details_str));
-                bundle.putParcelable(RechargeActivity.RECHARGEINFO_DATA, model);
-                bundle.putSerializable(RechargeRightActivity.RECHARGE_RIGHT_TURN_TO_ACTIVITY_CLASS, AccountDetailsActivity.class);
-                JumpCenter.JumpActivity(AccountDetailsActivity.this, RechargeActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+                    ycDialogUtils.showBindBankDialog(getString(R.string.bind_bankcrad_hint), new YCDialogUtils.MyTwoBtnclickLisener() {
+
+                        @Override
+                        public void onSecondBtnClick(View v) {
+
+                            ycDialogUtils.DismissMyDialog();
+                            Bundle bundle = new Bundle();
+                            bundle.putString(AddBankActivity.BACK_TXT, getString(R.string.account_details_str));
+                            JumpCenter.JumpActivity(AccountDetailsActivity.this, AddBankActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+
+                        }
+
+                        @Override
+                        public void onFirstBtnClick(View v) {
+                            ycDialogUtils.DismissMyDialog();
+                        }
+
+                    }, true);
+
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString(RechargeActivity.SHOW_BACK_TXT, getResources().getString(R.string.account_details_str));
+                    bundle.putParcelable(RechargeActivity.RECHARGEINFO_DATA, model);
+                    bundle.putSerializable(RechargeRightActivity.RECHARGE_RIGHT_TURN_TO_ACTIVITY_CLASS, AccountDetailsActivity.class);
+                    JumpCenter.JumpActivity(AccountDetailsActivity.this, RechargeActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+
+                }
+
 
             }
 
@@ -168,7 +195,7 @@ public class AccountDetailsActivity extends BaseActivity {
                     }, true);
 
                 } else {
-                    ycDialogUtils.showSingleDialog(AccountDetailsActivity.this.getResources().getString(R.string.dialog_title),e.msg, new YCDialogUtils.MySingleBtnclickLisener() {
+                    ycDialogUtils.showSingleDialog(AccountDetailsActivity.this.getResources().getString(R.string.dialog_title), e.msg, new YCDialogUtils.MySingleBtnclickLisener() {
                         @Override
                         public void onBtnClick(View v) {
                             ycDialogUtils.DismissMyDialog();
@@ -181,12 +208,13 @@ public class AccountDetailsActivity extends BaseActivity {
 
     private ArrayList<Fragment> list;
     private MyViewPagerAdaptor mAdaptor;
+    private AccountInfoFragment accountInfoFragment;
 
     /**
      * 初始化ViewPager控件
      */
     private void InitialViewPager() {
-        AccountInfoFragment accountInfoFragment = new AccountInfoFragment();
+        accountInfoFragment = new AccountInfoFragment();
         InvestInfoFragment investInfoFragment = new InvestInfoFragment();
         LoanInfoFragment loanInfoFragment = new LoanInfoFragment();
 

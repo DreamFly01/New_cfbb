@@ -1103,7 +1103,7 @@ public class RetrofitClient {
         public T call(BaseResultBean<T> httpResult) {
 
             if (BuildConfig.DEBUG) {
-                //测试环境
+
                 if (testDate == null) {
 
                     if (httpResult == null) {
@@ -1120,9 +1120,9 @@ public class RetrofitClient {
                 } else {
 
                     if (testDate.code != APIService.OK_CODE) {
-                        return (T) new BaseResultBean(httpResult.msg, httpResult.code);
+                        return (T) new BaseResultBean(testDate.msg, testDate.code);
                     }
-                    return httpResult.data == null ? (T) new BaseResultBean("请求成功!", httpResult.code): httpResult.data ;
+                    return testDate.data == null ? (T) new BaseResultBean("请求成功!", testDate.code): testDate.data ;
                 }
 
             } else {

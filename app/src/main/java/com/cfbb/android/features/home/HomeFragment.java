@@ -19,11 +19,13 @@ import com.cfbb.android.R;
 import com.cfbb.android.commom.baseview.BaseFragment;
 import com.cfbb.android.commom.config.Const;
 import com.cfbb.android.commom.state.MainFragmentEnum;
+import com.cfbb.android.commom.state.RechargeStateEnum;
 import com.cfbb.android.commom.utils.activityJump.JumpCenter;
 import com.cfbb.android.commom.utils.image.ImageWithGlideUtils;
 import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.commom.utils.others.Utils;
 import com.cfbb.android.db.user.UserBiz;
+import com.cfbb.android.features.account.AddBankActivity;
 import com.cfbb.android.features.account.withdrawAndrecharge.RechargeActivity;
 import com.cfbb.android.features.account.withdrawAndrecharge.WithDrawActivity;
 import com.cfbb.android.features.authentication.LoginActivity;
@@ -494,12 +496,36 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
 
                 @Override
                 public void onYcNext(RechargeInfoBean model) {
+                    if (model.rechargeState == RechargeStateEnum.FIRST_RECHARGE.getValue()) {
+                        ycDialogUtils.showBindBankDialog(getString(R.string.bind_bankcrad_hint), new YCDialogUtils.MyTwoBtnclickLisener() {
 
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable(RechargeActivity.RECHARGEINFO_DATA, model);
-                    bundle.putInt(RechargeActivity.RECHARGE_RIGHT_TURN_TO_MAIN_INDEX, MainFragmentEnum.HOME.getValue());
-                    bundle.putString(RechargeActivity.SHOW_BACK_TXT, getResources().getString(R.string.nav_home));
-                    JumpCenter.JumpActivity(getActivity(), RechargeActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+                            @Override
+                            public void onSecondBtnClick(View v) {
+
+                                ycDialogUtils.DismissMyDialog();
+                                Bundle bundle = new Bundle();
+                                bundle.putString(AddBankActivity.BACK_TXT, getString(R.string.nav_home));
+                                JumpCenter.JumpActivity(getActivity(), AddBankActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+
+                            }
+
+                            @Override
+                            public void onFirstBtnClick(View v) {
+                                ycDialogUtils.DismissMyDialog();
+                            }
+
+                        }, true);
+
+                    }
+                    else
+                    {
+                        Bundle bundle = new Bundle();
+                        bundle.putParcelable(RechargeActivity.RECHARGEINFO_DATA, model);
+                        bundle.putInt(RechargeActivity.RECHARGE_RIGHT_TURN_TO_MAIN_INDEX, MainFragmentEnum.HOME.getValue());
+                        bundle.putString(RechargeActivity.SHOW_BACK_TXT, getResources().getString(R.string.nav_home));
+                        JumpCenter.JumpActivity(getActivity(), RechargeActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+
+                    }
 
                 }
 

@@ -121,6 +121,13 @@ public class YCDialogUtils {
             CreateNoAuthentication( showMsg, isAutoCanlce);
         }
     }
+    public void showBindBankDialog( String showMsg, MyTwoBtnclickLisener myTwoBtnclickLisener,
+                                          boolean isAutoCanlce) {
+        if (null != this.mActivity && !mActivity.isFinishing()) {
+            this.myTwoBtnclickLisener = myTwoBtnclickLisener;
+            CreateBindBank( showMsg, isAutoCanlce);
+        }
+    }
 
     private Button btn_ok;
     private Button btn_cancle;
@@ -387,6 +394,52 @@ public class YCDialogUtils {
     }
 
 
+    private void CreateBindBank(String showMsg, boolean c) {
+
+        if (null != this.mActivity && !this.mActivity.isFinishing()) {
+
+            // 构建对话框对象
+            Builder builder = new Builder(this.mActivity);
+            mDialog = builder.create();
+            // 是否点击屏幕外面自动消失
+            mDialog.setCanceledOnTouchOutside(c);
+            mDialog.setCancelable(c);
+
+            mDialog.show();
+
+            // 如果要得到这个布局上的控件的话，就用 dialog.findViewById()
+            // 要特别注意的是,dialog.show(),一定要放在dialog.setContentView()的前面
+            View view = ((LayoutInflater) this.mActivity
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+                    .inflate(R.layout.commom_dialog_layout, null);
+            // TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
+            TextView tv_content = (TextView) view.findViewById(R.id.tv_02);
+
+            btn_ok = (Button) view.findViewById(R.id.btn_ok);
+            btn_cancle = (Button) view.findViewById(R.id.btn_cancel);
+
+            btn_ok.setText(R.string.waitStr);
+            btn_cancle.setText(R.string.goBindBank);
+
+            //tv_title.setText(R.string.Badly);
+
+            tv_content.setText(Html.fromHtml(showMsg));
+
+            btn_ok.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myTwoBtnclickLisener.onFirstBtnClick(v);
+                }
+            });
+            btn_cancle.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myTwoBtnclickLisener.onSecondBtnClick(v);
+                }
+            });
+            mDialog.setContentView(view);
+        }
+    }
 
 
 
