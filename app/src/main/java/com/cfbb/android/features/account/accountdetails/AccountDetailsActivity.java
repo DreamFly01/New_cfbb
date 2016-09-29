@@ -132,8 +132,8 @@ public class AccountDetailsActivity extends BaseActivity {
     }
 
     private void doRechargePre() {
-        addSubscription(RetrofitClient.GetRechargeInitalInfo(null, AccountDetailsActivity.this, new YCNetSubscriber<RechargeInfoBean>(AccountDetailsActivity.this, true) {
 
+        addSubscription(RetrofitClient.GetRechargeInitalInfo(null, AccountDetailsActivity.this, new YCNetSubscriber<RechargeInfoBean>(AccountDetailsActivity.this, true) {
 
             @Override
             public void onYcNext(RechargeInfoBean model) {
@@ -148,6 +148,7 @@ public class AccountDetailsActivity extends BaseActivity {
                             ycDialogUtils.DismissMyDialog();
                             Bundle bundle = new Bundle();
                             bundle.putString(AddBankActivity.BACK_TXT, getString(R.string.account_details_str));
+                            bundle.putSerializable(AddBankActivity.ADDBANK_RIGHT_TURN_TO_ACTIVITY_CLASS, RechargeActivity.class);
                             JumpCenter.JumpActivity(AccountDetailsActivity.this, AddBankActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
 
                         }

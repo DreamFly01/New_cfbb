@@ -505,6 +505,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
                                 ycDialogUtils.DismissMyDialog();
                                 Bundle bundle = new Bundle();
                                 bundle.putString(AddBankActivity.BACK_TXT, getString(R.string.nav_home));
+                                bundle.putSerializable(AddBankActivity.ADDBANK_RIGHT_TURN_TO_ACTIVITY_CLASS, RechargeActivity.class);
                                 JumpCenter.JumpActivity(getActivity(), AddBankActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
 
                             }

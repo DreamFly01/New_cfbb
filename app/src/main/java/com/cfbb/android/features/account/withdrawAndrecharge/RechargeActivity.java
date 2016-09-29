@@ -119,8 +119,8 @@ public class RechargeActivity extends BaseActivity {
         tv_back = (TextView) findViewById(R.id.tv_back);
         tv_title = (TextView) findViewById(R.id.tv_title);
         tv_title.setText(getResources().getString(R.string.recharge));
-        if (StrUtil.isEmpty(SHOW_BACK_TXT)) {
-            tv_back.setText(getResources().getString(R.string.account_details_str));
+        if (StrUtil.isEmpty(show_back_title)) {
+            tv_back.setText(getResources().getString(R.string.back_str));
         } else {
             tv_back.setText(show_back_title);
         }

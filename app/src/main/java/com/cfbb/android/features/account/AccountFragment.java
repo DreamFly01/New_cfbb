@@ -31,6 +31,7 @@ import com.cfbb.android.features.account.accountdetails.AccountDetailsActivity;
 import com.cfbb.android.features.account.myinvest.MyInvestActivity;
 import com.cfbb.android.features.account.releaseLoan.AddLoanActivity;
 import com.cfbb.android.features.account.withdrawAndrecharge.RechargeActivity;
+import com.cfbb.android.features.account.withdrawAndrecharge.RechargeRightActivity;
 import com.cfbb.android.features.authentication.RealNameAuthenticationActivity;
 import com.cfbb.android.protocol.APIException;
 import com.cfbb.android.protocol.APIService;
@@ -322,7 +323,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                             ycDialogUtils.DismissMyDialog();
                             Bundle bundle = new Bundle();
                             bundle.putString(RealNameAuthenticationActivity.SHOW_BACK_TXT, getResources().getString(R.string.nav_account));
-                            bundle.putSerializable(RealNameAuthenticationActivity.NEXT_ACTIVITY_CLASS, RechargeActivity.class);
+                            bundle.putSerializable(RealNameAuthenticationActivity.NEXT_ACTIVITY_CLASS, AddBankActivity.class);
                             JumpCenter.JumpActivity(getActivity(), RealNameAuthenticationActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
 
                         }
@@ -362,10 +363,10 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
                         @Override
                         public void onSecondBtnClick(View v) {
-
                             ycDialogUtils.DismissMyDialog();
                             Bundle bundle = new Bundle();
                             bundle.putString(AddBankActivity.BACK_TXT, getString(R.string.nav_account));
+                            bundle.putSerializable(AddBankActivity.ADDBANK_RIGHT_TURN_TO_ACTIVITY_CLASS, RechargeActivity.class);
                             JumpCenter.JumpActivity(getActivity(), AddBankActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
 
                         }

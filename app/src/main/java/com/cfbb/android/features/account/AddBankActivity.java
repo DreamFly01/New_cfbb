@@ -36,6 +36,10 @@ import java.util.List;
  */
 public class AddBankActivity extends BaseActivity {
 
+    /**
+     * 默认跳转我的银行卡
+     */
+    public static final String ADDBANK_RIGHT_TURN_TO_ACTIVITY_CLASS = "addbank_right_turn_to_activity_class";
     public static final String BACK_TXT = "back_txt";
 
     private TextView tv_back;
@@ -47,7 +51,7 @@ public class AddBankActivity extends BaseActivity {
     private YCDialogUtils ycDialogUtils;
     private String back_txt;
     private ImageView iv_hint;
-
+    private Class turnToActivity;
 
     @Override
     protected void initContentView(Bundle savedInstanceState) {
@@ -55,6 +59,7 @@ public class AddBankActivity extends BaseActivity {
         mIntent = getIntent();
         if (null != mIntent) {
             back_txt = mIntent.getExtras().getString(BACK_TXT);
+            turnToActivity = (Class) mIntent.getExtras().getSerializable(ADDBANK_RIGHT_TURN_TO_ACTIVITY_CLASS);
         }
     }
 
@@ -86,10 +91,12 @@ public class AddBankActivity extends BaseActivity {
 
     @Override
     public void setUpLisener() {
+
         tv_back.setOnClickListener(this);
         iv_hint.setOnClickListener(this);
         tv_bank.setOnClickListener(this);
         btn_nextStep.setOnClickListener(this);
+
     }
 
 
@@ -192,17 +199,28 @@ public class AddBankActivity extends BaseActivity {
     private void Submit() {
         KeyboardUtils.hideSoftInput(this, et_02);
 
-        BaseResultBean resultBean =new BaseResultBean();
+        BaseResultBean resultBean = new BaseResultBean();
         resultBean.code = APIService.OK_CODE;
 
         addSubscription(RetrofitClient.AddBank(null, bankNo, this, new YCNetSubscriber(this, true) {
 
             @Override
             public void onYcNext(Object model) {
-                JumpCenter.JumpActivity(AddBankActivity.this, MyBankInfoActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, true);
+                TurnToOtherActivity();
             }
 
         }));
+    }
+
+    private void TurnToOtherActivity() {
+
+        if (turnToActivity == null) {
+            JumpCenter.JumpActivity(AddBankActivity.this, MyBankInfoActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, true);
+
+        } else {
+            JumpCenter.JumpActivity(AddBankActivity.this, turnToActivity, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, true);
+        }
+
     }
 
     private String bankNo = "";
