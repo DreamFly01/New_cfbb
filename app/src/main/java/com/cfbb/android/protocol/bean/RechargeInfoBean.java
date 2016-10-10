@@ -15,6 +15,8 @@ public class RechargeInfoBean implements Parcelable {
     public String accountName;
     public int rechargeState;
     public String accountBalance;
+    public String cardHolderDesc;
+
 
     @Override
     public int describeContents() {
@@ -30,6 +32,7 @@ public class RechargeInfoBean implements Parcelable {
         dest.writeString(this.accountName);
         dest.writeInt(this.rechargeState);
         dest.writeString(this.accountBalance);
+        dest.writeString(this.cardHolderDesc);
     }
 
     public RechargeInfoBean() {
@@ -43,6 +46,7 @@ public class RechargeInfoBean implements Parcelable {
         this.accountName = in.readString();
         this.rechargeState = in.readInt();
         this.accountBalance = in.readString();
+        this.cardHolderDesc = in.readString();
     }
 
     public static final Parcelable.Creator<RechargeInfoBean> CREATOR = new Parcelable.Creator<RechargeInfoBean>() {

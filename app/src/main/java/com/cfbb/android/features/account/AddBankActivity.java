@@ -118,7 +118,7 @@ public class AddBankActivity extends BaseActivity {
                 GetSupportBank();
                 break;
             case R.id.iv_06:
-                ycDialogUtils.showSingle2Dialog(getResources().getString(R.string.CardholderExplain), getString(R.string.bind_bank_hint), new YCDialogUtils.MySingleBtnclickLisener() {
+                ycDialogUtils.showSingle2Dialog(getResources().getString(R.string.CardholderExplain), certificationResultBean.cardHolderDesc, new YCDialogUtils.MySingleBtnclickLisener() {
                     @Override
                     public void onBtnClick(View v) {
                         ycDialogUtils.DismissMyDialog();
@@ -168,6 +168,7 @@ public class AddBankActivity extends BaseActivity {
         builder.show();
     }
 
+    private CertificationResultBean certificationResultBean;
     @Override
     public void getDataOnCreate() {
         //TestResultUtils.getSussefulResult14()
@@ -185,7 +186,8 @@ public class AddBankActivity extends BaseActivity {
 
             @Override
             public void onYcNext(CertificationResultBean model) {
-                tv_khm.setText(model.realName);
+                certificationResultBean = model;
+                tv_khm.setText(certificationResultBean.realName);
             }
 
             @Override
@@ -202,7 +204,7 @@ public class AddBankActivity extends BaseActivity {
         BaseResultBean resultBean = new BaseResultBean();
         resultBean.code = APIService.OK_CODE;
 
-        addSubscription(RetrofitClient.AddBank(null, bankNo, this, new YCNetSubscriber(this, true) {
+        addSubscription(RetrofitClient.AddBank(null, bankNo,tv_bank.getTag().toString(), this, new YCNetSubscriber(this, true) {
 
             @Override
             public void onYcNext(Object model) {

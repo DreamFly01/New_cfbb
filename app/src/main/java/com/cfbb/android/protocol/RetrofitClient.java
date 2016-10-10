@@ -939,9 +939,10 @@ public class RetrofitClient {
      *
      * @param observer
      */
-    public static Subscription AddBank(BaseResultBean testResult, String bank_no, Context context, YCNetSubscriber observer) {
+    public static Subscription AddBank(BaseResultBean testResult, String bank_no,String bank_code, Context context, YCNetSubscriber observer) {
         Map<String, String> map = new TreeMap<>();
         map.put("bank_no", bank_no);
+        map.put("bank_code", bank_code);
         return doRequest(testResult, RetrofitProxy
                 .getApiService(context)
                 .AddBank(WrapParams(map, context)), context, observer);

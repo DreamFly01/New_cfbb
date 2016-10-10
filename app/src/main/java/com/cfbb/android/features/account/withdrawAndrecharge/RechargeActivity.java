@@ -215,7 +215,7 @@ public class RechargeActivity extends BaseActivity {
                 break;
             //提示
             case R.id.iv_06:
-                ycDialogUtils.showSingle2Dialog(getResources().getString(R.string.CardholderExplain),  getString(R.string.bind_bank_hint), new YCDialogUtils.MySingleBtnclickLisener() {
+                ycDialogUtils.showSingle2Dialog(getResources().getString(R.string.CardholderExplain),  rechargeInfo.cardHolderDesc , new YCDialogUtils.MySingleBtnclickLisener() {
                     @Override
                     public void onBtnClick(View v) {
                         ycDialogUtils.DismissMyDialog();

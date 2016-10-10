@@ -247,7 +247,6 @@
     <string name="choose_bank">选择银行</string>
     <string name="idCradStr">证件号码</string>
     <string name="bind_bank">绑定银行卡</string>
-    <string name="bind_bank_hint"><![CDATA["为了您的账户资金安全，只能绑定持卡人本人的银行卡。<br/>获取更多帮助，请致电财富中国客服400-000-3658 "]]></string>
     <string name="bind_bankcrad_hint">您还未绑定银行卡，暂时无法充值。现在去绑定银行卡吧!</string>
 
 </resources>

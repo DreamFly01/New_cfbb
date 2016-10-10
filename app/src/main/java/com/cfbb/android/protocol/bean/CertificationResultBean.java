@@ -8,5 +8,6 @@ public class CertificationResultBean {
 
     public String realName;
     public String idCard;
+    public String cardHolderDesc;
 
 }

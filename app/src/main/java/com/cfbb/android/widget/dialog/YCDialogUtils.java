@@ -87,10 +87,13 @@ public class YCDialogUtils {
     }
 
     public void showSingle2Dialog(String title, String showMsg, MySingleBtnclickLisener mySingleBtnclickLisener,
-                                 boolean isAutoCanlce) {
+                                  boolean isAutoCanlce) {
 
         if (null != this.mActivity && !mActivity.isFinishing()) {
             this.mySingleBtnclickLisener = mySingleBtnclickLisener;
+            if (StrUtil.isEmpty(showMsg)) {
+                showMsg = "失败";
+            }
             CreateSingle2(title, showMsg, isAutoCanlce);
         }
 
@@ -114,18 +117,19 @@ public class YCDialogUtils {
     }
 
 
-    public void showAuthenticationDialog( String showMsg, MyTwoBtnclickLisener myTwoBtnclickLisener,
-                           boolean isAutoCanlce) {
+    public void showAuthenticationDialog(String showMsg, MyTwoBtnclickLisener myTwoBtnclickLisener,
+                                         boolean isAutoCanlce) {
         if (null != this.mActivity && !mActivity.isFinishing()) {
             this.myTwoBtnclickLisener = myTwoBtnclickLisener;
-            CreateNoAuthentication( showMsg, isAutoCanlce);
+            CreateNoAuthentication(showMsg, isAutoCanlce);
         }
     }
-    public void showBindBankDialog( String showMsg, MyTwoBtnclickLisener myTwoBtnclickLisener,
-                                          boolean isAutoCanlce) {
+
+    public void showBindBankDialog(String showMsg, MyTwoBtnclickLisener myTwoBtnclickLisener,
+                                   boolean isAutoCanlce) {
         if (null != this.mActivity && !mActivity.isFinishing()) {
             this.myTwoBtnclickLisener = myTwoBtnclickLisener;
-            CreateBindBank( showMsg, isAutoCanlce);
+            CreateBindBank(showMsg, isAutoCanlce);
         }
     }
 
@@ -205,6 +209,7 @@ public class YCDialogUtils {
             mDialog.setContentView(view);
         }
     }
+
     private void CreateSingle2(String title, String showMsg, boolean c) {
 
         if (null != this.mActivity && !this.mActivity.isFinishing()) {
@@ -228,7 +233,7 @@ public class YCDialogUtils {
 
             btn_ok = (Button) view.findViewById(R.id.btn_ok);
             tv_title.setText(title);
-            tv_content.setGravity(Gravity.LEFT|Gravity.CENTER);
+            tv_content.setGravity(Gravity.LEFT | Gravity.CENTER);
             tv_content.setText(Html.fromHtml(showMsg));
             btn_ok.setOnClickListener(new OnClickListener() {
                 @Override
@@ -239,6 +244,7 @@ public class YCDialogUtils {
             mDialog.setContentView(view);
         }
     }
+
     private void CreateCall(String showMsg, boolean c) {
 
         if (null != this.mActivity && !this.mActivity.isFinishing()) {
@@ -364,7 +370,7 @@ public class YCDialogUtils {
             View view = ((LayoutInflater) this.mActivity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
                     .inflate(R.layout.commom_dialog_layout, null);
-           // TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
+            // TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
             TextView tv_content = (TextView) view.findViewById(R.id.tv_02);
 
             btn_ok = (Button) view.findViewById(R.id.btn_ok);
@@ -440,7 +446,6 @@ public class YCDialogUtils {
             mDialog.setContentView(view);
         }
     }
-
 
 
     public void DismissMyDialog() {

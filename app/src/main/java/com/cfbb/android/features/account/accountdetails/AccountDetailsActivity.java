@@ -183,7 +183,7 @@ public class AccountDetailsActivity extends BaseActivity {
                             ycDialogUtils.DismissMyDialog();
                             Bundle bundle = new Bundle();
                             bundle.putString(RealNameAuthenticationActivity.SHOW_BACK_TXT, getResources().getString(R.string.account_details_str));
-                            bundle.putSerializable(RealNameAuthenticationActivity.NEXT_ACTIVITY_CLASS, AccountDetailsActivity.class);
+                            bundle.putSerializable(RealNameAuthenticationActivity.NEXT_ACTIVITY_CLASS, RechargeActivity.class);
                             JumpCenter.JumpActivity(AccountDetailsActivity.this, RealNameAuthenticationActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
 
                         }
