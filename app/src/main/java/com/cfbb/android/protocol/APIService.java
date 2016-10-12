@@ -290,7 +290,7 @@ public interface APIService {
      */
     @FormUrlEncoded
     @POST("user/my_bankCardV2")
-    Observable<BaseResultBean<MyBankInfoBean>> GetMyBankInfo(@FieldMap Map<String, String> params);
+    Observable<BaseResultBean<List<MyBankInfoBean>>> GetMyBankInfo(@FieldMap Map<String, String> params);
 
 
     /***

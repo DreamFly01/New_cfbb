@@ -22,6 +22,8 @@ import com.cfbb.android.protocol.bean.MyBankInfoBean;
 import com.cfbb.android.widget.YCLoadingBg;
 import com.cfbb.android.widget.dialog.YCDialogUtils;
 
+import java.util.List;
+
 /**
  * 我的银行卡
  */
@@ -32,7 +34,7 @@ public class MyBankInfoActivity extends BaseActivity {
     private TextView tv_back;
     private TextView tv_title;
     private YCDialogUtils ycDialogUtils;
-    private MyBankInfoBean myBankInfo;
+    private List<MyBankInfoBean> myBankInfo;
     private YCLoadingBg ycLoadingBg;
 
     @Override
@@ -90,15 +92,15 @@ public class MyBankInfoActivity extends BaseActivity {
 
     private void FillView() {
         if (null != myBankInfo) {
-            ImageWithGlideUtils.lodeFromUrl(myBankInfo.imageUrl, R.mipmap.default_bank_bg,iv_bankLogo, this);
-            tv_bankName.setText(myBankInfo.bankName);
-            tv_bankNum.setText(myBankInfo.bankNum);
-            tv_userName.setText(myBankInfo.realName);
-            tv_inUseMoney.setText(myBankInfo.inUseMoeny);
-            tv_accountBlance.setText(myBankInfo.accountBalance);
-            tv_holdingMoney.setText(myBankInfo.holdingMoney);
-            tv_hint.setText(Html.fromHtml(myBankInfo.hint));
-            if (myBankInfo.canDelete == 1) {
+            ImageWithGlideUtils.lodeFromUrl(myBankInfo.get(0).imageUrl, R.mipmap.default_bank_bg,iv_bankLogo, this);
+            tv_bankName.setText(myBankInfo.get(0).bankName);
+            tv_bankNum.setText(myBankInfo.get(0).bankNum);
+            tv_userName.setText(myBankInfo.get(0).realName);
+            tv_inUseMoney.setText(myBankInfo.get(0).inUseMoeny);
+            tv_accountBlance.setText(myBankInfo.get(0).accountBalance);
+            tv_holdingMoney.setText(myBankInfo.get(0).holdingMoney);
+            tv_hint.setText(Html.fromHtml(myBankInfo.get(0).hint));
+            if (myBankInfo.get(0).canDelete == 1) {
                 iv_deleteViewBtn.setImageResource(R.mipmap.can_unbundling_ico);
             } else {
                 iv_deleteViewBtn.setImageResource(R.mipmap.dis_unbundling_ico);
@@ -128,9 +130,9 @@ public class MyBankInfoActivity extends BaseActivity {
         result.code = APIService.OK_CODE;
         result.data= myBankInfoBean;
 
-        RetrofitClient.GetMyBankInfo(null, this, new YCNetSubscriber<MyBankInfoBean>(this) {
+        RetrofitClient.GetMyBankInfo(null, this, new YCNetSubscriber<List<MyBankInfoBean>>(this) {
             @Override
-            public void onYcNext(MyBankInfoBean model) {
+            public void onYcNext(List<MyBankInfoBean> model) {
                 myBankInfo = model;
                 FillView();
             }
@@ -191,13 +193,13 @@ public class MyBankInfoActivity extends BaseActivity {
 
     private void DeleteBank() {
 
-        if (myBankInfo.canDelete == 1) {
+        if (myBankInfo.get(0).canDelete == 1) {
             ycDialogUtils.showDialog(getResources().getString(R.string.dialog_kindly_title), getString(R.string.sure_to_delete_bank), new YCDialogUtils.MyTwoBtnclickLisener() {
                 @Override
                 public void onFirstBtnClick(View v) {
                     //ok
                     ycDialogUtils.DismissMyDialog();
-                    addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
+                    addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.get(0).bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
 
                         @Override
                         public void onYcNext(Object model) {
@@ -219,7 +221,7 @@ public class MyBankInfoActivity extends BaseActivity {
         } else {
 
             //不可删除，但是设计要显示提示信息，从后台获取错误信息给提示
-            addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
+            addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.get(0).bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
 
                 @Override
                 public void onYcNext(Object model) {
