@@ -328,7 +328,7 @@ public class RechargeActivity extends BaseActivity {
             public void onYcNext(RechargeResultInfoBean model) {
                 Intent payintent = new Intent(RechargeActivity.this, BaofooPayActivity.class);
                 payintent.putExtra(BaofooPayActivity.PAY_TOKEN, model.payParams);
-                payintent.putExtra(BaofooPayActivity.PAY_BUSINESS, false);
+                payintent.putExtra(BaofooPayActivity.PAY_BUSINESS, true);
                 startActivityForResult(payintent,
                         REQUEST_CODE_BAOFOO_SDK);
             }

@@ -173,7 +173,7 @@
         <!-- 测试d499d74490 -->
         <meta-data
             android:name="BaiduMobAd_STAT_ID"
-            android:value="d499d74490" />
+            android:value="354888ee21" />
 
         <!-- 渠道商编号 -->
         <meta-data
@@ -232,9 +232,7 @@
         <activity
             android:name=".features.account.AddBankActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".features.account.AddBankPreActivity"
-            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>
