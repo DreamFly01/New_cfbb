@@ -285,21 +285,6 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
     private void goToMyBankInfo() {
 
-        BaseResultBean<MyBankInfoBean> result = new BaseResultBean<>();
-        MyBankInfoBean myBankInfoBean = new MyBankInfoBean();
-        myBankInfoBean.canDelete = -1;
-        myBankInfoBean.accountBalance = "200.0元";
-        myBankInfoBean.bankCardId = "1111";
-        myBankInfoBean.bankName = "人民银行";
-        myBankInfoBean.bankNum = "24234234234234324234";
-        myBankInfoBean.hint = "替上帝啊上帝说的好好<br/>1.就是看见分列式送到附近<br/>2.结婚jfk是";
-        myBankInfoBean.holdingMoney = "522.0元";
-        myBankInfoBean.imageUrl = "56";
-        myBankInfoBean.inUseMoeny = "566565.0元";
-        myBankInfoBean.realName = "发射点";
-        result.code = APIService.NO_AUTHENTICATION_CODE;
-        result.data = myBankInfoBean;
-        result.msg = "sdsdsdsd";
 
         addSubscription(RetrofitClient.GetMyBankInfo(null, getActivity(), new YCNetSubscriber<MyBankInfoBean>(getActivity(), true) {
 

@@ -9,11 +9,13 @@ import android.widget.TextView;
 import com.baidu.mobstat.StatService;
 import com.cfbb.android.R;
 import com.cfbb.android.commom.baseview.BaseActivity;
+import com.cfbb.android.commom.state.CertificationEnum;
 import com.cfbb.android.commom.textwatch.TextWatchForNoBlank;
 import com.cfbb.android.commom.textwatch.TextWatchForOnlyChinese;
-import com.cfbb.android.commom.state.CertificationEnum;
 import com.cfbb.android.commom.utils.activityJump.JumpCenter;
 import com.cfbb.android.commom.utils.others.StrUtil;
+import com.cfbb.android.features.account.AddBankActivity;
+import com.cfbb.android.features.account.withdrawAndrecharge.RechargeActivity;
 import com.cfbb.android.protocol.APIException;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
@@ -136,7 +138,6 @@ public class RealNameAuthenticationActivity extends BaseActivity {
     }
 
 
-
     private String realName;
     private String idCrad;
 
@@ -147,7 +148,19 @@ public class RealNameAuthenticationActivity extends BaseActivity {
 
             @Override
             public void onYcNext(Object model) {
-                ycDialogUtils.showSingleDialog(getResources().getString(R.string.dialog_title), getString(R.string.AuthenticationOKHintRight), new YCDialogUtils.MySingleBtnclickLisener() {
+                String hint = getString(R.string.authentication_right);
+                if (nextActivityClass != null) {
+                    if(nextActivityClass == AddBankActivity.class)
+                    {
+                        hint = getString(R.string.authenticationOKtoBindCard);
+                    }
+                    if(nextActivityClass == RechargeActivity.class)
+                    {
+                        hint = getString(R.string.authenticationOKHintRight);
+                    }
+
+                }
+                ycDialogUtils.showSingleDialog(getResources().getString(R.string.dialog_title),hint, new YCDialogUtils.MySingleBtnclickLisener() {
                     @Override
                     public void onBtnClick(View v) {
                         ycDialogUtils.DismissMyDialog();

@@ -63,6 +63,7 @@ public class RechargeActivity extends BaseActivity {
     private YCLoadingBg ycLoadingBg;
     private YCDialogUtils ycDialogUtils;
     private Bundle bundle;
+    private TextView tv_accountName;
 
     @Override
     protected void initContentView(Bundle savedInstanceState) {
@@ -174,11 +175,11 @@ public class RechargeActivity extends BaseActivity {
                 tv_bankNum = (TextView) findViewById(R.id.tv_04);
                 tvAccountBalance = (TextView) findViewById(R.id.tv_06);
                 tvAccountBalance.setText(rechargeInfo.accountBalance);
-
+                tv_accountName= (TextView) findViewById(R.id.tv_05);
                 ImageWithGlideUtils.lodeFromUrl(rechargeInfo.imageUrl, iv_bank, this);
                 tv_bankName.setText(rechargeInfo.bankName);
                 tv_bankNum.setText(rechargeInfo.bankNum);
-
+                tv_accountName.setText(rechargeInfo.accountName);
                 et_money.addTextChangedListener(mTextWatcher);
 
             }

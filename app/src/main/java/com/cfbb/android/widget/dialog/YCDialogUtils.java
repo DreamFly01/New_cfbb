@@ -134,10 +134,10 @@ public class YCDialogUtils {
     }
 
 
-    public void showunBindBankDialog(String showMsg, MyTwoBtnclickLisener myTwoBtnclickLisener,
+    public void showunBindBankDialog(String showMsg, MySingleBtnclickLisener mySingleBtnclickLisener,
                                    boolean isAutoCanlce) {
         if (null != this.mActivity && !mActivity.isFinishing()) {
-            this.myTwoBtnclickLisener = myTwoBtnclickLisener;
+            this.mySingleBtnclickLisener = mySingleBtnclickLisener;
             CreateunBindBank(showMsg, isAutoCanlce);
         }
     }
@@ -474,32 +474,20 @@ public class YCDialogUtils {
             // 要特别注意的是,dialog.show(),一定要放在dialog.setContentView()的前面
             View view = ((LayoutInflater) this.mActivity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
-                    .inflate(R.layout.commom_dialog_layout, null);
-             TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
+                    .inflate(R.layout.commom_single_dialog_layout, null);
+
+            TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
             TextView tv_content = (TextView) view.findViewById(R.id.tv_02);
-
             btn_ok = (Button) view.findViewById(R.id.btn_ok);
-            btn_cancle = (Button) view.findViewById(R.id.btn_cancel);
-
-            btn_ok.setText(R.string.bingNewBank);
-            btn_ok.setVisibility(View.GONE);
-
-            btn_cancle.setText(R.string.sureToUnbind);
-
+            btn_ok.setText(R.string.sureToUnbind);
             tv_title.setText(R.string.safeUpdateDialogTitle);
-
             tv_content.setText(Html.fromHtml(showMsg));
+
 
             btn_ok.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    myTwoBtnclickLisener.onFirstBtnClick(v);
-                }
-            });
-            btn_cancle.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    myTwoBtnclickLisener.onSecondBtnClick(v);
+                    mySingleBtnclickLisener.onBtnClick(v);
                 }
             });
             mDialog.setContentView(view);

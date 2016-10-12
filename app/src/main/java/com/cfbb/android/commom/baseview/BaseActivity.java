@@ -9,14 +9,23 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.cfbb.android.R;
 import com.cfbb.android.app.MyApplication;
 import com.cfbb.android.commom.config.Const;
+import com.cfbb.android.commom.utils.activityJump.JumpCenter;
 import com.cfbb.android.commom.utils.base.PhoneUtils;
-import com.cfbb.android.commom.utils.others.L;
 import com.cfbb.android.commom.utils.others.SPUtils;
 import com.cfbb.android.db.user.UserBiz;
 import com.cfbb.android.features.gesture.GestureVerifyActivity;
+import com.cfbb.android.features.main.MainActivity;
 import com.cfbb.android.features.slidingFinishView.SwipeBackFragment;
+import com.cfbb.android.protocol.APIException;
+import com.cfbb.android.protocol.APIService;
+import com.cfbb.android.protocol.RetrofitClient;
+import com.cfbb.android.protocol.YCNetSubscriber;
+import com.cfbb.android.protocol.bean.BaseResultBean;
+import com.cfbb.android.protocol.bean.UnsupportedBankCardBean;
+import com.cfbb.android.widget.dialog.YCDialogUtils;
 
 import java.util.Calendar;
 
@@ -48,16 +57,89 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
         getDataOnCreate();
     }
 
+
+    private YCDialogUtils ycDialogUtils;
+    private String msg = null;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        msg = (String) SPUtils.get(BaseActivity.this, Const.SAFE_UPDATE_MSG, "");
+        IsExsitUnSupportBankCard();
+
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
         PhoneUtils.isEmulator(this);
         CheckGestureState();
+
+    }
+
+    private void IsExsitUnSupportBankCard() {
+
+        if (UserBiz.getInstance(this).CheckLoginState() && !msg.equals("-1")) {
+
+//            BaseResultBean<UnsupportedBankCardBean> bankCardBeanBaseResultBean = new BaseResultBean<>();
+//            bankCardBeanBaseResultBean.code = APIService.OK_CODE;
+//            UnsupportedBankCardBean unsupportedBankCardBean = new UnsupportedBankCardBean();
+//            unsupportedBankCardBean.content = "sssss";
+//            bankCardBeanBaseResultBean.data = unsupportedBankCardBean;
+
+            RetrofitClient.IsExsitUnSupportBankCard(null, this, new YCNetSubscriber<UnsupportedBankCardBean>(this) {
+                @Override
+                public void onYcNext(UnsupportedBankCardBean model) {
+                    SPUtils.put(BaseActivity.this, Const.SAFE_UPDATE_MSG, model.content);
+                    if(ycDialogUtils != null)
+                    {
+                        ycDialogUtils.DismissMyDialog();
+                    }
+                    ycDialogUtils = new YCDialogUtils(BaseActivity.this);
+                    ycDialogUtils.showunBindBankDialog(model.content, new YCDialogUtils.MySingleBtnclickLisener() {
+
+                        @Override
+                        public void onBtnClick(View v) {
+                            UnBindBankCard();
+                        }
+
+                    }, false);
+
+                }
+
+            });
+        }
+
+    }
+
+    private void UnBindBankCard() {
+        ycDialogUtils.DismissMyDialog();
+        RetrofitClient.UnBundlingNoSupportBank(null, this, new YCNetSubscriber(this, true) {
+
+            @Override
+            public void onYCError(APIException e) {
+
+                ycDialogUtils.showSingleDialog(getString(R.string.dialog_kindly_title), getString(R.string.unbindFalied), new YCDialogUtils.MySingleBtnclickLisener() {
+                    @Override
+                    public void onBtnClick(View v) {
+                        ycDialogUtils.DismissMyDialog();
+                    }
+                }, true);
+            }
+
+            @Override
+            public void onYcNext(Object model) {
+                SPUtils.put(BaseActivity.this, Const.SAFE_UPDATE_MSG, "-1");
+               // JumpCenter.JumpActivity(BaseActivity.this, MainActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+            }
+        });
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         if (this.mCompositeSubscription != null) {
             this.mCompositeSubscription.unsubscribe();
         }
@@ -65,6 +147,7 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
+
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             View v = getCurrentFocus();
             if (isShouldHideInput(v, ev)) {
@@ -82,7 +165,6 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
         return onTouchEvent(ev);
 
     }
-
 
     protected void addSubscription(Subscription s) {
         if (this.mCompositeSubscription == null) {

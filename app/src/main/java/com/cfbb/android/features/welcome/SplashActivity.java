@@ -20,10 +20,10 @@ import com.cfbb.android.R;
 import com.cfbb.android.commom.baseview.BaseActivity;
 import com.cfbb.android.commom.config.Const;
 import com.cfbb.android.commom.state.MainFragmentEnum;
-import com.cfbb.android.commom.utils.base.AppUtils;
-import com.cfbb.android.commom.utils.others.ArithUtil;
-import com.cfbb.android.commom.utils.image.ImageWithGlideUtils;
 import com.cfbb.android.commom.utils.activityJump.JumpCenter;
+import com.cfbb.android.commom.utils.base.AppUtils;
+import com.cfbb.android.commom.utils.image.ImageWithGlideUtils;
+import com.cfbb.android.commom.utils.others.ArithUtil;
 import com.cfbb.android.commom.utils.others.SPUtils;
 import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.features.main.MainActivity;
@@ -31,10 +31,12 @@ import com.cfbb.android.features.update.UpdateAppService;
 import com.cfbb.android.features.update.UpdateDialog;
 import com.cfbb.android.features.webview.OtherActivity;
 import com.cfbb.android.protocol.APIException;
+import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
 import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.ProductTypeBean;
+import com.cfbb.android.protocol.bean.UnsupportedBankCardBean;
 import com.cfbb.android.protocol.bean.UpdateVersionBean;
 import com.cfbb.android.protocol.bean.WelcomeInfoBean;
 import com.cfbb.android.protocol.downRequest.IProgressLisenr;
@@ -92,11 +94,15 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
     @Override
     public void getDataOnCreate() {
 
-
-
+//
+//        BaseResultBean<UnsupportedBankCardBean> bankCardBeanBaseResultBean = new BaseResultBean<>();
+//        bankCardBeanBaseResultBean.code = APIService.OK_CODE;
+//        UnsupportedBankCardBean unsupportedBankCardBean = new UnsupportedBankCardBean();
+//        unsupportedBankCardBean.content = "sssss";
+//        bankCardBeanBaseResultBean.data = unsupportedBankCardBean;
+//
 
         RetrofitClient.getVersionInfoRequest(null, this, new YCNetSubscriber<UpdateVersionBean>(this) {
-
 
             @Override
             public void onYCError(APIException e) {
@@ -112,6 +118,8 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
 
             @Override
             public void onYcNext(UpdateVersionBean updateVersionBean) {
+
+
                 SplashActivity.this.updateVersionBean = updateVersionBean;
                 int currentVersionCode = AppUtils.getAppInfo(getApplicationContext()).getVersionCode();
                 if (currentVersionCode < updateVersionBean.version_code) {
@@ -241,7 +249,7 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
 
             @Override
             public void onYCError(APIException e) {
-            //    super.onYCError(e);
+                //    super.onYCError(e);
                 SPUtils.put(SplashActivity.this, Const.PRODUCT_STR, "");
             }
 
@@ -313,7 +321,7 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
 
 
     @Override
-    public void onUserClick(View v) {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_splash:
                 if (updateVersionBean != null && updateVersionBean.force_update != 1) {

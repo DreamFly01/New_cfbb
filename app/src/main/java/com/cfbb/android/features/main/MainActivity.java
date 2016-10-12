@@ -15,8 +15,11 @@ import android.widget.Toast;
 
 import com.cfbb.android.R;
 import com.cfbb.android.commom.baseview.BaseActivity;
+import com.cfbb.android.commom.config.Const;
 import com.cfbb.android.commom.state.MainFragmentEnum;
 import com.cfbb.android.commom.utils.activityJump.JumpCenter;
+import com.cfbb.android.commom.utils.others.SPUtils;
+import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.db.user.UserBiz;
 import com.cfbb.android.features.account.AccountFragment;
 import com.cfbb.android.features.authentication.LoginActivity;
@@ -31,7 +34,6 @@ import com.cfbb.android.features.invest.InvestFragment;
  * @description main
  */
 public class MainActivity extends BaseActivity implements InvestContentFragment.OnProductTypeChangeListener {
-
 
     public static final String WITCH_TO_DO = "witch_to_do";
     //充值
@@ -64,7 +66,6 @@ public class MainActivity extends BaseActivity implements InvestContentFragment.
      * 用于对Fragment进行管理
      */
     private FragmentManager fragmentManager;
-    private Intent intent;
     private int index = MainFragmentEnum.HOME.getValue();
 
     private Bundle bundle;
@@ -77,7 +78,9 @@ public class MainActivity extends BaseActivity implements InvestContentFragment.
         InitailFragments();
     }
 
+
     private void InitailFragments() {
+
         fragmentManager = getSupportFragmentManager();
         initTabBar();
         bundle = getIntent().getExtras();
@@ -85,6 +88,7 @@ public class MainActivity extends BaseActivity implements InvestContentFragment.
             index = bundle.getInt(SHOW_FRAGMENT_INDEX, MainFragmentEnum.HOME.getValue());
         }
         setTabSelection(index);
+
     }
 
     @Override
@@ -100,6 +104,7 @@ public class MainActivity extends BaseActivity implements InvestContentFragment.
     @Override
     protected void onResume() {
         super.onResume();
+
     }
 
     @Override
@@ -225,14 +230,21 @@ public class MainActivity extends BaseActivity implements InvestContentFragment.
 
 
     private void WitchToDo() {
-        witch_to_do = bundle.getInt(WITCH_TO_DO);
-        switch (witch_to_do) {
-            case RECHANGER_GOON:
-                homeFragment.doRechargePre();
-                break;
-            case WITHDRAW_GOON:
-                homeFragment.doWithdraw();
-                break;
+        //判断是否需要弹出解绑对话框
+        String msg = (String) SPUtils.get(this, Const.SAFE_UPDATE_MSG, "");
+
+        if (msg.equals("-1") || StrUtil.isEmpty(msg)) {
+
+            witch_to_do = bundle.getInt(WITCH_TO_DO);
+            switch (witch_to_do) {
+                case RECHANGER_GOON:
+                    homeFragment.doRechargePre();
+                    break;
+                case WITHDRAW_GOON:
+                    homeFragment.doWithdraw();
+                    break;
+            }
+
         }
         bundle.clear();
     }
@@ -293,7 +305,7 @@ public class MainActivity extends BaseActivity implements InvestContentFragment.
                 }
                 finish();
                 //System.exit(0);
-               // android.os.Process.killProcess(android.os.Process.myPid());
+                // android.os.Process.killProcess(android.os.Process.myPid());
             }
             return true;
         }

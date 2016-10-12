@@ -32,6 +32,7 @@ import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.protocol.bean.RechargeResultInfoBean;
 import com.cfbb.android.protocol.bean.ServiceTermBean;
 import com.cfbb.android.protocol.bean.TradeRecordBean;
+import com.cfbb.android.protocol.bean.UnsupportedBankCardBean;
 import com.cfbb.android.protocol.bean.UpdateVersionBean;
 import com.cfbb.android.protocol.bean.UploadPhotoBean;
 import com.cfbb.android.protocol.bean.UserBean;
@@ -684,5 +685,25 @@ public interface APIService {
     @POST("user/supported_bank_cards")
     Observable<BaseResultBean<List<BankBean>>> GetSupportBankList(@FieldMap Map<String, String> params);
 
+
+    /***
+     * 解绑不支持银行卡
+     *
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/baofoo_unbundling")
+    Observable<BaseResultBean> UnBundlingNoSupportBank(@FieldMap Map<String, String> params);
+
+    /***
+     * 是否存在不支持银行卡
+     *
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/check_unsupported_bank_card")
+    Observable<BaseResultBean<UnsupportedBankCardBean>> IsExistUnSupportBankCard(@FieldMap Map<String, String> params);
 
 }

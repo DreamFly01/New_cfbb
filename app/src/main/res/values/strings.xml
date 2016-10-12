@@ -242,11 +242,16 @@
     <string name="waitStr">等会儿</string>
     <string name="goAuthentication">去认证</string>
     <string name="goBindBank">去绑定</string>
-    <string name="AuthenticationOKHintRight">身份证认证成功!现在去绑定银行卡，就可以充值啦!</string>
+    <string name="authenticationOKHintRight">身份证认证成功!现在去绑定银行卡，就可以充值啦!</string>
+    <string name="authenticationOKtoBindCard">身份证认证成功!现在去绑定银行卡!</string>
     <string name="please_choose_bank_hint">请选择银行</string>
     <string name="choose_bank">选择银行</string>
     <string name="idCradStr">证件号码</string>
     <string name="bind_bank">绑定银行卡</string>
     <string name="bind_bankcrad_hint">您还未绑定银行卡，暂时无法充值。现在去绑定银行卡吧!</string>
 
+    <string name="safeUpdateDialogTitle">安全升级提醒</string>
+    <string name="bingNewBank">绑定新卡</string>
+    <string name="sureToUnbind">确认解绑</string>
+    <string name="unbindFalied">解绑失败</string>
 </resources>

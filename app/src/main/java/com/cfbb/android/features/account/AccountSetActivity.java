@@ -30,6 +30,7 @@ import com.baidu.mobstat.StatService;
 import com.cfbb.android.R;
 import com.cfbb.android.app.MyApplication;
 import com.cfbb.android.commom.baseview.BaseActivity;
+import com.cfbb.android.commom.config.Const;
 import com.cfbb.android.commom.state.BindingStateEnum;
 import com.cfbb.android.commom.state.CertificationEnum;
 import com.cfbb.android.commom.state.IsOpenGestureEnum;
@@ -296,6 +297,8 @@ public class AccountSetActivity extends BaseActivity {
                     @Override
                     public void onFirstBtnClick(View v) {
                         //ok
+                        SPUtils.put(AccountSetActivity.this, Const.SAFE_UPDATE_MSG, "");
+
                         SPUtils.put(AccountSetActivity.this, UserBiz.getInstance(AccountSetActivity.this).GetUserName(), UserBiz.getInstance(AccountSetActivity.this).GetGesturePassWord() + "." + (UserBiz.getInstance(AccountSetActivity.this).Is_Open_Gesture() ? 1:-1));
                         ycDialogUtils.DismissMyDialog();
                         UserBiz.getInstance(AccountSetActivity.this).ExitLogin();

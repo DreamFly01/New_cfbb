@@ -302,7 +302,7 @@ public class InvestBidActivity extends BaseActivity  {
 
         public void afterTextChanged(Editable s) {
 
-            money = et_money.getKeyboardText();
+            money = s.toString();
             editStart = et_money.getSelectionStart();
 
             // 先去掉监听器，否则会出现栈溢出

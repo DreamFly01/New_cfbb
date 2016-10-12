@@ -22,4 +22,8 @@ public class Const {
     public static final String IS_FIRST_START = "is_first_start";
     public static final String PRE_USER_NAME = "pre_user_name";
     public static final String CUSTOM_TEL = "custom_tel";
+
+
+    //安全升级提醒内容
+    public static final String SAFE_UPDATE_MSG = "safe_update_msg";
 }

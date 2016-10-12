@@ -22,8 +22,12 @@ import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.db.user.UserBiz;
 import com.cfbb.android.features.gesture.GestureEditActivity;
 import com.cfbb.android.features.main.MainActivity;
+import com.cfbb.android.features.welcome.SplashActivity;
+import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
+import com.cfbb.android.protocol.bean.BaseResultBean;
+import com.cfbb.android.protocol.bean.UnsupportedBankCardBean;
 import com.cfbb.android.protocol.bean.UserBean;
 import com.cfbb.android.widget.dialog.YCDialogUtils;
 import com.smileback.safeinputlib.IJMInputEditText;
@@ -153,7 +157,6 @@ public class LoginActivity extends BaseActivity {
 
                 @Override
                 public void onYcNext(UserBean model) {
-
 
                     // 将手势密码和是否开启 保存在SP中，
                     // 每次登录2通过UserName作为key取值，存在就一并插入到数据库中，不存在跳转设置界面。

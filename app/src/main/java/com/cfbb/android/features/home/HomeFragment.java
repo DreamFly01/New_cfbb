@@ -147,7 +147,6 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
 
     }
 
-
     @Override
     public void setUpLisener() {
         ll_hot_hotitem.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +173,6 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     public void onDetach() {
         super.onDetach();
     }
-
 
     @Override
     public void setUpViews(View view) {
@@ -514,6 +512,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
                             public void onFirstBtnClick(View v) {
                                 ycDialogUtils.DismissMyDialog();
                             }
+
 
                         }, true);
 

@@ -43,6 +43,7 @@ import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.protocol.bean.RechargeResultInfoBean;
 import com.cfbb.android.protocol.bean.ServiceTermBean;
 import com.cfbb.android.protocol.bean.TradeRecordBean;
+import com.cfbb.android.protocol.bean.UnsupportedBankCardBean;
 import com.cfbb.android.protocol.bean.UpdateVersionBean;
 import com.cfbb.android.protocol.bean.UploadPhotoBean;
 import com.cfbb.android.protocol.bean.UserBean;
@@ -1004,6 +1005,31 @@ public class RetrofitClient {
                 .GetSupportBankList(WrapParams(map, context)), context, observer);
     }
 
+
+    /***
+     * 解绑不支持银行卡
+     *
+     * @param observer
+     */
+    public static Subscription UnBundlingNoSupportBank(BaseResultBean testResult, Context context, YCNetSubscriber observer) {
+
+        Map<String, String> map = new TreeMap<>();
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .UnBundlingNoSupportBank(WrapParams(map, context)), context, observer);
+    }
+    /***
+     * 是否存在不支持银行卡
+     *
+     * @param observer
+     */
+    public static Subscription IsExsitUnSupportBankCard(BaseResultBean<UnsupportedBankCardBean> testResult, Context context, YCNetSubscriber<UnsupportedBankCardBean> observer) {
+
+        Map<String, String> map = new TreeMap<>();
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .IsExistUnSupportBankCard(WrapParams(map, context)), context, observer);
+    }
 
     /***
      * 包装请求后再发起请求
