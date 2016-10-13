@@ -34,7 +34,7 @@ public class MyBankInfoActivity extends BaseActivity {
     private TextView tv_back;
     private TextView tv_title;
     private YCDialogUtils ycDialogUtils;
-    private List<MyBankInfoBean> myBankInfo;
+    private MyBankInfoBean myBankInfo;
     private YCLoadingBg ycLoadingBg;
 
     @Override
@@ -92,15 +92,15 @@ public class MyBankInfoActivity extends BaseActivity {
 
     private void FillView() {
         if (null != myBankInfo) {
-            ImageWithGlideUtils.lodeFromUrl(myBankInfo.get(0).imageUrl, R.mipmap.default_bank_bg,iv_bankLogo, this);
-            tv_bankName.setText(myBankInfo.get(0).bankName);
-            tv_bankNum.setText(myBankInfo.get(0).bankNum);
-            tv_userName.setText(myBankInfo.get(0).realName);
-            tv_inUseMoney.setText(myBankInfo.get(0).inUseMoeny);
-            tv_accountBlance.setText(myBankInfo.get(0).accountBalance);
-            tv_holdingMoney.setText(myBankInfo.get(0).holdingMoney);
-            tv_hint.setText(Html.fromHtml(myBankInfo.get(0).hint));
-            if (myBankInfo.get(0).canDelete == 1) {
+            ImageWithGlideUtils.lodeFromUrl(myBankInfo.imageUrl, R.mipmap.default_bank_bg,iv_bankLogo, this);
+            tv_bankName.setText(myBankInfo.bankName);
+            tv_bankNum.setText(myBankInfo.bankNum);
+            tv_userName.setText(myBankInfo.realName);
+            tv_inUseMoney.setText(myBankInfo.inUseMoeny);
+            tv_accountBlance.setText(myBankInfo.accountBalance);
+            tv_holdingMoney.setText(myBankInfo.holdingMoney);
+            tv_hint.setText(Html.fromHtml(myBankInfo.hint));
+            if (myBankInfo.canDelete == 1) {
                 iv_deleteViewBtn.setImageResource(R.mipmap.can_unbundling_ico);
             } else {
                 iv_deleteViewBtn.setImageResource(R.mipmap.dis_unbundling_ico);
@@ -114,26 +114,10 @@ public class MyBankInfoActivity extends BaseActivity {
 
     private void getData() {
 
-        BaseResultBean<MyBankInfoBean> result = new BaseResultBean<>();
-        MyBankInfoBean myBankInfoBean = new MyBankInfoBean();
-        myBankInfoBean.canDelete=-1;
-        myBankInfoBean.accountBalance="200.0元";
-        myBankInfoBean.bankCardId="1111";
-        myBankInfoBean.bankName="人民银行";
-        myBankInfoBean.bankNum="24234234234234324234";
-        myBankInfoBean.hint="替上帝啊上帝说的好好<br/>1.就是看见分列式送到附近<br/>2.结婚jfk是";
-        myBankInfoBean.holdingMoney="522.0元";
-        myBankInfoBean.imageUrl="56";
-        myBankInfoBean.inUseMoeny="566565.0元";
-        myBankInfoBean.holdingMoney="54545.0元";
-        myBankInfoBean.realName="发射点";
-        result.code = APIService.OK_CODE;
-        result.data= myBankInfoBean;
-
         RetrofitClient.GetMyBankInfo(null, this, new YCNetSubscriber<List<MyBankInfoBean>>(this) {
             @Override
             public void onYcNext(List<MyBankInfoBean> model) {
-                myBankInfo = model;
+                myBankInfo = model.get(0);
                 FillView();
             }
 
@@ -193,13 +177,13 @@ public class MyBankInfoActivity extends BaseActivity {
 
     private void DeleteBank() {
 
-        if (myBankInfo.get(0).canDelete == 1) {
+        if (myBankInfo.canDelete == 1) {
             ycDialogUtils.showDialog(getResources().getString(R.string.dialog_kindly_title), getString(R.string.sure_to_delete_bank), new YCDialogUtils.MyTwoBtnclickLisener() {
                 @Override
                 public void onFirstBtnClick(View v) {
                     //ok
                     ycDialogUtils.DismissMyDialog();
-                    addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.get(0).bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
+                    addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
 
                         @Override
                         public void onYcNext(Object model) {
@@ -221,7 +205,7 @@ public class MyBankInfoActivity extends BaseActivity {
         } else {
 
             //不可删除，但是设计要显示提示信息，从后台获取错误信息给提示
-            addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.get(0).bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
+            addSubscription(RetrofitClient.DeleteBank(null, myBankInfo.bankCardId, MyBankInfoActivity.this, new YCNetSubscriber(MyBankInfoActivity.this, true) {
 
                 @Override
                 public void onYcNext(Object model) {

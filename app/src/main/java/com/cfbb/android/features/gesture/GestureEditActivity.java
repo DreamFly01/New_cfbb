@@ -176,7 +176,7 @@ public class GestureEditActivity extends Activity implements OnClickListener {
                 if (toActivity == null) {
                     toActivity = MainActivity.class;
                 }
-                JumpCenter.JumpActivity(GestureEditActivity.this, toActivity, bundle, null, JumpCenter.NORMALL_REQUEST, Intent.FLAG_ACTIVITY_CLEAR_TASK, false, true);
+                JumpCenter.JumpActivity(GestureEditActivity.this, toActivity, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, true);
             } else {
                 bundle = new Bundle();
                 bundle.putInt(MainActivity.SHOW_FRAGMENT_INDEX, MainFragmentEnum.HOME.getValue());
@@ -206,7 +206,7 @@ public class GestureEditActivity extends Activity implements OnClickListener {
                         if (toActivity == null) {
                             toActivity = MainActivity.class;
                         }
-                        JumpCenter.JumpActivity(GestureEditActivity.this, toActivity, bundle, null, JumpCenter.NORMALL_REQUEST, Intent.FLAG_ACTIVITY_CLEAR_TASK, false, true);
+                        JumpCenter.JumpActivity(GestureEditActivity.this, toActivity, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
                     } else {
                         bundle = new Bundle();
                         bundle.putInt(MainActivity.SHOW_FRAGMENT_INDEX, MainFragmentEnum.HOME.getValue());

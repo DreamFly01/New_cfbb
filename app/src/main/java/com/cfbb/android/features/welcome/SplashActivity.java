@@ -297,6 +297,7 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
         btn_jump.setText(SHOW_PICLAEST_TIME / 1000 + "  " + getResources().getString(R.string.jump));
         btn_jump.setVisibility(View.VISIBLE);
         countDownTimerTwo = new CountDownTimer(SHOW_PICLAEST_TIME, 1000) {
+
             @Override
             public void onTick(long millisUntilFinished) {
                 if (null != btn_jump) {

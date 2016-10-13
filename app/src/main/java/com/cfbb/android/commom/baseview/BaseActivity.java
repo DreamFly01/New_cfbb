@@ -19,8 +19,10 @@ import com.cfbb.android.db.user.UserBiz;
 import com.cfbb.android.features.gesture.GestureVerifyActivity;
 import com.cfbb.android.features.slidingFinishView.SwipeBackFragment;
 import com.cfbb.android.protocol.APIException;
+import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
+import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.UnsupportedBankCardBean;
 import com.cfbb.android.widget.dialog.YCDialogUtils;
 
@@ -79,11 +81,11 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
 
         if (UserBiz.getInstance(this).CheckLoginState() && !msg.equals("-1")) {
 
-//            BaseResultBean<UnsupportedBankCardBean> bankCardBeanBaseResultBean = new BaseResultBean<>();
-//            bankCardBeanBaseResultBean.code = APIService.OK_CODE;
-//            UnsupportedBankCardBean unsupportedBankCardBean = new UnsupportedBankCardBean();
-//            unsupportedBankCardBean.content = "sssss";
-//            bankCardBeanBaseResultBean.data = unsupportedBankCardBean;
+            BaseResultBean<UnsupportedBankCardBean> bankCardBeanBaseResultBean = new BaseResultBean<>();
+            bankCardBeanBaseResultBean.code = APIService.OK_CODE;
+            UnsupportedBankCardBean unsupportedBankCardBean = new UnsupportedBankCardBean();
+            unsupportedBankCardBean.content = "sssss";
+            bankCardBeanBaseResultBean.data = unsupportedBankCardBean;
 
             RetrofitClient.IsExsitUnSupportBankCard(null, this, new YCNetSubscriber<UnsupportedBankCardBean>(this) {
                 @Override
