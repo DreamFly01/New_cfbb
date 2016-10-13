@@ -12,18 +12,15 @@ import android.widget.Toast;
 import com.cfbb.android.R;
 import com.cfbb.android.app.MyApplication;
 import com.cfbb.android.commom.config.Const;
-import com.cfbb.android.commom.utils.activityJump.JumpCenter;
 import com.cfbb.android.commom.utils.base.PhoneUtils;
 import com.cfbb.android.commom.utils.others.SPUtils;
+import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.db.user.UserBiz;
 import com.cfbb.android.features.gesture.GestureVerifyActivity;
-import com.cfbb.android.features.main.MainActivity;
 import com.cfbb.android.features.slidingFinishView.SwipeBackFragment;
 import com.cfbb.android.protocol.APIException;
-import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
-import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.UnsupportedBankCardBean;
 import com.cfbb.android.widget.dialog.YCDialogUtils;
 
@@ -91,21 +88,23 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
             RetrofitClient.IsExsitUnSupportBankCard(null, this, new YCNetSubscriber<UnsupportedBankCardBean>(this) {
                 @Override
                 public void onYcNext(UnsupportedBankCardBean model) {
-                    SPUtils.put(BaseActivity.this, Const.SAFE_UPDATE_MSG, model.content);
-                    if(ycDialogUtils != null)
-                    {
+
+                    if (ycDialogUtils != null) {
                         ycDialogUtils.DismissMyDialog();
                     }
-                    ycDialogUtils = new YCDialogUtils(BaseActivity.this);
-                    ycDialogUtils.showunBindBankDialog(model.content, new YCDialogUtils.MySingleBtnclickLisener() {
+                    if (!StrUtil.isEmpty(model.content)) {
+                        ycDialogUtils = new YCDialogUtils(BaseActivity.this);
+                        ycDialogUtils.showunBindBankDialog(model.content, new YCDialogUtils.MySingleBtnclickLisener() {
 
-                        @Override
-                        public void onBtnClick(View v) {
-                            UnBindBankCard();
-                        }
+                            @Override
+                            public void onBtnClick(View v) {
+                                UnBindBankCard();
+                            }
 
-                    }, false);
-
+                        }, false);
+                    } else {
+                        SPUtils.put(BaseActivity.this, Const.SAFE_UPDATE_MSG, "-1");
+                    }
                 }
 
             });
@@ -131,7 +130,7 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
             @Override
             public void onYcNext(Object model) {
                 SPUtils.put(BaseActivity.this, Const.SAFE_UPDATE_MSG, "-1");
-               // JumpCenter.JumpActivity(BaseActivity.this, MainActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+                // JumpCenter.JumpActivity(BaseActivity.this, MainActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
             }
         });
     }

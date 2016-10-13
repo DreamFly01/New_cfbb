@@ -284,7 +284,8 @@ public interface APIService {
 
     /***
      * 我的银行卡
-     *
+     *user/my_bank_card
+     * my_bankCardV2
      * @param params
      * @return
      */
