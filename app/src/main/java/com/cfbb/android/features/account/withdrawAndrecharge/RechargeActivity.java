@@ -33,7 +33,6 @@ import com.cfbb.android.protocol.APIException;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
 import com.cfbb.android.protocol.bean.BankBean;
-import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.protocol.bean.RechargeResultInfoBean;
 import com.cfbb.android.widget.YCLoadingBg;
@@ -175,7 +174,7 @@ public class RechargeActivity extends BaseActivity {
                 tv_bankNum = (TextView) findViewById(R.id.tv_04);
                 tvAccountBalance = (TextView) findViewById(R.id.tv_06);
                 tvAccountBalance.setText(rechargeInfo.accountBalance);
-                tv_accountName= (TextView) findViewById(R.id.tv_05);
+                tv_accountName = (TextView) findViewById(R.id.tv_05);
                 ImageWithGlideUtils.lodeFromUrl(rechargeInfo.imageUrl, iv_bank, this);
                 tv_bankName.setText(rechargeInfo.bankName);
                 tv_bankNum.setText(rechargeInfo.bankNum);
@@ -216,7 +215,7 @@ public class RechargeActivity extends BaseActivity {
                 break;
             //提示
             case R.id.iv_06:
-                ycDialogUtils.showSingle2Dialog(getResources().getString(R.string.CardholderExplain),  rechargeInfo.cardHolderDesc , new YCDialogUtils.MySingleBtnclickLisener() {
+                ycDialogUtils.showSingle2Dialog(getResources().getString(R.string.CardholderExplain), rechargeInfo.cardHolderDesc, new YCDialogUtils.MySingleBtnclickLisener() {
                     @Override
                     public void onBtnClick(View v) {
                         ycDialogUtils.DismissMyDialog();
@@ -296,8 +295,8 @@ public class RechargeActivity extends BaseActivity {
 
     private void RechargeOK() {
 
-       // money ="100.0";
-       // bankNum ="100000";
+        // money ="100.0";
+        // bankNum ="100000";
 
         bundle.putString(RechargeRightActivity.RECHARGE_MOENY, money + Const.YUAN_STR);
         if (rechargeInfo.rechargeState != RechargeStateEnum.FIRST_RECHARGE.getValue()) {
@@ -342,19 +341,22 @@ public class RechargeActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-      // RechargeOK();
+        // RechargeOK();
 
         if (requestCode == REQUEST_CODE_BAOFOO_SDK) {
             String result = "";
             String msg = "";
             if (data == null || data.getExtras() == null) {
-                msg = "支付已被取消";
-                ycDialogUtils.showSingleDialog(getResources().getString(R.string.dialog_title), msg, new YCDialogUtils.MySingleBtnclickLisener() {
-                    @Override
-                    public void onBtnClick(View v) {
-                        ycDialogUtils.DismissMyDialog();
-                    }
-                }, true);
+
+                // 宝付SDK 问题 先暂时屏蔽 支付取消 返回弹框
+                // msg = "支付已被取消";
+                //   ycDialogUtils.showSingleDialog(getResources().getString(R.string.dialog_title), msg, new YCDialogUtils.MySingleBtnclickLisener() {
+                //       @Override
+                //      public void onBtnClick(View v) {
+                //          ycDialogUtils.DismissMyDialog();
+                //      }
+                // }, true);
+
             } else {
                 result = data.getExtras().getString(
                         BaofooPayActivity.PAY_RESULT);// -1:失败 0:取消 1:成功 10:处理中
@@ -362,13 +364,15 @@ public class RechargeActivity extends BaseActivity {
 
                 if (result.equals("1")) {
                     RechargeOK();
-                } else if (result.equals("-1") || result.equals("10") || result.equals("10") || result.equals("0")) {
+                } else if (result.equals("-1") || result.equals("10") || result.equals("10")) {
                     ycDialogUtils.showSingleDialog(getResources().getString(R.string.dialog_title), msg, new YCDialogUtils.MySingleBtnclickLisener() {
                         @Override
                         public void onBtnClick(View v) {
                             ycDialogUtils.DismissMyDialog();
                         }
                     }, true);
+                } else if (result.equals("0")) {
+                    // 宝付SDK 问题 先暂时屏蔽 支付取消 返回弹框
                 } else {
                     msg = "未知充值状态！";
                     ycDialogUtils.showSingleDialog(getResources().getString(R.string.dialog_title), msg, new YCDialogUtils.MySingleBtnclickLisener() {
