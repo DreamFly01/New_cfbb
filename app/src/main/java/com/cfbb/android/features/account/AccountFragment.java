@@ -45,6 +45,8 @@ import com.cfbb.android.widget.PullDownView;
 import com.cfbb.android.widget.YCLoadingBg;
 import com.cfbb.android.widget.dialog.YCDialogUtils;
 
+import java.util.List;
+
 /**
  * 我的财富
  */
@@ -286,12 +288,12 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
     private void goToMyBankInfo() {
 
 
-        addSubscription(RetrofitClient.GetMyBankInfo(null, getActivity(), new YCNetSubscriber<MyBankInfoBean>(getActivity(), true) {
+        addSubscription(RetrofitClient.GetMyBankInfo(null, getActivity(), new YCNetSubscriber<List<MyBankInfoBean>>(getActivity(), true) {
 
             @Override
-            public void onYcNext(MyBankInfoBean model) {
+            public void onYcNext(List<MyBankInfoBean> model) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(MyBankInfoActivity.MY_BANK_INFO, model);
+                bundle.putParcelable(MyBankInfoActivity.MY_BANK_INFO, model.get(0));
                 JumpCenter.JumpActivity(getActivity(), MyBankInfoActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
             }
 

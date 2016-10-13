@@ -384,7 +384,7 @@ public class RetrofitClient {
      *
      * @param observer
      */
-    public static Subscription GetMyBankInfo(BaseResultBean<MyBankInfoBean> testResult, Context context, YCNetSubscriber<MyBankInfoBean> observer) {
+    public static Subscription GetMyBankInfo(BaseResultBean<List<MyBankInfoBean>> testResult, Context context, YCNetSubscriber<List<MyBankInfoBean>> observer) {
 
         Map<String, String> map = new TreeMap<>();
         return doRequest(testResult, RetrofitProxy
