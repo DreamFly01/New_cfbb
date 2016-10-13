@@ -104,7 +104,7 @@ JNIEXPORT jstring
 {
    // public static final String API_HOST_ADDR = "http://appapi.cfbb.jinzejiayuan.com"; 测试
 //    public static final String API_HOST_ADDR = "http://appapi3.cfbb.com.cn";正式
-    return (*env)->NewStringUTF(env, "http://appapi.cfbb.jinzejiayuan.com");
+    return (*env)->NewStringUTF(env, "http://appapi3.cfbb.com.cn");
 }
 
 JNIEXPORT jstring
