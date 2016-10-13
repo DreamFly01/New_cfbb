@@ -81,11 +81,11 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
 
         if (UserBiz.getInstance(this).CheckLoginState() && !msg.equals("-1")) {
 
-            BaseResultBean<UnsupportedBankCardBean> bankCardBeanBaseResultBean = new BaseResultBean<>();
-            bankCardBeanBaseResultBean.code = APIService.OK_CODE;
-            UnsupportedBankCardBean unsupportedBankCardBean = new UnsupportedBankCardBean();
-            unsupportedBankCardBean.content = "sssss";
-            bankCardBeanBaseResultBean.data = unsupportedBankCardBean;
+//            BaseResultBean<UnsupportedBankCardBean> bankCardBeanBaseResultBean = new BaseResultBean<>();
+//            bankCardBeanBaseResultBean.code = APIService.OK_CODE;
+//            UnsupportedBankCardBean unsupportedBankCardBean = new UnsupportedBankCardBean();
+//            unsupportedBankCardBean.content = "sssss";
+//            bankCardBeanBaseResultBean.data = unsupportedBankCardBean;
 
             RetrofitClient.IsExsitUnSupportBankCard(null, this, new YCNetSubscriber<UnsupportedBankCardBean>(this) {
                 @Override
