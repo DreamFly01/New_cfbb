@@ -95,3 +95,6 @@
     public static ** valueOf(java.lang.String);
 }
 
+
+-keep class com.baofoo.**
+-keep class com.baofoo.sdk.vip.BaofooPayActivity  { *; }

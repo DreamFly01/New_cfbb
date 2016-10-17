@@ -426,7 +426,6 @@ public class RechargeActivity extends BaseActivity {
         return true;
     }
 
-
     private TextWatcher mTextWatcher = new TextWatcher() {
 
         private int editStart;
@@ -522,4 +521,5 @@ public class RechargeActivity extends BaseActivity {
         super.onPause();
         StatService.onPause(this);
     }
+
 }
