@@ -94,14 +94,6 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
     @Override
     public void getDataOnCreate() {
 
-//
-//        BaseResultBean<UnsupportedBankCardBean> bankCardBeanBaseResultBean = new BaseResultBean<>();
-//        bankCardBeanBaseResultBean.code = APIService.OK_CODE;
-//        UnsupportedBankCardBean unsupportedBankCardBean = new UnsupportedBankCardBean();
-//        unsupportedBankCardBean.content = "sssss";
-//        bankCardBeanBaseResultBean.data = unsupportedBankCardBean;
-//
-
         RetrofitClient.getVersionInfoRequest(null, this, new YCNetSubscriber<UpdateVersionBean>(this) {
 
             @Override
@@ -111,14 +103,12 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
                     public void onBtnClick(View v) {
                         ycDialogUtils.DismissMyDialog();
                         finish();
-                        //android.os.Process.killProcess(android.os.Process.myPid());
                     }
                 }, false);
             }
 
             @Override
             public void onYcNext(UpdateVersionBean updateVersionBean) {
-
 
                 SplashActivity.this.updateVersionBean = updateVersionBean;
                 int currentVersionCode = AppUtils.getAppInfo(getApplicationContext()).getVersionCode();
@@ -155,6 +145,7 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
                                 TurnToMainActivity();
                             }
                         }
+
                     }, false, updateVersionBean.force_update == 1 ? true : false);
 
                 } else {
@@ -348,7 +339,8 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
                 break;
             case R.id.btn_jump:
             case R.id.btn_ok:
-                if (updateVersionBean != null && updateVersionBean.force_update != 1) {
+
+                if (updateVersionBean != null && isVersionOk) {
                     if (null != countDownTimerTwo) {
                         countDownTimerTwo.cancel();
                     }
