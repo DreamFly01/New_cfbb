@@ -554,7 +554,11 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
                         }, true);
 
                     } else {
-                        ycDialogUtils.showSingleDialog(getActivity().getResources().getString(R.string.dialog_title), getActivity().getResources().getString(R.string.request_erro_str), new YCDialogUtils.MySingleBtnclickLisener() {
+                        String erroMsg = e.getMessage();
+                        if (StrUtil.isEmpty(erroMsg)) {
+                            erroMsg = getActivity().getResources().getString(R.string.request_erro_str);
+                        }
+                        ycDialogUtils.showSingleDialog(getActivity().getResources().getString(R.string.dialog_title),erroMsg, new YCDialogUtils.MySingleBtnclickLisener() {
                             @Override
                             public void onBtnClick(View v) {
                                 ycDialogUtils.DismissMyDialog();

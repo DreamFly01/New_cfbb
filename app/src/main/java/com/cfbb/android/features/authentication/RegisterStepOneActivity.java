@@ -124,7 +124,7 @@ public class RegisterStepOneActivity extends BaseActivity  {
 
     private boolean CheckInput() {
 
-        name = et_name.getText().toString();
+        name = et_name.getText().toString().trim();
         password = et_password.getKeyboardText().toString();
         password_again = et_password_again.getKeyboardText().toString();
 

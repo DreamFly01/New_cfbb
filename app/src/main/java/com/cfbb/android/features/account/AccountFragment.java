@@ -26,19 +26,18 @@ import com.cfbb.android.commom.utils.activityJump.JumpCenter;
 import com.cfbb.android.commom.utils.base.PhoneUtils;
 import com.cfbb.android.commom.utils.image.ImageWithGlideUtils;
 import com.cfbb.android.commom.utils.others.SPUtils;
+import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.db.user.UserBiz;
 import com.cfbb.android.features.account.accountdetails.AccountDetailsActivity;
 import com.cfbb.android.features.account.myinvest.MyInvestActivity;
 import com.cfbb.android.features.account.releaseLoan.AddLoanActivity;
 import com.cfbb.android.features.account.withdrawAndrecharge.RechargeActivity;
-import com.cfbb.android.features.account.withdrawAndrecharge.RechargeRightActivity;
 import com.cfbb.android.features.authentication.RealNameAuthenticationActivity;
 import com.cfbb.android.protocol.APIException;
 import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
 import com.cfbb.android.protocol.bean.AccountInfoBean;
-import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.MyBankInfoBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.widget.PullDownView;
@@ -398,7 +397,11 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                     }, true);
 
                 } else {
-                    ycDialogUtils.showSingleDialog(getActivity().getResources().getString(R.string.dialog_title), getActivity().getResources().getString(R.string.request_erro_str), new YCDialogUtils.MySingleBtnclickLisener() {
+                    String erroMsg = e.getMessage();
+                    if (StrUtil.isEmpty(erroMsg)) {
+                        erroMsg = getActivity().getResources().getString(R.string.request_erro_str);
+                    }
+                    ycDialogUtils.showSingleDialog(getActivity().getResources().getString(R.string.dialog_title), erroMsg, new YCDialogUtils.MySingleBtnclickLisener() {
                         @Override
                         public void onBtnClick(View v) {
                             ycDialogUtils.DismissMyDialog();
