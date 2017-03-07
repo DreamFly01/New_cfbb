@@ -7,4 +7,5 @@ package com.cfbb.android.features.account;
  */
 public class TestGit {
     public String  fuck;
+    public String fuck1;
 }
