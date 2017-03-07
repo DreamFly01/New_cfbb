@@ -64,6 +64,7 @@ public class WithDrawActivity extends BaseActivity  {
     private TextView tv_bankName;
     private TextView tv_bankNum;
     private TextView tv_tips;
+    private TextView tips;
     private TextView tv_moeny;
     private EditText et_money;
     private EditText et_code;
@@ -90,6 +91,7 @@ public class WithDrawActivity extends BaseActivity  {
         tv_bankName = (TextView) findViewById(R.id.tv_03);
         tv_bankNum = (TextView) findViewById(R.id.tv_04);
         tv_tips = (TextView) findViewById(R.id.tv_05);
+        tips = (TextView)findViewById(R.id.tv_07);
         tv_moeny = (TextView) findViewById(R.id.tv_06);
         et_money = (EditText) findViewById(R.id.et_01);
         et_code = (EditText) findViewById(R.id.et_02);
@@ -136,7 +138,9 @@ public class WithDrawActivity extends BaseActivity  {
         tv_bankName.setText(withDrawInfo.bankName);
         tv_bankNum.setText(withDrawInfo.bankCardNum);
         tv_tips.setText(withDrawInfo.tips);
+        tips.setText(withDrawInfo.rapidWithdrawal);
         tv_moeny.setText(withDrawInfo.showCanWithdrawAmount);
+        System.out.println(withDrawInfo.rapidWithdrawal+"-------------------------"+withDrawInfo.bankName);
     }
 
 

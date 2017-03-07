@@ -60,6 +60,7 @@ public class GestureVerifyActivity extends Activity implements
     private TextView text_phone_number;
 
     private String title;
+    private String key;
     private TextView tv_title;
 
     private YCDialogUtils ycDialogUtils;
@@ -94,6 +95,7 @@ public class GestureVerifyActivity extends Activity implements
             title = intent.getExtras().getString(TITLE_STR);
             is_can_cancel = intent.getExtras().getBoolean(IS_CAN_CANCEL, false);
             is_modify = intent.getExtras().getBoolean(IS_MODIFY, false);
+            key  = intent.getStringExtra("key");
         }
 
 
@@ -151,8 +153,11 @@ public class GestureVerifyActivity extends Activity implements
                             JumpCenter.JumpActivity(GestureVerifyActivity.this, GestureEditActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
 
                         }
-                        GestureVerifyActivity.this.finish();
+                        if(key!=null){
+                            JumpCenter.JumpActivity(GestureVerifyActivity.this, MainActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
 
+                        }
+                        GestureVerifyActivity.this.finish();
                     }
 
                     @Override

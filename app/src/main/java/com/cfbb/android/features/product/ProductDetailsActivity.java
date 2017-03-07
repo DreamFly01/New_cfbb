@@ -44,18 +44,22 @@ public class ProductDetailsActivity extends BaseActivity {
     private TextView tv_title;
     private YCPagerIndicator horizontalScrollView;
 
-    private Bundle bundle ;
+    private Bundle bundle;
+    private String flag;
+
     @Override
     protected void initContentView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_product_details);
         intent = getIntent();
         if (null != intent) {
             bundle = intent.getExtras();
-            prodcutId =bundle.getString(PRODUCT_ID);
+            prodcutId = bundle.getString(PRODUCT_ID);
             loan_typeId = bundle.getString(LOAN_TYPEID);
+
+            System.out.println("详情页面得到的参数------prodcutId------" + prodcutId + "------loanTypeId------" + loan_typeId);
         }
         if (loan_typeId.equals(ProductTypeEnum.DEBTS.getValue())) {
-
+            //投资服务计划
             titleList = Arrays.asList(getResources().getStringArray(R.array.product2_tab_names));
             ProductBaseInfoFragment productBaseInfoFragment = ProductBaseInfoFragment.newInstance(prodcutId, loan_typeId);
             fragments.add(productBaseInfoFragment);
@@ -95,14 +99,16 @@ public class ProductDetailsActivity extends BaseActivity {
         viewpager = (ViewPager) findViewById(R.id.viewpager);
         viewpager.setAdapter(productDetailsFragmentAdaptor);
         DisplayMetrics dm = new DisplayMetrics();
-       getWindowManager().getDefaultDisplay().getMetrics(dm);
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
         horizontalScrollView.setViewPager(viewpager);
-        horizontalScrollView.setTitles(dm.widthPixels,titleList,false);
+        horizontalScrollView.setTitles(dm.widthPixels, titleList, false);
         // pagerTabStrip = (TabPageIndicator) findViewById(R.id.titlePageIndicator);
         //hold state
         horizontalScrollView.setFragments(fragments);
         viewpager.setOffscreenPageLimit(8);
         // btn_invest.setVisibility(View.VISIBLE);
+            flag = intent.getStringExtra("flag");
+
     }
 
     public void setUpLisener() {
@@ -122,7 +128,12 @@ public class ProductDetailsActivity extends BaseActivity {
                 break;
             //投资
             case R.id.btn_invest:
-                if(bundle ==null) {
+                if (flag!=null) {
+                    btn_invest.setEnabled(false);
+                    System.out.println("flag--------------------"+flag);
+                    return;
+                }
+                if (bundle == null) {
                     bundle = new Bundle();
                 }
                 bundle.putSerializable(InvestBidActivity.INVEST_TURN_TO_ACTIVITY_CLASS, ProductDetailsActivity.class);
@@ -134,7 +145,6 @@ public class ProductDetailsActivity extends BaseActivity {
                 break;
         }
     }
-
 
 
     @Override

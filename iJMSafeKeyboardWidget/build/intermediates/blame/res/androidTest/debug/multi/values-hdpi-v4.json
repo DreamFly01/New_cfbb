@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-hdpi-v4\\values-hdpi-v4.xml",
+        "outputFile": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-hdpi-v4\\values-hdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,31 @@
                     "endOffset": 106
                 },
                 "from": {
-                    "file": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "file": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 55,
+                        "endOffset": 106
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-hdpi-v4\\values-hdpi-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 55,
+                    "endOffset": 106
+                },
+                "from": {
+                    "file": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

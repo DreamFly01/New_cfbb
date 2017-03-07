@@ -21,6 +21,7 @@ public class WithDrawInfoBean implements Parcelable {
     public String fastWithdrawFee;
     public String amount;
     public String bankCardCount;
+    public String rapidWithdrawal;
 
     @Override
     public int describeContents() {
@@ -41,6 +42,7 @@ public class WithDrawInfoBean implements Parcelable {
         dest.writeString(this.fastWithdrawFee);
         dest.writeString(this.amount);
         dest.writeString(this.bankCardCount);
+        dest.writeString(this.rapidWithdrawal);
     }
 
     public WithDrawInfoBean() {
@@ -59,6 +61,7 @@ public class WithDrawInfoBean implements Parcelable {
         this.fastWithdrawFee = in.readString();
         this.amount = in.readString();
         this.bankCardCount = in.readString();
+        this.rapidWithdrawal = in.readString();
     }
 
     public static final Parcelable.Creator<WithDrawInfoBean> CREATOR = new Parcelable.Creator<WithDrawInfoBean>() {

@@ -302,6 +302,33 @@
                     android:layout_marginRight="15dp"
                     android:src="@mipmap/arrow_right_ico" />
             </RelativeLayout>
+            <ImageView
+                style="@style/iv_gray_horizontal_line"
+                android:layout_marginLeft="@dimen/account_margin_left" />
+            <RelativeLayout
+                android:id="@id/rl_11"
+                style="@style/horizontal_wihte_item">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@mipmap/ico_07" />
+
+                <TextView
+                    style="@style/account_txt"
+                    android:text="@string/release_myloan_str" />
+
+                <ImageView
+                    android:id="@id/iv_11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+            </RelativeLayout>
 
             <ImageView style="@style/iv_gray_horizontal_line" />
 

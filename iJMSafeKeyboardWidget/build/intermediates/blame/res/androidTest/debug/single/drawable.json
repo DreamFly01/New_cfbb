@@ -1,54 +1,106 @@
 [
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\dev_iclap_selector_grey_button.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\dev_iclap_selector_grey_button.xml"
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\text_round.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\text_round.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\sdk_simple_pwd_bg.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\sdk_simple_pwd_bg.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_keyboard_key.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_keyboard_key.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\text_round.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\text_round.xml"
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\sdk_circle_icon.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\sdk_circle_icon.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\sym_keyboard_delete.png",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\sym_keyboard_delete.png"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_num_key.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_num_key.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\white_skb.9.png",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\white_skb.9.png"
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\pay_btn_keyboard_key.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\pay_btn_keyboard_key.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_num_special_key.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_num_special_key.xml"
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_white_key.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_white_key.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_keyboard_key.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_keyboard_key.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_white_key.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_white_key.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_white_key.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_white_key.xml"
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_num_special_key.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_num_special_key.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\pay_btn_keyboard_key.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\pay_btn_keyboard_key.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_key.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\shape_key.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\sdk_circle_icon.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\sdk_circle_icon.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\dev_iclap_selector_grey_button.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\dev_iclap_selector_grey_button.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\dev_iclap_selector_lightblue_button.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\dev_iclap_selector_lightblue_button.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\pay_btn_keyboard_key.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\pay_btn_keyboard_key.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_num_key.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_num_key.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\sym_keyboard_delete.png",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\sym_keyboard_delete.png"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_key.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\shape_key.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\dev_iclap_selector_lightblue_button.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\dev_iclap_selector_lightblue_button.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_num_key.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_num_key.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\sym_keyboard_delete.png",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\sym_keyboard_delete.png"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\dev_iclap_selector_grey_button.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\dev_iclap_selector_grey_button.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\sdk_simple_pwd_bg.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\sdk_simple_pwd_bg.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_keyboard_key.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_keyboard_key.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\dev_iclap_selector_lightblue_button.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\dev_iclap_selector_lightblue_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\sdk_circle_icon.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\sdk_circle_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\white_skb.9.png",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\white_skb.9.png"
+    },
+    {
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\text_round.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\text_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_num_special_key.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_num_special_key.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_key.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\shape_key.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\white_skb.9.png",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\white_skb.9.png"
+    },
+    {
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\sdk_simple_pwd_bg.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable\\sdk_simple_pwd_bg.xml"
     }
 ]

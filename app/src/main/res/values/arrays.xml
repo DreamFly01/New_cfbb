@@ -2,7 +2,7 @@
 <resources>
     <string-array name="product_tab_names">
         <item>基本信息</item>
-        <item>项目信息</item>
+        <item>借款详情</item>
         <item>审核信息</item>
         <item>投标记录</item>
     </string-array>

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_launcher.png",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_launcher.png"
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_launcher.png"
     }
 ]

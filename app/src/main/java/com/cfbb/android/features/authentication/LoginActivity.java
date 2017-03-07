@@ -65,7 +65,7 @@ public class LoginActivity extends BaseActivity {
     public void setUpViews() {
 
         ijmEditText = (IJMInputEditText) findViewById(R.id.ijmKB);
-        ijmEditText.setKeyboardMaxLength(22);
+        ijmEditText.setKeyboardMaxLength(16);
         ycDialogUtils = new YCDialogUtils(this);
         iv_delete_userName = (ImageView) findViewById(R.id.iv_delete1);
         iv_delete_passWord = (ImageView) findViewById(R.id.iv_delete2);

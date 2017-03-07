@@ -6,6 +6,7 @@ import com.cfbb.android.protocol.bean.AccountInfoBean;
 import com.cfbb.android.protocol.bean.AccountInvestInfoBean;
 import com.cfbb.android.protocol.bean.AccountLoanInfoBean;
 import com.cfbb.android.protocol.bean.AccountSetInfoBean;
+import com.cfbb.android.protocol.bean.AuditStateBean;
 import com.cfbb.android.protocol.bean.AutoInvestInfoBean;
 import com.cfbb.android.protocol.bean.BankBean;
 import com.cfbb.android.protocol.bean.BaseResultBean;
@@ -17,10 +18,15 @@ import com.cfbb.android.protocol.bean.CertificationResultBean;
 import com.cfbb.android.protocol.bean.HomeInfoBean;
 import com.cfbb.android.protocol.bean.InComeBean;
 import com.cfbb.android.protocol.bean.InvestInfoBean;
+import com.cfbb.android.protocol.bean.LoanInfoBean;
+import com.cfbb.android.protocol.bean.LoanPersonInfo;
+import com.cfbb.android.protocol.bean.LoanUrlBean;
 import com.cfbb.android.protocol.bean.MyBankInfoBean;
 import com.cfbb.android.protocol.bean.MyGiftBean;
 import com.cfbb.android.protocol.bean.MyInvestBean;
 import com.cfbb.android.protocol.bean.MyInvestDetailsBean;
+import com.cfbb.android.protocol.bean.MyLoanBean;
+import com.cfbb.android.protocol.bean.MyLoanDetailsBean;
 import com.cfbb.android.protocol.bean.MyLoanInfoBean;
 import com.cfbb.android.protocol.bean.MyRedPaperBean;
 import com.cfbb.android.protocol.bean.PlanExplainBean;
@@ -31,6 +37,7 @@ import com.cfbb.android.protocol.bean.ProductTypeBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.protocol.bean.RechargeResultInfoBean;
 import com.cfbb.android.protocol.bean.ServiceTermBean;
+import com.cfbb.android.protocol.bean.ShareInfoBean;
 import com.cfbb.android.protocol.bean.TradeRecordBean;
 import com.cfbb.android.protocol.bean.UnsupportedBankCardBean;
 import com.cfbb.android.protocol.bean.UpdateVersionBean;
@@ -707,4 +714,78 @@ public interface APIService {
     @POST("user/check_unsupported_bank_card")
     Observable<BaseResultBean<UnsupportedBankCardBean>> IsExistUnSupportBankCard(@FieldMap Map<String, String> params);
 
+    /**
+     * 获取借款列表信息
+     * @param params
+     * @return
+     */
+
+    @FormUrlEncoded
+    @POST("/user/my_loan")
+    Observable<BaseResultBean<MyLoanBean>> GetMyLoans(@FieldMap Map<String, String> params);
+
+    /**
+     * 获取借款详情
+     * @param params
+     * @return
+     */
+
+    @FormUrlEncoded
+    @POST("/user/my_loandetails")
+    Observable<BaseResultBean<MyLoanDetailsBean>> GetMyLoansDetails(@FieldMap Map<String, String> params);
+
+
+    /**
+     * 获取审核状态相关信息
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/loan_approvalstatus")
+    Observable<BaseResultBean<AuditStateBean>> GetAuditState(@FieldMap Map<String, String> params);
+
+    /**
+     * 获取借款人信息
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/loan_info")
+    Observable<BaseResultBean<LoanPersonInfo>> GetLoanPersonInfo(@FieldMap Map<String, String> params);
+
+    /**
+     * 获取借款人地址
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/loan/get_borrowLoan")
+    Observable<BaseResultBean> GetLoanUrl(@FieldMap Map<String, String> params);
+
+    /**
+     * 获取分享信息
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/get_share_text")
+    Observable<BaseResultBean<ShareInfoBean>> GetShareInfo(@FieldMap Map<String, String> params);
+
+    /**
+     * 我要借款
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/loan/borrowing")
+    Observable<BaseResultBean<LoanInfoBean>> IntroduceLoan(@FieldMap Map<String, String> params);
+
+    /**
+     * 获取借款短信验证码
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/loan/check_confirm_phone")
+    Observable<BaseResultBean> GetSMS(@FieldMap Map<String, String> params);
 }

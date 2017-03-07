@@ -71,5 +71,6 @@
         android:text="提现记录"
         android:textColor="@color/balck"
         android:textSize="@dimen/size_18"
-        android:visibility="gone" />
+        android:visibility="gone"
+        />
 </RelativeLayout>

@@ -45,8 +45,14 @@ public class ShowPicActivity extends BaseActivity {
         photoView = (PhotoView) findViewById(R.id.phtoview);
         iv_back = (ImageView) findViewById(R.id.iv_01);
         if (mIntent != null) {
-            imageUrl = mIntent.getExtras().getString(IMAGE_URL);
-            ImageWithGlideUtils.lodeFromUrl(imageUrl,photoView,getApplicationContext());
+                imageUrl = mIntent.getExtras().getString(IMAGE_URL);
+            if (imageUrl != null || !imageUrl.equals("")) {
+                System.out.println("-----showPicActivyt-----"+imageUrl);
+                ImageWithGlideUtils.lodeFromUrl(imageUrl, photoView, getApplicationContext());
+            }else{
+                photoView.setImageResource(R.mipmap.default_sh_bg);
+            }
+
         }
     }
 

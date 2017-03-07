@@ -8,6 +8,8 @@ import com.baidu.mobstat.StatService;
 import com.cfbb.android.BuildConfig;
 import com.cfbb.android.features.gesture.YCSystemReceiver;
 
+import cn.sharesdk.framework.ShareSDK;
+
 import static com.cfbb.android.commom.utils.secure.CheckDebugableFlag.checkeDebug;
 
 /**
@@ -31,6 +33,7 @@ public final class MyApplication extends Application {
         myApplication = this;
         doForUser();
         safeCheck();
+        ShareSDK.initSDK(this);
         // LeakCanary.install(this);
     }
 

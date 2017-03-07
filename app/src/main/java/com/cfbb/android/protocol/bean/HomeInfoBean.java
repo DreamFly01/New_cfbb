@@ -23,6 +23,7 @@ public class HomeInfoBean  {
     }
 
     public class AdsBean {
+        public String textIndex;
         public String imageUrl;
         public String clickurl;
     }

@@ -69,6 +69,7 @@ public class AccountDetailsActivity extends BaseActivity {
         btn_withdraw = (Button) findViewById(R.id.btn_withdraw);
         tv_back = (TextView) findViewById(R.id.tv_back);
         tv_title = (TextView) findViewById(R.id.tv_title);
+
         tv_back.setText(getResources().getString(R.string.nav_account));
         tv_back.setVisibility(View.VISIBLE);
         tv_title.setText(getResources().getString(R.string.account_details_str));

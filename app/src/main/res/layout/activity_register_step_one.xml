@@ -121,6 +121,7 @@
         android:layout_height="25dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
+        android:layout_gravity="center_vertical"
         android:gravity="center|left"
         android:orientation="horizontal">
 
@@ -128,15 +129,20 @@
             android:id="@id/cb_01"
             android:button="@drawable/checkbox_selector"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:text="已同意并阅读"
+            android:textSize="13sp"
+            android:paddingLeft="5dp"
+            android:gravity="center"
+            android:textColor="@color/txt_3"
+            />
 
         <TextView
             android:id="@id/tv_02"
-            android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            android:text="已同意并阅读《财富中国服务协议》"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="《财富中国服务协议》"
             android:textColor="@color/txt_3"
             android:textSize="@dimen/size_13" />
     </LinearLayout>

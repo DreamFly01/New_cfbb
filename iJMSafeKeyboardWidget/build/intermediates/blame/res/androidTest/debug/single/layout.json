@@ -1,30 +1,58 @@
 [
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\preview_keyboard.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\preview_keyboard.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\safe_keyboard.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\safe_keyboard.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ijmpay_layout.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\ijmpay_layout.xml"
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\safe_name.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\safe_name.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\num_safe_keyboard.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\num_safe_keyboard.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\trade_key_layout.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\trade_key_layout.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\trade_key_layout.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\trade_key_layout.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\preview_keyboard.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\preview_keyboard.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\sdk_simple_pwd_widget.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\sdk_simple_pwd_widget.xml"
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ijmpay_layout.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\ijmpay_layout.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\safe_name.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\safe_name.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ijmpay_layout.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\ijmpay_layout.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\safe_keyboard.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\safe_keyboard.xml"
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\preview_keyboard.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\preview_keyboard.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\safe_keyboard.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\safe_keyboard.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\num_safe_keyboard.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\num_safe_keyboard.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\sdk_simple_pwd_widget.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\sdk_simple_pwd_widget.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\sdk_simple_pwd_widget.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\sdk_simple_pwd_widget.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\num_safe_keyboard.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\num_safe_keyboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\safe_name.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\safe_name.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\trade_key_layout.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\layout\\trade_key_layout.xml"
     }
 ]

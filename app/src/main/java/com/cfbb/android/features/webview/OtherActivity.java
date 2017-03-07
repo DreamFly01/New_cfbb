@@ -17,15 +17,21 @@ import com.cfbb.android.commom.utils.base.AppUtils;
 import com.cfbb.android.commom.utils.base.TimeUtils;
 import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.db.user.UserBiz;
+import com.cfbb.android.protocol.RetrofitClient;
+import com.cfbb.android.protocol.YCNetSubscriber;
+import com.cfbb.android.protocol.bean.ShareInfoBean;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 public class OtherActivity extends BaseActivity implements View.OnClickListener {
 
     public static final String URL = "url";
     public static final String BACK_STR = "back_str";
     public static final String TURN_TO_ACTIVITY_CLASS = "turn_to_activity_name";
+    private String textIndex;
 
     private WebView mWebView;
     private TextView tv_back;
@@ -55,6 +61,9 @@ public class OtherActivity extends BaseActivity implements View.OnClickListener 
         progressBar = (ProgressBar) findViewById(R.id.pb_progressbar);
         tv_title.setText("");
 
+
+
+
     }
 
     @Override
@@ -78,6 +87,11 @@ public class OtherActivity extends BaseActivity implements View.OnClickListener 
                 }
                 break;
             case R.id.tv_junp:
+                if(textIndex!=null){
+                    showShortToast(textIndex);
+                    showShare(title,descr,thumImage,thumUrl);
+                    break;
+                }
                 if (null != turnToClass) {
                     JumpCenter.JumpActivity(this,turnToClass,null,null,JumpCenter.NORMALL_REQUEST,JumpCenter.INVAILD_FLAG,true,false);
                 }else {
@@ -95,6 +109,7 @@ public class OtherActivity extends BaseActivity implements View.OnClickListener 
         if (null != mIntent) {
             back_str = mIntent.getStringExtra(BACK_STR);
             url = mIntent.getStringExtra(URL);
+            textIndex = mIntent.getStringExtra("text_index");
             turnToClass = (Class) mIntent.getSerializableExtra(TURN_TO_ACTIVITY_CLASS);
 
         }
@@ -103,19 +118,15 @@ public class OtherActivity extends BaseActivity implements View.OnClickListener 
         } else {
             tv_back.setText(back_str);
         }
-
-        tv_back.setVisibility(View.VISIBLE);
+        getShareData(textIndex);
+        if (textIndex!=null){
+            mWebView.getSettings().setJavaScriptEnabled(true);
+            tv_close.setText("分享");
+            tv_close.setVisibility(View.VISIBLE);
+        }else {
         ConfigWebView();
-
-//        String newUrl = "";
-//        if (url.contains("?")) {
-//            newUrl= url.split("\\?")[0];
-//            params +=  "?" + url.split("\\?")[1]+"&";
-//        } else {
-//            newUrl = url;
-//            params +=  "?";
-//        }
-//        mWebView.loadUrl(newUrl+ params);
+        }
+        tv_back.setVisibility(View.VISIBLE);
         params +="app_sys=android&version_code=" + AppUtils.getAppInfo(this).getVersionCode() + "&user_id=" + UserBiz.getInstance(this).GetUserId()+"&random="+ TimeUtils.getCurTimeMills();
 
         if(url.contains("?"))
@@ -126,7 +137,7 @@ public class OtherActivity extends BaseActivity implements View.OnClickListener 
         {
             mWebView.loadUrl(url+"?"+params); // 在当前的webview中跳转到新的url
         }
-       // mWebView.loadUrl(url);
+        // mWebView.loadUrl(url);
     }
 
     private List<String> titles = new ArrayList<>();
@@ -201,7 +212,11 @@ public class OtherActivity extends BaseActivity implements View.OnClickListener 
                 {
                     view.loadUrl(url+"?"+params); // 在当前的webview中跳转到新的url
                 }
-
+                if(textIndex!=null){
+                if(!textIndex.equals("")){
+                    return  false;
+                }
+                }
                 return true;
             }
 
@@ -226,4 +241,47 @@ public class OtherActivity extends BaseActivity implements View.OnClickListener 
         rootLayout.removeView(mWebView);
         mWebView.destroy();
     }
+
+    private String title;
+    private String descr;
+    private String thumImage;
+    private String thumUrl;
+    private void getShareData(String textIndex) {
+        addSubscription(RetrofitClient.GetShareInfo(null, textIndex, this, new YCNetSubscriber<ShareInfoBean>(this) {
+            @Override
+            public void onYcNext(ShareInfoBean model) {
+                title = model.title;
+                descr = model.descr;
+                thumImage = model.thumImage;
+                thumUrl = model.thumUrl;
+            }
+        }));
+    }
+    private void showShare(String title, String descr, String thumImage, String thumUrl) {
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+        // title标题，印象笔记、邮箱、信息、微信、人人网、QQ和QQ空间使用
+        oks.setTitle(title);
+        // titleUrl是标题的网络链接，仅在Linked-in,QQ和QQ空间使用
+        oks.setTitleUrl(thumUrl);
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText(descr);
+        //分享网络图片，新浪微博分享网络图片需要通过审核后申请高级写入接口，否则请注释掉测试新浪微博
+        oks.setImageUrl(thumImage);
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+        //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+        // url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl(descr);
+        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment(descr);
+        // site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite("中国财富");
+//        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl(thumUrl);
+
+// 启动分享GUI
+        oks.show(this);
+    }
+
 }

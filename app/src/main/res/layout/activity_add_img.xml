@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.account.releaseLoan.AddImgActivity">
+
+    <include layout="@layout/view_header"></include>
+    <LinearLayout
+        android:id="@+id/ll_gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_zhenming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:background="@color/grey"
+            android:padding="10dp"/>
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:background="@color/grey"
+            android:padding="10dp"
+            android:id="@+id/et_01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:hint="请输入证明材料名称:"
+            android:textColor="@drawable/txt_gray_selector" />
+        <com.cfbb.android.widget.MyGridView
+            android:scrollbars="none"
+            android:id="@id/gv_01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="21dp"
+            android:horizontalSpacing="15dp"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="2"
+            android:visibility="visible"
+            android:verticalSpacing="15dip"></com.cfbb.android.widget.MyGridView>
+        <TextView
+            android:id="@+id/txt_tianjia"
+            android:padding="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/add1"
+            android:drawablePadding="5dp"
+            android:text="添加相关材料"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txt_tijiao2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/btn_red_selector"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="提交"
+        android:textColor="@color/white" />
+</LinearLayout>

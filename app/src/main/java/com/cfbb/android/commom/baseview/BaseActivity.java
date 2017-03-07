@@ -77,6 +77,9 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
 
     }
 
+    /**
+     * 针对不支持宝付的卡
+     */
     private void IsExsitUnSupportBankCard() {
 
         if (UserBiz.getInstance(this).CheckLoginState() && !msg.equals("-1")) {
@@ -114,6 +117,9 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
 
     }
 
+    /**
+     * 解绑银行卡
+     */
     private void UnBindBankCard() {
         ycDialogUtils.DismissMyDialog();
         RetrofitClient.UnBundlingNoSupportBank(null, this, new YCNetSubscriber(this, true) {
@@ -146,6 +152,11 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
         }
     }
 
+    /**
+     * 处理点击事件分发，判断是否隐藏键盘
+     * @param ev
+     * @return
+     */
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
 
@@ -203,6 +214,9 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
 
     private Long preShowDates = 0L;
 
+    /**
+     * 判断用户是否登录，若登录是否弹出手势密码，间隔一分钟
+     */
     public void CheckGestureState() {
 
         // 检查是否登录状态，检查是否需要弹出手势密码

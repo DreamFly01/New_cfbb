@@ -58,6 +58,7 @@ public class RegisterStepOneActivity extends BaseActivity  {
         et_referrer = (EditText) findViewById(R.id.et_04);
         tv_xy = (TextView) findViewById(R.id.tv_02);
         cb_is_agree = (CheckBox) findViewById(R.id.cb_01);
+        cb_is_agree.setChecked(true);
         et_password.setKeyboardMaxLength(22);
         et_password_again.setKeyboardMaxLength(22);
         et_name.addTextChangedListener(new TextWatchForNoBlank());
@@ -66,7 +67,7 @@ public class RegisterStepOneActivity extends BaseActivity  {
         et_referrer.addTextChangedListener(new TextWatchForNoBlank());
     }
 
-    private boolean is_agree = false;
+    private boolean is_agree = true;
 
     @Override
     public void setUpLisener() {

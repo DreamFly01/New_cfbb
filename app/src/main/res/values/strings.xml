@@ -18,7 +18,8 @@
     <string name="account_details_str">账户明细</string>
     <string name="my_invest_str">我的投资</string>
     <string name="trade_details_str">交易记录</string>
-    <string name="release_loan_str">发布借款</string>
+    <string name="release_loan_str">我要借款</string>
+    <string name="release_myloan_str">我的借款</string>
     <string name="my_bankcard_list_str">我的银行卡</string>
     <string name="invest_prograss_str">投资进度</string>
     <string name="complete_date_str">完成日期</string>
@@ -254,4 +255,6 @@
     <string name="bingNewBank">绑定新卡</string>
     <string name="sureToUnbind">确认解绑</string>
     <string name="unbindFalied">解绑失败</string>
+    <string name="loanDesc">请尽可能描述您的借款用途,个人资产状况，以便我们为您提供更合适的借款方案。</string>
+    <string name="pointMsg">证明材料为可选信息，如果要上传相关图片证明材料请务必遵循以下规则：1.身份证必须上传正反两张图片。 2.上传材料必须依次添加图片，即按照界面所列出的顺序依次添加。</string>
 </resources>

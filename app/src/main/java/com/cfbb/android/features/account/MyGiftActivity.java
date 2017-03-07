@@ -111,7 +111,7 @@ public class MyGiftActivity extends BaseActivity implements  AbsListView.OnScrol
 
             @Override
             public void onYcNext(List<MyGiftBean> model) {
-                if (model != null && model != null && model.size() > 0) {
+                if (model != null  && model.size() > 0) {
                     if (curentIndex == START_PAGE_INDEX) {
                         myGiftArrayList.clear();
                         myGiftAdaptor.clear();

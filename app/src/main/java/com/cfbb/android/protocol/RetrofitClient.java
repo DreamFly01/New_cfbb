@@ -16,6 +16,7 @@ import com.cfbb.android.protocol.bean.AccountInfoBean;
 import com.cfbb.android.protocol.bean.AccountInvestInfoBean;
 import com.cfbb.android.protocol.bean.AccountLoanInfoBean;
 import com.cfbb.android.protocol.bean.AccountSetInfoBean;
+import com.cfbb.android.protocol.bean.AuditStateBean;
 import com.cfbb.android.protocol.bean.AutoInvestInfoBean;
 import com.cfbb.android.protocol.bean.BankBean;
 import com.cfbb.android.protocol.bean.BaseResultBean;
@@ -27,10 +28,15 @@ import com.cfbb.android.protocol.bean.CertificationResultBean;
 import com.cfbb.android.protocol.bean.HomeInfoBean;
 import com.cfbb.android.protocol.bean.InComeBean;
 import com.cfbb.android.protocol.bean.InvestInfoBean;
+import com.cfbb.android.protocol.bean.LoanInfoBean;
+import com.cfbb.android.protocol.bean.LoanPersonInfo;
+import com.cfbb.android.protocol.bean.LoanUrlBean;
 import com.cfbb.android.protocol.bean.MyBankInfoBean;
 import com.cfbb.android.protocol.bean.MyGiftBean;
 import com.cfbb.android.protocol.bean.MyInvestBean;
 import com.cfbb.android.protocol.bean.MyInvestDetailsBean;
+import com.cfbb.android.protocol.bean.MyLoanBean;
+import com.cfbb.android.protocol.bean.MyLoanDetailsBean;
 import com.cfbb.android.protocol.bean.MyLoanInfoBean;
 import com.cfbb.android.protocol.bean.MyLoanListBean;
 import com.cfbb.android.protocol.bean.MyRedPaperBean;
@@ -42,6 +48,7 @@ import com.cfbb.android.protocol.bean.ProductTypeBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.protocol.bean.RechargeResultInfoBean;
 import com.cfbb.android.protocol.bean.ServiceTermBean;
+import com.cfbb.android.protocol.bean.ShareInfoBean;
 import com.cfbb.android.protocol.bean.TradeRecordBean;
 import com.cfbb.android.protocol.bean.UnsupportedBankCardBean;
 import com.cfbb.android.protocol.bean.UpdateVersionBean;
@@ -919,8 +926,6 @@ public class RetrofitClient {
         return doRequest(testResult, RetrofitProxy
                 .getApiService(context)
                 .DeleteBank(WrapParams(map, context)), context, observer);
-
-
     }
 
     /***
@@ -1030,6 +1035,134 @@ public class RetrofitClient {
                 .getApiService(context)
                 .IsExistUnSupportBankCard(WrapParams(map, context)), context, observer);
     }
+
+    /**
+     * 获取我的借款列表
+     * @param testResult
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription GetMyLoans(BaseResultBean<MyLoanBean> testResult,String currentIndex,Context context, YCNetSubscriber<MyLoanBean> observer) {
+        Map<String, String> map = new TreeMap<>();
+        map.put("page_index",currentIndex);
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .GetMyLoans(WrapParams(map, context)), context, observer);
+    }
+
+    /**
+     * 获取借款人详情
+     * @param testResult
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription GetMyLoansDetails(BaseResultBean<MyLoanDetailsBean> testResult,String productId, Context context, YCNetSubscriber<MyLoanDetailsBean> observer) {
+        Map<String, String> map = new TreeMap<>();
+        map.put("product_id",productId);
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .GetMyLoansDetails(WrapParams(map, context)), context, observer);
+    }
+
+
+    /**
+     * 获取审核状态相关信息
+     * @param testResult
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription GetAuditState(BaseResultBean<AuditStateBean> testResult,String productId, Context context, YCNetSubscriber<AuditStateBean> observer) {
+        Map<String, String> map = new TreeMap<>();
+        map.put("product_id",productId);
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .GetAuditState(WrapParams(map, context)), context, observer);
+    }
+
+    /**
+     * 获取借款人信息
+     * @param testResult
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription GetLoanPersonInfo(BaseResultBean<LoanPersonInfo> testResult,String productId, Context context, YCNetSubscriber<LoanPersonInfo> observer) {
+        Map<String, String> map = new TreeMap<>();
+        map.put("product_id",productId);
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .GetLoanPersonInfo(WrapParams(map, context)), context, observer);
+    }
+
+    /**
+     * 获取我要借款的h5地址
+     * @param testResult
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription GetLoanUrl(BaseResultBean testResult, Context context, YCNetSubscriber<BaseResultBean> observer) {
+        Map<String, String> map = new TreeMap<>();
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .GetLoanUrl(WrapParams(map, context)), context, observer);
+    }
+
+    /**
+     * 获取分享信息
+     * @param testResult
+     * @param textIndex
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription GetShareInfo(BaseResultBean<ShareInfoBean> testResult,String textIndex, Context context, YCNetSubscriber<ShareInfoBean> observer) {
+        Map<String, String> map = new TreeMap<>();
+        map.put("text_index",textIndex);
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .GetShareInfo(WrapParams(map, context)), context, observer);
+    }
+
+    /**
+     * 上传借款信息
+     * @param testResult
+     * @param loan_info
+     * @param proof_material
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription IntroduceLoan(BaseResultBean testResult, String loan_info,String proof_material, Context context, YCNetSubscriber observer) {
+        Map<String, String> map = new TreeMap<>();
+        map.put("loan_info",loan_info);
+        map.put("proof_material",proof_material);
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .IntroduceLoan(WrapParams(map, context)), context, observer);
+    }
+
+    /**
+     * 获取短信验证
+     * @param testResult
+     * @param vercode
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription GetSMS(BaseResultBean testResult, String vercode , Context context, YCNetSubscriber observer) {
+        Map<String, String> map = new TreeMap<>();
+        map.put("vercode",vercode);
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .GetSMS(WrapParams(map, context)), context, observer);
+    }
+
+
+
 
     /***
      * 包装请求后再发起请求

@@ -5,6 +5,7 @@ package com.cfbb.android.commom.state;
  * 借款方式
  */
 public enum LoanTypeEnum {
+
     LOAN_DAY(1, "按天借款"),
     LOAN_MOENTH(3, "按月借款");
 
@@ -20,8 +21,8 @@ public enum LoanTypeEnum {
         return value;
     }
 
-
     public String getName() {
         return name;
     }
+
 }

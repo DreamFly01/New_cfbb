@@ -10,6 +10,7 @@
     <item name="rl_08" type="id">false</item>
     <item name="rl_09" type="id">false</item>
     <item name="rl_10" type="id">false</item>
+    <item name="rl_11" type="id">false</item>
     <item name="btn_jump" type="id">false</item>
     <item name="tv_time" type="id">false</item>
     <item name="tv_num" type="id">false</item>
@@ -24,6 +25,7 @@
     <item name="tv_06" type="id">false</item>
     <item name="tv_07" type="id">false</item>
     <item name="tv_08" type="id">false</item>
+    <item name="tv_09" type="id">false</item>
     <item name="tv_back" type="id">false</item>
     <item name="tv_10" type="id">false</item>
     <item name="tv_11" type="id">false</item>
@@ -38,6 +40,7 @@
     <item name="iv_06" type="id">false</item>
     <item name="iv_07" type="id">false</item>
     <item name="iv_08" type="id">false</item>
+    <item name="iv_11" type="id">false</item>
     <item name="iv_delete1" type="id">false</item>
     <item name="iv_delete2" type="id">false</item>
 
@@ -70,14 +73,14 @@
     <item name="yCToggleButton" type="id">false</item>
     <item name="et_01" type="id">false</item>
     <item name="et_02" type="id">false</item>
-    <item name="et_03" type="id">btn_withdraw</item>
-    <item name="et_04" type="id">btn_withdraw</item>
-    <item name="et_05" type="id">btn_withdraw</item>
-    <item name="et_06" type="id">btn_withdraw</item>
-    <item name="et_07" type="id">btn_withdraw</item>
-    <item name="et_08" type="id">btn_withdraw</item>
-    <item name="et_09" type="id">btn_withdraw</item>
-    <item name="et_10" type="id">btn_withdraw</item>
+    <item name="et_03" type="id">false</item>
+    <item name="et_04" type="id">false</item>
+    <item name="et_05" type="id">false</item>
+    <item name="et_06" type="id">false</item>
+    <item name="et_07" type="id">false</item>
+    <item name="et_08" type="id">false</item>
+    <item name="et_09" type="id">false</item>
+    <item name="et_10" type="id">false</item>
 
     <item name="yCIdentifyCodeView" type="id">false</item>
     <item name="titlePageIndicator" type="id">false</item>
@@ -89,30 +92,33 @@
     <item name="phtoview" type="id">false</item>
     <item name="ycRoundProgress" type="id">false</item>
     <item name="sc_view" type="id">false</item>
-    <item name="btn_withdraw" type="id">btn_withdraw</item>
+    <item name="btn_withdraw" type="id">false</item>
 
 
-    <item name="viewStub_01" type="id">btn_withdraw</item>
-    <item name="viewStub_02" type="id">btn_withdraw</item>
+    <item name="viewStub_01" type="id">false</item>
+    <item name="viewStub_02" type="id">false</item>
 
 
-    <item name="rb_01" type="id">btn_withdraw</item>
-    <item name="rb_02" type="id">btn_withdraw</item>
-    <item name="rb_03" type="id">btn_withdraw</item>
-    <item name="rb_04" type="id">btn_withdraw</item>
-    <item name="rb_05" type="id">btn_withdraw</item>
-    <item name="rb_06" type="id">btn_withdraw</item>
-    <item name="rb_07" type="id">btn_withdraw</item>
-    <item name="rb_08" type="id">btn_withdraw</item>
+    <item name="rb_01" type="id">false</item>
+    <item name="rb_02" type="id">false</item>
+    <item name="rb_03" type="id">false</item>
+    <item name="rb_04" type="id">false</item>
+    <item name="rb_05" type="id">false</item>
+    <item name="rb_06" type="id">false</item>
+    <item name="rb_07" type="id">false</item>
+    <item name="rb_08" type="id">false</item>
 
-    <item name="cb_01" type="id">btn_withdraw</item>
-    <item name="cb_02" type="id">btn_withdraw</item>
-    <item name="cb_03" type="id">btn_withdraw</item>
+    <item name="cb_01" type="id">false</item>
+    <item name="cb_02" type="id">false</item>
+    <item name="cb_03" type="id">false</item>
     <item name="tv_junp" type="id">false</item>
     <item name="tv_15" type="id">false</item>
     <item name="tv_16" type="id">false</item>
     <item name="tv_17" type="id">false</item>
     <item name="iv_12" type="id">false</item>
     <item name="ll_06" type="id">false</item>
+
+    <item name="lv_01" type="id">false</item>
+
 
 </resources>

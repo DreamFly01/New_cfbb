@@ -28,8 +28,8 @@ public class VertifyInfoFragment extends BaseFragment {
     private String product_id;
 
     private MyGridView gv_vertify_result;
-    private MyGridView gv_vertify_images;
-    private GridViewVertifyImageAdptor gridViewVertifyImageAdptor;
+//    private MyGridView gv_vertify_images;
+//    private GridViewVertifyImageAdptor gridViewVertifyImageAdptor;
     private GridViewVertifyResultAdaptor gridViewVertifyResultAdaptor;
 
     private Intent intent;
@@ -62,7 +62,7 @@ public class VertifyInfoFragment extends BaseFragment {
     public void setUpViews(View view) {
         ycLoadingBg = (YCLoadingBg) view.findViewById(R.id.ycLoadingBg);
         gv_vertify_result = (MyGridView) view.findViewById(R.id.gv_01);
-        gv_vertify_images = (MyGridView) view.findViewById(R.id.gv_02);
+//        gv_vertify_images = (MyGridView) view.findViewById(R.id.gv_02);
     }
 
     @Override
@@ -139,22 +139,22 @@ public class VertifyInfoFragment extends BaseFragment {
     private VertifyInfoBean vertifyInfo;
 
     private void FillView() {
-        gridViewVertifyImageAdptor = new GridViewVertifyImageAdptor(getActivity());
-        gridViewVertifyImageAdptor.mDataSource = vertifyInfo.relativeData;
+//        gridViewVertifyImageAdptor = new GridViewVertifyImageAdptor(getActivity());
+//        gridViewVertifyImageAdptor.mDataSource = vertifyInfo.relativeData;
         gridViewVertifyResultAdaptor = new GridViewVertifyResultAdaptor(getActivity());
         gridViewVertifyResultAdaptor.mDataSource = vertifyInfo.vertifyResultlGroup;
 
         gv_vertify_result.setAdapter(gridViewVertifyResultAdaptor);
-        gv_vertify_images.setAdapter(gridViewVertifyImageAdptor);
+//        gv_vertify_images.setAdapter(gridViewVertifyImageAdptor);
 
 
-        gv_vertify_images.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                intent = new Intent(getActivity(), ShowPicActivity.class);
-                intent.putExtra(ShowPicActivity.IMAGE_URL, vertifyInfo.relativeData.get(position).url);
-                startActivity(intent);
-            }
-        });
+//        gv_vertify_images.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                intent = new Intent(getActivity(), ShowPicActivity.class);
+//                intent.putExtra(ShowPicActivity.IMAGE_URL, vertifyInfo.relativeData.get(position).url);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

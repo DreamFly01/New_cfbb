@@ -76,6 +76,7 @@ public class InvestBidActivity extends BaseActivity  {
         turnToIndex = bundle.getInt(INVEST_TURN_TO_MAIN_INDEX, MainFragmentEnum.INVALID.getValue());
     }
 
+
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         super.onSaveInstanceState(bundle, outPersistentState);

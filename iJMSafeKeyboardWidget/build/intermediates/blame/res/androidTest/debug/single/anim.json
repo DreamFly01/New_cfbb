@@ -1,10 +1,18 @@
 [
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\skb_dialog_anim_exit.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\anim\\skb_dialog_anim_exit.xml"
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\skb_dialog_anim_exit.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\anim\\skb_dialog_anim_exit.xml"
     },
     {
-        "merged": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\skb_dialog_anim_enter.xml",
-        "source": "E:\\AndroidStudioWorkSpace\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\anim\\skb_dialog_anim_enter.xml"
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\skb_dialog_anim_enter.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\anim\\skb_dialog_anim_enter.xml"
+    },
+    {
+        "merged": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\skb_dialog_anim_enter.xml",
+        "source": "D:\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\anim\\skb_dialog_anim_enter.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\skb_dialog_anim_exit.xml",
+        "source": "C:\\Users\\dell\\Desktop\\New_cfbb\\iJMSafeKeyboardWidget\\build\\intermediates\\bundles\\debug\\res\\anim\\skb_dialog_anim_exit.xml"
     }
 ]

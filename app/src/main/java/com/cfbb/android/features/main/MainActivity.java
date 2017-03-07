@@ -219,6 +219,8 @@ public class MainActivity extends BaseActivity implements InvestContentFragment.
 
                 } else {
                     //未登录跳转登录
+
+
                     Bundle bundle = new Bundle();
                     bundle.putInt(SHOW_FRAGMENT_INDEX, MainFragmentEnum.ACCOUNT.getValue());
                     JumpCenter.JumpActivity(MainActivity.this, LoginActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, false);

@@ -26,6 +26,8 @@ import com.cfbb.android.commom.utils.image.ImageWithGlideUtils;
 import com.cfbb.android.commom.utils.others.ArithUtil;
 import com.cfbb.android.commom.utils.others.SPUtils;
 import com.cfbb.android.commom.utils.others.StrUtil;
+import com.cfbb.android.db.user.UserBiz;
+import com.cfbb.android.features.gesture.GestureVerifyActivity;
 import com.cfbb.android.features.main.MainActivity;
 import com.cfbb.android.features.update.UpdateAppService;
 import com.cfbb.android.features.update.UpdateDialog;
@@ -105,6 +107,11 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onYCError(APIException e) {
                 FailToCheckVersion();
+
+//                Bundle bundle = new Bundle();
+//                bundle.putInt(MainActivity.SHOW_FRAGMENT_INDEX, MainFragmentEnum.HOME.getValue());
+//                JumpCenter.JumpActivity(SplashActivity.this, MainActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, false);
+
             }
 
             @Override
@@ -195,6 +202,12 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
         mWelcomeInfo = welcomeInfoBean;
         if (!StrUtil.isEmpty(mWelcomeInfo.img)) {
             btn_jump = (Button) findViewById(R.id.btn_jump);
+//            mWelcomeInfo.img = "";
+            if (mWelcomeInfo.img.equals("")) {
+                Bundle bundle = new Bundle();
+                bundle.putInt(MainActivity.SHOW_FRAGMENT_INDEX, MainFragmentEnum.HOME.getValue());
+                JumpCenter.JumpActivity(SplashActivity.this, MainActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, false);
+            }
             ImageWithGlideUtils.lodeFromUrl(mWelcomeInfo.img, iv_bg, SplashActivity.this, new RequestListener() {
 
                 @Override
@@ -285,16 +298,24 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
             countDownTimer.cancel();
         }
         //确保广告请求获取ok 和 版本信息获取Ok
+
         if (isADShowOk && isVersionOk) {
+            if(UserBiz.getInstance(this).Is_Setted_Gesture()&&UserBiz.getInstance(this).Is_Open_Gesture()){
+//                System.out.println(UserBiz.getInstance(this).Is_Open_Gesture());
+                Bundle bundle = new Bundle();
+                bundle.putString("key","key");
+                JumpCenter.JumpActivity(this, GestureVerifyActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, false);
+            }else{
+
             Bundle bundle = new Bundle();
             bundle.putInt(MainActivity.SHOW_FRAGMENT_INDEX, MainFragmentEnum.HOME.getValue());
             JumpCenter.JumpActivity(SplashActivity.this, MainActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, false);
+            }
 
         }
     }
 
     private void LoadOk() {
-
         countDownTimer.cancel();
 
         btn_jump.setOnClickListener(SplashActivity.this);
@@ -352,17 +373,21 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
                 }
                 break;
             case R.id.btn_jump:
+
+//                showShortToast("sssssss");
             case R.id.btn_ok:
                 isADShowOk = true;
                 //if (updateVersionBean != null && isVersionOk) {
-                    if (null != countDownTimerTwo) {
-                        countDownTimerTwo.cancel();
-                    }
-                    if (null != countDownTimer) {
-                        countDownTimer.cancel();
-                    }
+                if (null != countDownTimerTwo) {
+                    countDownTimerTwo.cancel();
+                }
+                if (null != countDownTimer) {
+                    countDownTimer.cancel();
+                }
 
-             //   }
+                //   }
+//                JumpCenter.JumpActivity(this, GestureVerifyActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, false);
+
                 TurnToMainActivity();
                 break;
 

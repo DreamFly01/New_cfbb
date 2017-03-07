@@ -13,7 +13,8 @@ public enum VertifyCodeEnum {
     MODIFY_EMAIL_CODE("22", "修改邮箱"),
     FIND_PASSWORD_CODE("23", "找回密码"),
     SET_NEW_PHONE_CODE("24", "设置新手机"),
-    INVEST_BID_CODE("26", "会员投资");
+    INVEST_BID_CODE("26", "会员投资"),
+    REQUEST_SMS_CODE("28","请求手机验证码");
 
     private String value;
     private String name;

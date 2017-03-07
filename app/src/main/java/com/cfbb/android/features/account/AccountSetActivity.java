@@ -49,6 +49,7 @@ import com.cfbb.android.features.gesture.GestureEditActivity;
 import com.cfbb.android.features.gesture.GestureSetActivity;
 import com.cfbb.android.features.main.MainActivity;
 import com.cfbb.android.features.webview.OtherActivity;
+import com.cfbb.android.features.webview.WebActivity;
 import com.cfbb.android.protocol.APIException;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
@@ -248,6 +249,8 @@ public class AccountSetActivity extends BaseActivity {
                 Bundle bundle = new Bundle();
                 bundle.putInt(RealNameAuthenticationActivity.CertificationState, mAccountSetInfoBean.isAuthentication);
                 JumpCenter.JumpActivity(this, RealNameAuthenticationActivity.class, bundle, null, RZ_REQUEST_CODE, JumpCenter.INVAILD_FLAG, false, true);
+//                JumpCenter.JumpActivity(this, WebActivity.class, bundle, null, RZ_REQUEST_CODE, JumpCenter.INVAILD_FLAG, false, true);
+
                 break;
             //手机绑定
             case R.id.rl_03:
@@ -474,9 +477,7 @@ public class AccountSetActivity extends BaseActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-
     }
-
     @Override
     protected void onResume() {
         super.onResume();

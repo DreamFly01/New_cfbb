@@ -7,7 +7,12 @@ import com.cfbb.android.commom.state.MoneyIsAddEnum;
 import com.cfbb.android.commom.state.RechargeStateEnum;
 import com.cfbb.android.commom.state.RedPaperStateEnum;
 import com.cfbb.android.commom.state.RepaymentTypeEnum;
+import com.cfbb.android.protocol.bean.AccountDetailsInfoBean;
 import com.cfbb.android.protocol.bean.AccountInfoBean;
+import com.cfbb.android.protocol.bean.AccountInvestInfoBean;
+import com.cfbb.android.protocol.bean.AccountLoanInfoBean;
+import com.cfbb.android.protocol.bean.AccountSetInfoBean;
+import com.cfbb.android.protocol.bean.AuditStateBean;
 import com.cfbb.android.protocol.bean.AutoInvestInfoBean;
 import com.cfbb.android.protocol.bean.BaseResultBean;
 import com.cfbb.android.protocol.bean.BidRecordBean;
@@ -15,12 +20,15 @@ import com.cfbb.android.protocol.bean.BindPhoneBean;
 import com.cfbb.android.protocol.bean.BuyInitialBean;
 import com.cfbb.android.protocol.bean.CertificationResultBean;
 import com.cfbb.android.protocol.bean.HomeInfoBean;
+import com.cfbb.android.protocol.bean.LoanPersonInfo;
 import com.cfbb.android.protocol.bean.MyBankInfoBean;
 import com.cfbb.android.protocol.bean.MyGiftBean;
 import com.cfbb.android.protocol.bean.MyInvestBean;
 import com.cfbb.android.protocol.bean.MyInvestCompleteBean;
 import com.cfbb.android.protocol.bean.MyInvestHoldingBean;
 import com.cfbb.android.protocol.bean.MyInvestingBean;
+import com.cfbb.android.protocol.bean.MyLoanBean;
+import com.cfbb.android.protocol.bean.MyLoanDetailsBean;
 import com.cfbb.android.protocol.bean.MyLoanInfoBean;
 import com.cfbb.android.protocol.bean.MyLoanListBean;
 import com.cfbb.android.protocol.bean.MyRedPaperBean;
@@ -36,14 +44,10 @@ import com.cfbb.android.protocol.bean.UpdateVersionBean;
 import com.cfbb.android.protocol.bean.UserBean;
 import com.cfbb.android.protocol.bean.VertifyCodeInfoBean;
 import com.cfbb.android.protocol.bean.VertifyInfoBean;
+import com.cfbb.android.protocol.bean.WelcomeInfoBean;
 import com.cfbb.android.protocol.bean.WithDrawInfoBean;
 import com.cfbb.android.protocol.bean.WithdrawRecordInfoBean;
 import com.cfbb.android.protocol.bean.WithdrawRightInfoBean;
-import com.cfbb.android.protocol.bean.AccountDetailsInfoBean;
-import com.cfbb.android.protocol.bean.AccountInvestInfoBean;
-import com.cfbb.android.protocol.bean.AccountLoanInfoBean;
-import com.cfbb.android.protocol.bean.AccountSetInfoBean;
-import com.cfbb.android.protocol.bean.WelcomeInfoBean;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -971,62 +975,62 @@ public class TestResultUtils {
         ProductTypeBean prouctBean = new ProductTypeBean();
         prouctBean.prodcutTypeId = "1";
         prouctBean.productTypeName = "房贷宝";
-        prouctBean.loanTypeId =1;
+        prouctBean.loanTypeId = 1;
         prouctBeanList.add(prouctBean);
 
         ProductTypeBean prouctBean2 = new ProductTypeBean();
         prouctBean2.prodcutTypeId = "2";
         prouctBean2.productTypeName = "车贷宝";
-        prouctBean2.loanTypeId =1;
+        prouctBean2.loanTypeId = 1;
         prouctBeanList.add(prouctBean2);
 
         prouctBean2 = new ProductTypeBean();
         prouctBean2.prodcutTypeId = "2";
         prouctBean2.productTypeName = "车贷宝";
-        prouctBean2.loanTypeId =1;
+        prouctBean2.loanTypeId = 1;
         prouctBeanList.add(prouctBean2);
 
         ProductTypeBean prouctBean3 = new ProductTypeBean();
         prouctBean3.prodcutTypeId = "4";
         prouctBean3.productTypeName = "优质计划优质计划";
-        prouctBean3.loanTypeId =5;
+        prouctBean3.loanTypeId = 5;
         prouctBeanList.add(prouctBean3);
 
         prouctBean2 = new ProductTypeBean();
         prouctBean2.prodcutTypeId = "2";
         prouctBean2.productTypeName = "车贷宝";
-        prouctBean2.loanTypeId =1;
+        prouctBean2.loanTypeId = 1;
         prouctBeanList.add(prouctBean2);
 
         prouctBean2 = new ProductTypeBean();
         prouctBean2.prodcutTypeId = "2";
         prouctBean2.productTypeName = "车贷宝";
-        prouctBean2.loanTypeId =1;
+        prouctBean2.loanTypeId = 1;
         prouctBeanList.add(prouctBean2);
 
-         prouctBean3 = new ProductTypeBean();
+        prouctBean3 = new ProductTypeBean();
         prouctBean3.prodcutTypeId = "4";
         prouctBean3.productTypeName = "优质计划优质计划";
-        prouctBean3.loanTypeId =5;
+        prouctBean3.loanTypeId = 5;
         prouctBeanList.add(prouctBean3);
 
         prouctBean2 = new ProductTypeBean();
         prouctBean2.prodcutTypeId = "2";
         prouctBean2.productTypeName = "车贷宝";
-        prouctBean2.loanTypeId =1;
+        prouctBean2.loanTypeId = 1;
         prouctBeanList.add(prouctBean2);
 
         prouctBean2 = new ProductTypeBean();
         prouctBean2.prodcutTypeId = "2";
         prouctBean2.productTypeName = "车贷宝";
-        prouctBean2.loanTypeId =1;
+        prouctBean2.loanTypeId = 1;
         prouctBeanList.add(prouctBean2);
 
 
         prouctBean2 = new ProductTypeBean();
         prouctBean2.prodcutTypeId = "2";
         prouctBean2.productTypeName = "车贷宝";
-        prouctBean2.loanTypeId =1;
+        prouctBean2.loanTypeId = 1;
         prouctBeanList.add(prouctBean2);
 
         baseResultBean.data = prouctBeanList;
@@ -1555,6 +1559,194 @@ public class TestResultUtils {
         myLoanListList.add(myLoanList);
 
         baseResultBean.data = myLoanListList;
+        return baseResultBean;
+    }
+
+    public static BaseResultBean<List<MyLoanBean>> getSussefulResult45() {
+
+        BaseResultBean<List<MyLoanBean>> baseResultBean = new BaseResultBean<>();
+        baseResultBean.code = APIService.OK_CODE;
+        baseResultBean.msg = "获取信息成功";
+
+        List<MyLoanBean> myLoanBeanList = new ArrayList<>();
+
+        MyLoanBean myLoanBean = new MyLoanBean();
+//        myLoanBean.loanTypeId = "1111";
+//        myLoanBean.prodcutId = "2222";
+//        myLoanBean.borrowName = "车辆抵押贷款";
+//        myLoanBean.borrowMoney = "1000";
+//        myLoanBean.borrowStat = "正在审核";
+//        myLoanBean.repayModeId = "按月付息到期还本";
+//        myLoanBean.bidDay = "5天";
+//        myLoanBean.time = "2016-09-12";
+//        myLoanBeanList.add(myLoanBean);
+//
+//        myLoanBean = new MyLoanBean();
+//        myLoanBean.loanTypeId = "1111";
+//        myLoanBean.prodcutId = "2222";
+//        myLoanBean.borrowName = "车辆抵押贷款";
+//        myLoanBean.borrowMoney = "1000";
+//        myLoanBean.borrowStat = "正在审核";
+//        myLoanBean.repayModeId = "按月付息到期还本";
+//        myLoanBean.bidDay = "5天";
+//        myLoanBean.time = "2016-09-12";
+//        myLoanBeanList.add(myLoanBean);
+//
+//        myLoanBean = new MyLoanBean();
+//        myLoanBean.loanTypeId = "1111";
+//        myLoanBean.prodcutId = "2222";
+//        myLoanBean.borrowName = "车辆抵押贷款";
+//        myLoanBean.borrowMoney = "1000";
+//        myLoanBean.borrowStat = "正在审核";
+//        myLoanBean.repayModeId = "按月付息到期还本";
+//        myLoanBean.bidDay = "5天";
+//        myLoanBean.time = "2016-09-12";
+//        myLoanBeanList.add(myLoanBean);
+//
+//        myLoanBean = new MyLoanBean();
+//        myLoanBean.loanTypeId = "1111";
+//        myLoanBean.prodcutId = "2222";
+//        myLoanBean.borrowName = "车辆抵押贷款";
+//        myLoanBean.borrowMoney = "1000";
+//        myLoanBean.borrowStat = "正在审核";
+//        myLoanBean.repayModeId = "按月付息到期还本";
+//        myLoanBean.bidDay = "5天";
+//        myLoanBean.time = "2016-09-12";
+//        myLoanBeanList.add(myLoanBean);
+//        myLoanBean = new MyLoanBean();
+//        myLoanBean.loanTypeId = "1111";
+//        myLoanBean.prodcutId = "2222";
+//        myLoanBean.borrowName = "车辆抵押贷款";
+//        myLoanBean.borrowMoney = "1000";
+//        myLoanBean.borrowStat = "正在审核";
+//        myLoanBean.repayModeId = "按月付息到期还本";
+//        myLoanBean.bidDay = "5天";
+//        myLoanBean.time = "2016-09-12";
+//        myLoanBeanList.add(myLoanBean);
+//        myLoanBean = new MyLoanBean();
+//        myLoanBean.loanTypeId = "1111";
+//        myLoanBean.prodcutId = "2222";
+//        myLoanBean.borrowName = "车辆抵押贷款";
+//        myLoanBean.borrowMoney = "1000";
+//        myLoanBean.borrowStat = "正在审核";
+//        myLoanBean.repayModeId = "按月付息到期还本";
+//        myLoanBean.bidDay = "5天";
+//        myLoanBean.time = "2016-09-12";
+//        myLoanBeanList.add(myLoanBean);
+//        myLoanBean = new MyLoanBean();
+//        myLoanBean.loanTypeId = "1111";
+//        myLoanBean.prodcutId = "2222";
+//        myLoanBean.borrowName = "车辆抵押贷款";
+//        myLoanBean.borrowMoney = "1000";
+//        myLoanBean.borrowStat = "正在审核";
+//        myLoanBean.repayModeId = "按月付息到期还本";
+//        myLoanBean.bidDay = "5天";
+//        myLoanBean.time = "2016-09-12";
+//        myLoanBeanList.add(myLoanBean);
+//        myLoanBean = new MyLoanBean();
+//        myLoanBean.loanTypeId = "1111";
+//        myLoanBean.prodcutId = "2222";
+//        myLoanBean.borrowName = "车辆抵押贷款";
+//        myLoanBean.borrowMoney = "1000";
+//        myLoanBean.borrowStat = "正在审核";
+//        myLoanBean.repayModeId = "按月付息到期还本";
+//        myLoanBean.bidDay = "5天";
+//        myLoanBean.time = "2016-09-12";
+//        myLoanBeanList.add(myLoanBean);
+//        myLoanBean = new MyLoanBean();
+//        myLoanBean.loanTypeId = "1111";
+//        myLoanBean.prodcutId = "2222";
+//        myLoanBean.borrowName = "车辆抵押贷款";
+//        myLoanBean.borrowMoney = "1000";
+//        myLoanBean.borrowStat = "正在审核";
+//        myLoanBean.repayModeId = "按月付息到期还本";
+//        myLoanBean.bidDay = "5天";
+//        myLoanBean.time = "2016-09-12";
+        myLoanBeanList.add(myLoanBean);
+
+        baseResultBean.data = myLoanBeanList;
+
+        return baseResultBean;
+    }
+
+    public static BaseResultBean<MyLoanDetailsBean> getSussefulResult46() {
+        BaseResultBean<MyLoanDetailsBean> baseResultBean = new BaseResultBean<>();
+        baseResultBean.code = APIService.OK_CODE;
+        baseResultBean.msg = "获取信息成功";
+
+        MyLoanDetailsBean myLoanDetailsBean = new MyLoanDetailsBean();
+        List<MyLoanDetailsBean.ImageInfo> imageInfos = new ArrayList<>();
+        MyLoanDetailsBean.ImageInfo imageInfo = null;
+        for (int i = 0; i < 10; i++) {
+            imageInfo = myLoanDetailsBean.new ImageInfo();
+            imageInfo.name = "身份证";
+            imageInfo.url = "http://img2.3lian.com/2014/f5/135/d/92.jpg";
+            imageInfos.add(imageInfo);
+        }
+        myLoanDetailsBean.loanTime = "2107-78-87";
+        myLoanDetailsBean.loanDescrib = "啊但是佛啊说法懂啊是能够啊弄啊撒旦发送是的佛大法师打发的高发";
+        myLoanDetailsBean.loanDate = "6个月";
+        myLoanDetailsBean.loanMoeny = "50000";
+//        myLoanDetailsBean.loanStats = 1;
+        myLoanDetailsBean.loanSateText = "筹款成功";
+        myLoanDetailsBean.returnWay = "按月付息到期还本";
+        myLoanDetailsBean.productName = "车辆抵押贷款";
+        myLoanDetailsBean.bindingDays = "10天";
+        myLoanDetailsBean.relativeData = imageInfos;
+
+        baseResultBean.data = myLoanDetailsBean;
+        return baseResultBean;
+    }
+
+
+    public static BaseResultBean<AuditStateBean> getSussefulResult48() {
+        BaseResultBean<AuditStateBean> baseResultBean = new BaseResultBean<>();
+        baseResultBean.code = APIService.OK_CODE;
+        baseResultBean.msg = "获取信息成功";
+
+        AuditStateBean auditStateBean = new AuditStateBean();
+        auditStateBean.failureDescribe = "地发呆佛啊的念佛爱的你搞id功能撒旦发个都昂法规懊恼奋斗啊是哪嘎";
+        auditStateBean.loanSateText = "筹款成功";
+        AuditStateBean.AuditInfo auditInfo = null;
+        List<AuditStateBean.AuditInfo> list = new ArrayList<>();
+        for (int i = 0;i<5;i++){
+            auditInfo = auditStateBean.new AuditInfo();
+            auditInfo.productName = "车辆抵押贷款";
+            auditInfo.yearOfRate = "12.68%";
+            auditInfo.investDate = "6";
+            auditInfo.remiansMoeny = "10000";
+            auditInfo.loanTypeId = "1";
+            auditInfo.prodcutId = "2";
+            auditInfo.unit = 3;
+            auditInfo.btntxt = "查看详情";
+            auditInfo.canInvest = -1;
+
+            list.add(auditInfo);
+        }
+//        auditStateBean.products = list;
+
+        baseResultBean.data = auditStateBean;
+        return baseResultBean;
+    }
+
+
+    public static BaseResultBean<LoanPersonInfo> getSussefulResult49() {
+        BaseResultBean<LoanPersonInfo> baseResultBean = new BaseResultBean<>();
+        baseResultBean.code = APIService.OK_CODE;
+        baseResultBean.msg = "获取信息成功";
+
+        LoanPersonInfo loanPersonInfo = new LoanPersonInfo();
+        List<LoanPersonInfo.PersonInfo> list = new ArrayList<>();
+        LoanPersonInfo.PersonInfo personInfo = null;
+        for (int i = 0; i < 5; i++) {
+            personInfo = loanPersonInfo.new PersonInfo();
+            personInfo.loanerInfo = "职业身份";
+            personInfo.info = "企业主";
+            list.add(personInfo);
+        }
+
+        loanPersonInfo.loanInfos = list;
+        baseResultBean.data = loanPersonInfo;
         return baseResultBean;
     }
 }

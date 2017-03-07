@@ -33,7 +33,7 @@
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
             android:layout_marginTop="9dp"
-            android:text="好的哈接口的和发哈士大夫艰苦撒旦"
+            android:text="-------------"
             android:textColor="@color/balck"
             android:textSize="@dimen/size_18" />
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
-            android:text="财富中国三种是uaidjfs发士大夫 发士大夫"
+            android:text="-------"
             android:textColor="@color/txt_3"
             android:textSize="@dimen/size_16" />
 
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="2016-06-05"
+                android:text="-----"
                 android:textColor="@color/txt_6"
                 android:textSize="@dimen/size_16" />
 

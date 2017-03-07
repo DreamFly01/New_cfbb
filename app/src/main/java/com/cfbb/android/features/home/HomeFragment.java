@@ -34,9 +34,11 @@ import com.cfbb.android.features.invest.InvestBidActivity;
 import com.cfbb.android.features.main.MainActivity;
 import com.cfbb.android.features.product.ProductDetailsActivity;
 import com.cfbb.android.features.webview.OtherActivity;
+import com.cfbb.android.features.webview.WebActivity;
 import com.cfbb.android.protocol.APIException;
 import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
+import com.cfbb.android.protocol.TestResultUtils;
 import com.cfbb.android.protocol.YCNetSubscriber;
 import com.cfbb.android.protocol.bean.HomeInfoBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
@@ -87,6 +89,8 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     private LinearLayout ll_helpercenter;
     private YCDialogUtils ycDialogUtils;
 
+    private String textIndex;
+
     private ConvenientBanner convenientBanner;//顶部广告栏控件
 
     public HomeFragment() {
@@ -111,7 +115,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     @Override
     public void getDataOnActivityCreated() {
 
-        //TestResultUtils.getSussefulResult15()
+//        TestResultUtils.getSussefulResult15();
         addSubscription(RetrofitClient.getHomeRequest(null, getActivity(), new YCNetSubscriber<HomeInfoBean>(getActivity()) {
 
             @Override
@@ -119,6 +123,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
 
                 homeInfoBean = model;
                 adsBeens = homeInfoBean.ads;
+
                 initBanner(homeInfoBean.ads);
                 initRollNotice();
                 FillHeaderView(homeInfoBean);
@@ -273,6 +278,7 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
             Bundle bundle = new Bundle();
             bundle.putString(OtherActivity.BACK_STR, getResources().getString(R.string.nav_home));
             bundle.putString(OtherActivity.URL, adsBeens.get(position).clickurl);
+            bundle.putString("text_index",adsBeens.get(position).textIndex);
             bundle.putSerializable(OtherActivity.TURN_TO_ACTIVITY_CLASS, MainActivity.class);
             JumpCenter.JumpActivity(getActivity(), OtherActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, false);
 
@@ -626,7 +632,9 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
         if (!StrUtil.isEmpty(url)) {
             Bundle bundle = new Bundle();
             bundle.putString(OtherActivity.BACK_STR, getResources().getString(R.string.nav_home));
+//            bundle.putString("index",);
             bundle.putString(OtherActivity.URL, url);
+            bundle.putString("flag","首页");
             bundle.putSerializable(OtherActivity.TURN_TO_ACTIVITY_CLASS, MainActivity.class);
             JumpCenter.JumpActivity(getActivity(), OtherActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, false);
 
@@ -637,14 +645,14 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
 
     @Override
     public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        isHidden = hidden;
-        if (hidden) {
-            //不在最前端界面显示
-            //相当于Fragment的onPause
-            StatService.onPause(this);
-        } else {//
-            // 重新显示到最前端中
+            super.onHiddenChanged(hidden);
+            isHidden = hidden;
+            if (hidden) {
+                //不在最前端界面显示
+                //相当于Fragment的onPause
+                StatService.onPause(this);
+            } else {//
+                // 重新显示到最前端中
             //相当于Fragment的onResume
             StatService.onResume(this);
         }

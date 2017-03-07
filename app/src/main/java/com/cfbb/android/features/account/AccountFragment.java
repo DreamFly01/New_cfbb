@@ -30,14 +30,18 @@ import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.db.user.UserBiz;
 import com.cfbb.android.features.account.accountdetails.AccountDetailsActivity;
 import com.cfbb.android.features.account.myinvest.MyInvestActivity;
-import com.cfbb.android.features.account.releaseLoan.AddLoanActivity;
+import com.cfbb.android.features.account.releaseLoan.IntroduceLoanActivity;
+import com.cfbb.android.features.account.releaseLoan.MyLoanActivity;
 import com.cfbb.android.features.account.withdrawAndrecharge.RechargeActivity;
 import com.cfbb.android.features.authentication.RealNameAuthenticationActivity;
+import com.cfbb.android.features.webview.OtherActivity;
 import com.cfbb.android.protocol.APIException;
 import com.cfbb.android.protocol.APIService;
 import com.cfbb.android.protocol.RetrofitClient;
 import com.cfbb.android.protocol.YCNetSubscriber;
 import com.cfbb.android.protocol.bean.AccountInfoBean;
+import com.cfbb.android.protocol.bean.BaseResultBean;
+import com.cfbb.android.protocol.bean.LoanUrlBean;
 import com.cfbb.android.protocol.bean.MyBankInfoBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.widget.PullDownView;
@@ -69,6 +73,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
     private RelativeLayout rl_my_invest;
     private RelativeLayout rl_trade_details;
     private RelativeLayout rl_release_loan;
+    private RelativeLayout rl_release_myloan;
     private RelativeLayout rl_my_bankcard_list;
     private RelativeLayout rl_my_red_paper;
     private TextView tv_red_pokage_num;
@@ -78,6 +83,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
     private PullDownView pullDowmView;
     private ListView listView;
     private YCDialogUtils ycDialogUtils;
+    private String url;
 
     public AccountFragment() {
 
@@ -101,6 +107,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
         iv_potoh.setOnClickListener(this);
         tv_recharge_money.setOnClickListener(this);
         rl_release_loan.setOnClickListener(this);
+        rl_release_myloan.setOnClickListener(this);
         rl_gift.setOnClickListener(this);
         pullDowmView.setUpdateHandle(new PullDownView.UpdateHandle() {
             @Override
@@ -163,6 +170,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
         rl_my_invest = (RelativeLayout) viewHeader.findViewById(R.id.rl_02);
         rl_trade_details = (RelativeLayout) viewHeader.findViewById(R.id.rl_03);
         rl_release_loan = (RelativeLayout) viewHeader.findViewById(R.id.rl_04);
+        rl_release_myloan = (RelativeLayout) viewHeader.findViewById(R.id.rl_11);
         rl_my_bankcard_list = (RelativeLayout) viewHeader.findViewById(R.id.rl_05);
         rl_my_red_paper = (RelativeLayout) viewHeader.findViewById(R.id.rl_06);
 
@@ -179,10 +187,10 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
             tv_userName.setText(accountInfoBean.userName);
             if (accountInfoBean.isRelease == LoanReleasedStateEnum.RELEASED.getValue()) {
-                tv_is_show.setText(getResources().getString(R.string.is_released));
+//                tv_is_show.setText(getResources().getString(R.string.is_released));
             }
             if (accountInfoBean.isRelease == LoanReleasedStateEnum.UNRELEASED.getValue()) {
-                tv_is_show.setText(getResources().getString(R.string.not_released));
+//                tv_is_show.setText(getResources().getString(R.string.not_released));
             }
             is_open_eye = UserBiz.getInstance(getActivity()).Is_Show_Money();
             if (is_open_eye) {
@@ -254,11 +262,17 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                 break;
             //发布借款
             case R.id.rl_04:
-                JumpCenter.JumpActivity(getActivity(), AddLoanActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+                JumpCenter.JumpActivity(getActivity(), IntroduceLoanActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+
+//                getUrl();
                 break;
             //我的礼品
             case R.id.rl_07:
                 JumpCenter.JumpActivity(getActivity(), MyGiftActivity.class, null, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, false, true);
+                break;
+            //我的借款
+            case R.id.rl_11:
+                JumpCenter.JumpActivity(getActivity(),MyLoanActivity.class,null,null,JumpCenter.NORMALL_REQUEST,JumpCenter.INVAILD_FLAG,false,true);
                 break;
             //充值
             case R.id.tv_02:
@@ -511,4 +525,14 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
             MyGetData();
         }
     }
+    public void getUrl(){
+        addSubscription(RetrofitClient.GetLoanUrl(null, getActivity(), new YCNetSubscriber<BaseResultBean>(getActivity(),true) {
+            @Override
+            public void onYcNext(BaseResultBean model) {
+                JumpCenter.JumpActivity(getActivity(), IntroduceLoanActivity.class,null,null,JumpCenter.NORMALL_REQUEST,JumpCenter.INVAILD_FLAG,false,true);
+            }
+
+        }));
+    }
+
 }

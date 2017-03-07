@@ -104,6 +104,7 @@ JNIEXPORT jstring
 {
    // public static final String API_HOST_ADDR = "http://appapi.cfbb.jinzejiayuan.com"; 测试
 //    public static final String API_HOST_ADDR = "http://appapi3.cfbb.com.cn";正式
+    //"http://www.app.cfbb.com.cn" 李文军个人站
     return (*env)->NewStringUTF(env, "http://appapi3.cfbb.com.cn");
 }
 

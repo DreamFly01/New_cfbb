@@ -101,6 +101,7 @@ public class InvestContentFragment extends BaseFragment implements  AbsListView.
         if (getArguments() != null) {
             product_type = getArguments().getString(PARAM_PRODUCT_TYPE);
             loan_type_id = getArguments().getString(PARAM_LOAN_TYPE_ID);
+            System.out.println("------------product_type--------------"+product_type+"--loan_type_id--"+loan_type_id);
         }
     }
 
@@ -476,6 +477,7 @@ public class InvestContentFragment extends BaseFragment implements  AbsListView.
         //已完成的标的严禁跳转
         if(productBean.loanStatus != 10) {
             TurnToProductDetailsActivity(productBean.prodcutId, productBean.loanTypeId);
+            System.out.println("投资页面：------loanTypeId-------"+productBean.loanTypeId);
         }
     }
 

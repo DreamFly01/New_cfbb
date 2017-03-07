@@ -22,6 +22,16 @@
 -dontoptimize
 -dontwarn com.google.android.maps.**
 -dontwarn android.webkit.WebView
+-keep class cn.sharesdk.**{*;}
+-keep class com.sina.**{*;}
+-keep class **.R$* {*;}
+-keep class **.R{*;}
+
+-keep class com.mob.**{*;}
+-dontwarn com.mob.**
+-dontwarn cn.sharesdk.**
+-dontwarn **.R$*
+
 -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
 -verbose
 
@@ -96,5 +106,9 @@
 }
 
 
--keep class com.baofoo.**
--keep class com.baofoo.sdk.vip.BaofooPayActivity  { *; }
+-keepclassmembers class cn.com.cfbb.android.OtherActivity{
+ public *;
+}
+
+-keepattributes *Annotation*
+-keepattributes *JavascriptInterface*

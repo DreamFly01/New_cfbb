@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:ems="1"
-            android:text="现金卷"
+            android:text="-"
             android:textColor="@color/white"
             android:textSize="@dimen/size_26" />
 
@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
-                    android:text="500.00"
+                    android:text="-"
                     android:textColor="@color/white"
                     android:textSize="@dimen/size_40" />
 
@@ -79,7 +79,7 @@
                     android:id="@id/tv_03"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="新手任务获得获得的"
+                    android:text="-"
                     android:textColor="@color/white"
                     android:textSize="@dimen/size_16" />
             </LinearLayout>
@@ -93,7 +93,7 @@
                     android:id="@id/tv_10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="有效期至："
+                    android:text="有效期至:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/size_16" />
 
@@ -101,8 +101,8 @@
                     android:id="@id/tv_04"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="2019-06-06"
+                    android:layout_marginLeft="10dp"
+                    android:text="-"
                     android:textColor="@color/white"
                     android:textSize="@dimen/size_16" />
             </LinearLayout>

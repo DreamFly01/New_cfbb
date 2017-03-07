@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestListener;
+import com.cfbb.android.R;
 import com.cfbb.android.commom.utils.image.GlideCircleTransform;
 
 import java.io.File;
@@ -132,7 +133,17 @@ public class ImageWithGlideUtils {
         } catch (Exception e) {
         }
     }
-
+    public static void lodeFromUrlRoundTransformImg(String url, ImageView tartgetView, Context context){
+        try {
+            Glide.with(context)
+                    .load(url)
+                    .centerCrop()
+                    .override(200,120)
+                    .placeholder(R.drawable.sfz)
+                    .into(tartgetView);
+        } catch (Exception e) {
+        }
+    }
     public static void lodeFromUrlRoundTransform(String url, int placeholder, ImageView tartgetView, Context context) {
         try {
             Glide.with(context)

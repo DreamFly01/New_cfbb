@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.baidu.mobstat.StatService;
 import com.cfbb.android.R;
 import com.cfbb.android.commom.baseview.BaseFragment;
 import com.cfbb.android.commom.utils.base.PhoneUtils;
@@ -293,6 +294,7 @@ public class YCPagerIndicator extends HorizontalScrollView implements ViewPager.
             this.fragments.get(position).onClickFragment();
         }
         viewPager.setCurrentItem(position);
+        StatService.onEvent(context,tv_list.get(position).getText().toString(),"点击",1);
     }
 
     public void setFragments(List<BaseFragment> fragments) {
