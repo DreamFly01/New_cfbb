@@ -301,7 +301,6 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
 
         if (isADShowOk && isVersionOk) {
             if(UserBiz.getInstance(this).Is_Setted_Gesture()&&UserBiz.getInstance(this).Is_Open_Gesture()){
-//                System.out.println(UserBiz.getInstance(this).Is_Open_Gesture());
                 Bundle bundle = new Bundle();
                 bundle.putString("key","key");
                 JumpCenter.JumpActivity(this, GestureVerifyActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, false);
@@ -311,7 +310,6 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
             bundle.putInt(MainActivity.SHOW_FRAGMENT_INDEX, MainFragmentEnum.HOME.getValue());
             JumpCenter.JumpActivity(SplashActivity.this, MainActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, false);
             }
-
         }
     }
 
