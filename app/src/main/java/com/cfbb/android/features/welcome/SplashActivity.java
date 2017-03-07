@@ -371,8 +371,6 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
                 }
                 break;
             case R.id.btn_jump:
-
-//                showShortToast("sssssss");
             case R.id.btn_ok:
                 isADShowOk = true;
                 //if (updateVersionBean != null && isVersionOk) {
