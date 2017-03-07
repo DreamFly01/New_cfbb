@@ -6,5 +6,5 @@ package com.cfbb.android.features.account;
  * @desc
  */
 public class TestGit {
-
+    public String  fuck;
 }
