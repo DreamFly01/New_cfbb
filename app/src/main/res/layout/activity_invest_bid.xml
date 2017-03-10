@@ -57,6 +57,53 @@
                     android:textSize="@dimen/size_14" />
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_42"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center"
+                    android:text="@string/buy_money"
+                    android:textColor="@color/txt_3"
+                    android:textSize="@dimen/size_18" />
+
+                <!--<com.smileback.safeinputlib.IJMInputEditText-->
+                    <!--android:id="@id/et_01"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:background="@drawable/transparent_bg"-->
+                    <!--android:hint="@string/buy_money_hint_str"-->
+                    <!--android:maxLength="8"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:textColorHint="@color/txt_gray9"-->
+                    <!--android:textSize="@dimen/size_18" />-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="加息卷利息"
+                    />
+                <TextView
+                    android:id="@+id/tv_jiaxijuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="0.3%"
+                    android:textColor="@color/txt_red"
+                    android:textSize="@dimen/size_14" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    />
+
+            </LinearLayout>
 
             <ImageView style="@style/iv_gray_horizontal_line" />
 
@@ -175,10 +222,11 @@
 
         </LinearLayout>
 
-        <com.cfbb.android.widget.YCLoadingBg
-            android:id="@+id/ycLoadingBg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+        <!--<com.cfbb.android.widget.YCLoadingBg-->
+            <!--android:id="@+id/ycLoadingBg"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--&gt;</com.cfbb.android.widget.YCLoadingBg>-->
 
 
     </FrameLayout>
