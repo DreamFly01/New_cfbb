@@ -28,12 +28,14 @@ import com.cfbb.android.protocol.bean.MyInvestDetailsBean;
 import com.cfbb.android.protocol.bean.MyLoanBean;
 import com.cfbb.android.protocol.bean.MyLoanDetailsBean;
 import com.cfbb.android.protocol.bean.MyLoanInfoBean;
+import com.cfbb.android.protocol.bean.MyRatesBean;
 import com.cfbb.android.protocol.bean.MyRedPaperBean;
 import com.cfbb.android.protocol.bean.PlanExplainBean;
 import com.cfbb.android.protocol.bean.ProductBaseInfoBean;
 import com.cfbb.android.protocol.bean.ProductInfoBean;
 import com.cfbb.android.protocol.bean.ProductProjectInfoBean;
 import com.cfbb.android.protocol.bean.ProductTypeBean;
+import com.cfbb.android.protocol.bean.RatesBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.protocol.bean.RechargeResultInfoBean;
 import com.cfbb.android.protocol.bean.ServiceTermBean;
@@ -788,4 +790,24 @@ public interface APIService {
     @FormUrlEncoded
     @POST("/loan/check_confirm_phone")
     Observable<BaseResultBean> GetSMS(@FieldMap Map<String, String> params);
+
+
+    /**
+     * 获取加息卷
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/loan/invest_interest")
+    Observable<BaseResultBean<RatesBean>> GetRates(@FieldMap Map<String, String> params);
+
+
+    /**
+     * 获取我的加息卷
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/account/interest_coupon")
+    Observable<BaseResultBean<List<MyRatesBean>>> GetMyRates(@FieldMap Map<String, String> params);
 }
