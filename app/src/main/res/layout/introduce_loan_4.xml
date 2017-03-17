@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    android:id="@+id/introduce4"
+    android:visibility="gone"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="年营业额收入" />
+
+        <TextView
+            android:id="@+id/tv_417"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请选择年营业收入"
+            android:gravity="right"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="企业类型" />
+
+        <TextView
+            android:id="@+id/tv_418"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请选择企业类型"
+            android:gravity="right"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="企业经营地" />
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:background="@null"
+            android:id="@+id/tv_419"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请输入企业经营地"
+            android:gravity="right"
+            android:ellipsize="end"
+            android:maxEms="1"
+            android:maxLines="1"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="主营业务" />
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:background="@null"
+            android:id="@+id/tv_420"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请输入主营业务"
+            android:gravity="right"
+            android:ellipsize="end"
+            android:maxEms="1"
+            android:maxLines="1"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="企业成立时间" />
+
+        <TextView
+            android:id="@+id/tv_421"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请选择企业成立时间"
+            android:gravity="right"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+</LinearLayout>

@@ -448,6 +448,43 @@
             </RelativeLayout>
 
             <ImageView style="@style/iv_gray_horizontal_line" />
+            <RelativeLayout
+                android:id="@id/rl_08"
+                style="@style/horizontal_wihte_item">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/jiaxibg" />
+
+                <TextView
+                    style="@style/account_txt"
+                    android:text="我的加息券" />
+
+                <TextView
+                    android:id="@id/tv_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@id/iv_08"
+                    android:text=""
+                    android:textColor="@color/txt_gray6"
+                    android:textSize="@dimen/size_18" />
+
+                <ImageView
+                    android:id="@id/iv_08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_ico" />
+            </RelativeLayout>
+
+            <ImageView style="@style/iv_gray_horizontal_line" />
 
         </LinearLayout>
 

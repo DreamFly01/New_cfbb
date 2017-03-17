@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    android:id="@+id/introduce2"
+    android:visibility="gone"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="车辆品牌" />
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:background="@null"
+            android:id="@+id/tv_217"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请输入车辆品牌"
+            android:gravity="right"
+            android:ellipsize="end"
+            android:maxEms="1"
+            android:maxLines="1"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="车辆型号" />
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:background="@null"
+            android:id="@+id/tv_218"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请输入车辆型号"
+            android:gravity="right"
+            android:ellipsize="end"
+            android:maxEms="1"
+            android:maxLines="1"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="车辆归属地" />
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:background="@null"
+            android:id="@+id/tv_219"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请输入车辆归属地"
+            android:gravity="right"
+            android:numeric="integer"
+            android:ellipsize="end"
+            android:maxEms="1"
+            android:maxLines="1"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="车辆市场评估价" />
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:background="@null"
+            android:id="@+id/tv_220"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请输入车辆市场评估价"
+            android:gravity="right"
+            android:numeric="integer"
+            android:ellipsize="end"
+            android:maxEms="1"
+            android:maxLines="1"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="车辆状况" />
+
+        <TextView
+            android:id="@+id/tv_221"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请选择车辆状况"
+            android:gravity="right"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:id="@+id/ll_01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="车辆状态" />
+
+        <TextView
+            android:id="@+id/tv_222"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请选择车辆状态"
+            android:gravity="right"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

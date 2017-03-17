@@ -36,27 +36,29 @@
                 <com.smileback.safeinputlib.IJMInputEditText
                     android:id="@id/et_01"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
                     android:background="@drawable/transparent_bg"
                     android:hint="@string/buy_money_hint_str"
                     android:maxLength="8"
                     android:singleLine="true"
                     android:textColorHint="@color/txt_gray9"
                     android:textSize="@dimen/size_18" />
+
                 <TextView
                     android:id="@id/tv_10"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
-                    android:visibility="gone"
                     android:gravity="center"
                     android:text="余额不足,去充值?"
                     android:textColor="@color/txt_red"
-                    android:textSize="@dimen/size_14" />
+                    android:textSize="@dimen/size_14"
+                    android:visibility="gone" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_42"
@@ -69,39 +71,56 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:gravity="center"
-                    android:text="@string/buy_money"
+                    android:text="我的加息券"
                     android:textColor="@color/txt_3"
                     android:textSize="@dimen/size_18" />
 
-                <!--<com.smileback.safeinputlib.IJMInputEditText-->
-                    <!--android:id="@id/et_01"-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_marginLeft="15dp"-->
-                    <!--android:background="@drawable/transparent_bg"-->
-                    <!--android:hint="@string/buy_money_hint_str"-->
-                    <!--android:maxLength="8"-->
-                    <!--android:singleLine="true"-->
-                    <!--android:textColorHint="@color/txt_gray9"-->
-                    <!--android:textSize="@dimen/size_18" />-->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="加息卷利息"
-                    />
-                <TextView
-                    android:id="@+id/tv_jiaxijuan"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/ll_jiaxi"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="0.3%"
-                    android:textColor="@color/txt_red"
-                    android:textSize="@dimen/size_14" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    />
+                    android:layout_gravity="center"
+                    android:gravity="right">
+                    <TextView
+                        android:id="@+id/tv_11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center"/>
+                    <LinearLayout
+                        android:id="@+id/ll_06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tv_jiaxi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_jiaxiRate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text="0.3%"
+                            android:textColor="@color/txt_red"
+                            android:textSize="@dimen/size_14" />
+                    </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="15dp"
+                            android:src="@mipmap/arrow_right_ico" />
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -223,10 +242,10 @@
         </LinearLayout>
 
         <!--<com.cfbb.android.widget.YCLoadingBg-->
-            <!--android:id="@+id/ycLoadingBg"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--&gt;</com.cfbb.android.widget.YCLoadingBg>-->
+        <!--android:id="@+id/ycLoadingBg"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--&gt;</com.cfbb.android.widget.YCLoadingBg>-->
 
 
     </FrameLayout>

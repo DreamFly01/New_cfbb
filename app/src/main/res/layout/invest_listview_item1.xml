@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中国财富E贷20160115524"
+                android:textColor="@color/txt_6"
+                android:textSize="@dimen/size_18" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="7dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/xu_ico" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@id/tv_02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="12.25"
+                    android:textColor="@color/txt_red"
+                    android:textSize="@dimen/size_28" />
+
+
+                <TextView
+                    android:id="@id/tv_04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/tv_02"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@id/tv_02"
+                    android:text="%"
+                    android:textColor="@color/txt_red"
+                    android:textSize="@dimen/size_14" />
+
+                <TextView
+                    android:id="@id/tv_03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/tv_02"
+                    android:layout_below="@id/tv_02"
+                    android:layout_marginLeft="3dp"
+                    android:text="@string/expect_year_of_rate_str"
+                    android:textColor="@color/txt_9"
+                    android:textSize="@dimen/size_14" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@id/ll_05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@id/tv_05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/txt_3"
+                        android:textSize="@dimen/size_28" />
+
+                    <TextView
+                        android:id="@id/tv_06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/tv_05"
+                        android:layout_marginBottom="5dp"
+                        android:layout_toRightOf="@id/tv_05"
+                        android:text="个月"
+                        android:textColor="@color/txt_6"
+                        android:textSize="@dimen/size_16" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@id/tv_07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_05"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/invest_date_str"
+                    android:textColor="@color/txt_9"
+                    android:textSize="@dimen/size_14" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@id/tv_08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@id/tv_09"
+                    android:text="1000.00"
+                    android:textColor="@color/txt_3"
+                    android:textSize="@dimen/size_28" />
+
+                <TextView
+                    android:id="@id/tv_09"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/tv_08"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="元"
+                    android:textColor="@color/txt_6"
+                    android:textSize="@dimen/size_16" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tv_08"
+                    android:text="@string/remain_could_invest_str"
+                    android:textColor="@color/txt_9"
+                    android:textSize="@dimen/size_14" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@id/btn_invest"
+            style="@style/horizontal_red_item"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:text="---" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.account.releaseLoan.ValidateLoan">
+
+    <include layout="@layout/view_header"></include>
+    <com.cfbb.android.widget.YCLoadingBg
+        android:id="@+id/ycLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.cfbb.android.widget.YCLoadingBg>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+
+        android:paddingTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请通过手机"
+            android:textSize="23dp" />
+
+        <TextView
+            android:id="@+id/tv_mob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11111111111"
+            android:textColor="@color/orange"
+            android:textSize="23dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取"
+            android:textSize="23dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="短信验证码"
+            android:textColor="@color/orange"
+            android:textSize="23dp" />
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <EditText
+            android:id="@+id/sms_ed"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:numeric="integer"
+            android:ellipsize="end"
+            android:hint="请输入短信验证码"
+            android:background="@drawable/smsbg" />
+        <TextView
+            android:id="@+id/huoquyanz"
+            android:layout_alignRight="@+id/sms_ed"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="获取验证码"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textSize="10dp"
+            android:background="@drawable/smsbg1"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="为确保审核人员能即时与您取得联系，需要验证您的手机号"
+        android:textColor="@color/grey"
+        android:textSize="13dp"
+        android:padding="20dp"
+        />
+    <TextView
+        android:id="@+id/tv_tijiao"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_red_selector"
+        android:text="提交"
+        android:textColor="@color/white"
+        />
+</LinearLayout>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    android:id="@+id/introduce1"
+    android:visibility="gone"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="公司名称" />
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:background="@null"
+            android:id="@+id/tv_117"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请输入公司名称"
+            android:gravity="right"
+            android:ellipsize="end"
+            android:maxEms="1"
+            android:maxLines="1"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="公司地址" />
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:background="@null"
+            android:id="@+id/tv_118"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请输入公司地址"
+            android:gravity="right"
+            android:ellipsize="end"
+            android:maxEms="1"
+            android:maxLines="1"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="公司主营业务" />
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:background="@null"
+            android:id="@+id/tv_119"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请输入公司主营业务"
+            android:gravity="right"
+            android:ellipsize="end"
+            android:maxEms="1"
+            android:maxLines="1"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="在职岗位" />
+
+        <TextView
+            android:id="@+id/tv_120"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请选择在职岗位"
+            android:gravity="right"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="是否缴纳社保" />
+
+        <TextView
+            android:id="@+id/tv_121"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请选择是否缴纳社保"
+            android:gravity="right"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        />
+    <LinearLayout
+        android:id="@+id/ll_01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="工资发放形式" />
+
+        <TextView
+            android:id="@+id/tv_122"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:hint="请选择工资发放形式"
+            android:gravity="right"
+            android:textColor="@drawable/txt_gray_selector" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
