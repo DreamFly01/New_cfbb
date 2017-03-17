@@ -1,11 +1,13 @@
 package com.cfbb.android.features.invest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baidu.mobstat.StatService;
@@ -32,7 +34,7 @@ import com.smileback.safeinputlib.SKBConstant;
 /***
  * 投标
  */
-public class InvestBidActivity extends BaseActivity  {
+public class InvestBidActivity extends BaseActivity {
 
     public static final String INVEST_TURN_TO_ACTIVITY_CLASS = "invest_turn_to_activity_class";
     public static final String INVEST_TURN_TO_MAIN_INDEX = "invest_turn_to_main_index";
@@ -44,6 +46,8 @@ public class InvestBidActivity extends BaseActivity  {
     private TextView tv_can_invest_money;
     private TextView tv_remains_money;
     private TextView tv_intrested_str;
+    private TextView tv_interestInfo;
+    private TextView tv_jiaxi, tv_jiaxiRate;// 加息卷文字，加息卷利率
     private IJMInputEditText et_money;
     private Button btn_invest;
     private String show_back_txt;
@@ -53,6 +57,8 @@ public class InvestBidActivity extends BaseActivity  {
     private Class turnToActivity;
     private int turnToIndex;
     private YCDialogUtils ycDialogUtils;
+    private LinearLayout llRates;
+    private LinearLayout ll_jiaxi;
 
     private TextView tv_hint_to_recharge;
     private Bundle bundle;
@@ -91,6 +97,8 @@ public class InvestBidActivity extends BaseActivity  {
         ycLoadingBg = (YCLoadingBg) findViewById(R.id.ycLoadingBg);
         tv_back = (TextView) findViewById(R.id.tv_back);
         tv_title = (TextView) findViewById(R.id.tv_title);
+        ll_jiaxi = (LinearLayout) findViewById(R.id.ll_jiaxi);
+        llRates = (LinearLayout) findViewById(R.id.ll_06);
         tv_back.setVisibility(View.VISIBLE);
         tv_title.setText(getResources().getString(R.string.buy));
         if (StrUtil.isEmpty(show_back_txt)) {
@@ -101,6 +109,9 @@ public class InvestBidActivity extends BaseActivity  {
         tv_can_invest_money = (TextView) findViewById(R.id.tv_02);
         tv_remains_money = (TextView) findViewById(R.id.tv_03);
         tv_intrested_str = (TextView) findViewById(R.id.tv_04);
+        tv_interestInfo = (TextView) findViewById(R.id.tv_11);
+        tv_jiaxi = (TextView) findViewById(R.id.tv_jiaxi);
+        tv_jiaxiRate = (TextView) findViewById(R.id.tv_jiaxiRate);
         et_money = (IJMInputEditText) findViewById(R.id.et_01);
         et_money.setKeyboardMode(SKBConstant.NUM_KEYBOARD);
         et_money.setKeyboardPwdShow(true);
@@ -116,9 +127,11 @@ public class InvestBidActivity extends BaseActivity  {
         tv_back.setOnClickListener(this);
         tv_hint_to_recharge.setOnClickListener(this);
         btn_invest.setOnClickListener(this);
+        ll_jiaxi.setOnClickListener(this);
     }
 
     private BuyInitialBean buyInitial;
+    private String interestInfo;
 
     @Override
     public void getDataOnCreate() {
@@ -139,6 +152,11 @@ public class InvestBidActivity extends BaseActivity  {
             @Override
             public void onYcNext(BuyInitialBean model) {
                 buyInitial = model;
+                interestInfo = model.interestInfo;
+                tv_interestInfo.setText(model.interestInfo);
+                if (model.interestInfo.equals("无可用")) {
+                    tv_interestInfo.setEnabled(false);
+                }
                 et_money.setHint(buyInitial.hint);
                 ycLoadingBg.setVisibility(View.GONE);
                 tv_can_invest_money.setText(buyInitial.loanFailingAmount);
@@ -167,7 +185,49 @@ public class InvestBidActivity extends BaseActivity  {
                 et_money.hideKeyboard();
                 doRechargePre();
                 break;
+            case R.id.ll_jiaxi:
+                Intent intent = new Intent(this, MyRatesActivity.class);
+                intent.putExtra("flag", "bid");
+                //当state为空时 不传数据，（图片是否显示）
+                if (state != null) {
+                    intent.putExtra("state", state);
+                }
+                if(interestInfo.equals("无可用")){
+                    break;
+                }
+                startActivityForResult(intent, 1);
+                break;
         }
+    }
+
+    private String state;
+    private String name;
+    private String rate;
+
+    //返回码为1时，显示选择的加息卷信息
+    //返回码为2时，显示初始信息
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+            switch (resultCode) {
+                case 1:
+                    state = data.getStringExtra("state");
+                    name = data.getStringExtra("name");
+                    rate = data.getStringExtra("rate");
+                    interest_id = data.getStringExtra("interest_id");
+                    tv_interestInfo.setVisibility(View.GONE);
+                    llRates.setVisibility(View.VISIBLE);
+                    tv_jiaxi.setText(name);
+                    tv_jiaxiRate.setText(rate + "%");
+                    System.out.println(data.getData());
+                    break;
+                case 2:
+                    state = null;
+                    tv_interestInfo.setText(interestInfo);
+                    tv_interestInfo.setVisibility(View.VISIBLE);
+                    llRates.setVisibility(View.GONE);
+                    break;
+            }
     }
 
     private void doRechargePre() {
@@ -185,7 +245,7 @@ public class InvestBidActivity extends BaseActivity  {
             }
 
             @Override
-            public void onYCError(APIException e){
+            public void onYCError(APIException e) {
                 if (e.code == 2) {
                     //code  2  代表未认证
                     dismissLoadingView();
@@ -224,8 +284,10 @@ public class InvestBidActivity extends BaseActivity  {
         Invest();
     }
 
+    private String interest_id;
+
     private void Invest() {
-        addSubscription(RetrofitClient.InvestBid(null, product_id, investMoney, this, new YCNetSubscriber<InvestInfoBean>(this, true) {
+        addSubscription(RetrofitClient.InvestBid(null, product_id, investMoney, interest_id, this, new YCNetSubscriber<InvestInfoBean>(this, true) {
 
             @Override
             public void onYcNext(InvestInfoBean model) {
@@ -332,7 +394,7 @@ public class InvestBidActivity extends BaseActivity  {
 
             if (!StrUtil.isEmpty(money)) {
                 tv_intrested_str.setText(R.string.caculationing_str);
-                RetrofitClient.IncomeCalculation(null, loan_typeId, money, buyInitial.rate, buyInitial.term, buyInitial.termType + "", InvestBidActivity.this, new YCNetSubscriber<InComeBean>(InvestBidActivity.this) {
+                RetrofitClient.IncomeCalculation(null, loan_typeId, money, buyInitial.rate, buyInitial.term, buyInitial.termType + "",interest_id, InvestBidActivity.this, new YCNetSubscriber<InComeBean>(InvestBidActivity.this) {
 
                     @Override
                     public void onYcNext(InComeBean model) {
