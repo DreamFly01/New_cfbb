@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base_color"
+    android:orientation="vertical"
+    tools:context="com.cfbb.android.features.account.releaseLoan.AuditScheduleActivity">
+
+    <include layout="@layout/view_header"></include>
+    <com.cfbb.android.widget.YCLoadingBg
+    android:id="@+id/ycLoadingBg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></com.cfbb.android.widget.YCLoadingBg>
+
+    <FrameLayout
+        android:id="@+id/fl_02"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_base_color"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="借款描述" />
+
+            <TextView
+                android:id="@id/tv_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:text="------------"
+                android:textColor="@color/txt_9" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/fl_01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_base_color"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="审核状态" />
+
+            <TextView
+                android:id="@id/tv_04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="---"
+                android:textColor="@color/txt_red" />
+        </LinearLayout>
+
+        <include layout="@layout/audit_fail_reason"></include>
+
+            <LinearLayout
+                android:id="@id/ll_02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="我的筹款项目" />
+                </LinearLayout>
+
+                <ListView
+                    android:id="@id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/app_base_listview_divider"
+                    android:dividerHeight="15dp"
+                    android:fadingEdge="none"
+                    android:listSelector="@drawable/transparent_bg"
+                    android:layout_marginTop="10dp"
+                    android:scrollbars="none"></ListView>
+            </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
