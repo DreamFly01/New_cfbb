@@ -11,6 +11,7 @@ import com.cfbb.android.commom.utils.others.L;
 import com.cfbb.android.commom.utils.others.MyJni;
 import com.cfbb.android.commom.utils.others.StrUtil;
 import com.cfbb.android.db.user.UserBiz;
+import com.cfbb.android.features.invest.MyRatesActivity;
 import com.cfbb.android.protocol.bean.AccountDetailsInfoBean;
 import com.cfbb.android.protocol.bean.AccountInfoBean;
 import com.cfbb.android.protocol.bean.AccountInvestInfoBean;
@@ -39,12 +40,14 @@ import com.cfbb.android.protocol.bean.MyLoanBean;
 import com.cfbb.android.protocol.bean.MyLoanDetailsBean;
 import com.cfbb.android.protocol.bean.MyLoanInfoBean;
 import com.cfbb.android.protocol.bean.MyLoanListBean;
+import com.cfbb.android.protocol.bean.MyRatesBean;
 import com.cfbb.android.protocol.bean.MyRedPaperBean;
 import com.cfbb.android.protocol.bean.PlanExplainBean;
 import com.cfbb.android.protocol.bean.ProductBaseInfoBean;
 import com.cfbb.android.protocol.bean.ProductInfoBean;
 import com.cfbb.android.protocol.bean.ProductProjectInfoBean;
 import com.cfbb.android.protocol.bean.ProductTypeBean;
+import com.cfbb.android.protocol.bean.RatesBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.protocol.bean.RechargeResultInfoBean;
 import com.cfbb.android.protocol.bean.ServiceTermBean;
@@ -701,11 +704,12 @@ public class RetrofitClient {
      *
      * @param observer
      */
-    public static Subscription InvestBid(BaseResultBean<InvestInfoBean> testResult, String product_id, String bid_money, Context context, YCNetSubscriber<InvestInfoBean> observer) {
+    public static Subscription InvestBid(BaseResultBean<InvestInfoBean> testResult, String product_id, String bid_money,String interest_id, Context context, YCNetSubscriber<InvestInfoBean> observer) {
 
         Map<String, String> map = new TreeMap<>();
         map.put("product_id", product_id);
         map.put("bid_money", bid_money);
+        map.put("interest_id",interest_id);
         return doRequest(testResult, RetrofitProxy
                 .getApiService(context)
                 .InvestBid(WrapParams(map, context)), context, observer);
@@ -866,7 +870,7 @@ public class RetrofitClient {
      *
      * @param observer
      */
-    public static Subscription IncomeCalculation(BaseResultBean<InComeBean> testResult, String loan_type, String amount, String rate, String term, String term_type, Context context, YCNetSubscriber<InComeBean> observer) {
+    public static Subscription IncomeCalculation(BaseResultBean<InComeBean> testResult, String loan_type, String amount, String rate, String term, String term_type,String interest_id, Context context, YCNetSubscriber<InComeBean> observer) {
 
         Map<String, String> map = new TreeMap<>();
 
@@ -875,6 +879,7 @@ public class RetrofitClient {
         map.put("rate", rate);
         map.put("term", term);
         map.put("term_type", term_type);
+        map.put("interest_id",interest_id);
         return doRequest(testResult, RetrofitProxy
                 .getApiService(context)
                 .IncomeCalculation(WrapParams(map, context)), context, observer);
@@ -1161,6 +1166,35 @@ public class RetrofitClient {
                 .GetSMS(WrapParams(map, context)), context, observer);
     }
 
+    /**
+     * 获取加息卷
+     * @param testResult
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription GetRates(BaseResultBean<RatesBean> testResult, Context context, YCNetSubscriber<RatesBean> observer) {
+        Map<String, String> map = new TreeMap<>();
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .GetRates(WrapParams(map, context)), context, observer);
+    }
+
+    /**
+     * 获取我的加息卷
+     * @param testResult
+     * @param context
+     * @param observer
+     * @return
+     */
+    public static Subscription GetMyRates(BaseResultBean<List<MyRatesBean>> testResult,int page_index, Context context, YCNetSubscriber<List<MyRatesBean>> observer) {
+        Map<String, String> map = new TreeMap<>();
+        map.put("page_index",page_index+"");
+        return doRequest(testResult, RetrofitProxy
+                .getApiService(context)
+                .GetMyRates(WrapParams(map, context)), context, observer);
+    }
+
 
 
 
@@ -1242,6 +1276,8 @@ public class RetrofitClient {
         }
 
     }
+
+
 
     /**
      * 用来统一处理Http的resultCode,并将HttpResult的Data部分剥离出来返回给subscriber

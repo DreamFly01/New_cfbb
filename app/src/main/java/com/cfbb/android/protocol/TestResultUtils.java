@@ -31,12 +31,14 @@ import com.cfbb.android.protocol.bean.MyLoanBean;
 import com.cfbb.android.protocol.bean.MyLoanDetailsBean;
 import com.cfbb.android.protocol.bean.MyLoanInfoBean;
 import com.cfbb.android.protocol.bean.MyLoanListBean;
+import com.cfbb.android.protocol.bean.MyRatesBean;
 import com.cfbb.android.protocol.bean.MyRedPaperBean;
 import com.cfbb.android.protocol.bean.PlanExplainBean;
 import com.cfbb.android.protocol.bean.ProductBaseInfoBean;
 import com.cfbb.android.protocol.bean.ProductInfoBean;
 import com.cfbb.android.protocol.bean.ProductProjectInfoBean;
 import com.cfbb.android.protocol.bean.ProductTypeBean;
+import com.cfbb.android.protocol.bean.RatesBean;
 import com.cfbb.android.protocol.bean.RechargeInfoBean;
 import com.cfbb.android.protocol.bean.RechargeResultInfoBean;
 import com.cfbb.android.protocol.bean.TradeRecordBean;
@@ -1571,97 +1573,6 @@ public class TestResultUtils {
         List<MyLoanBean> myLoanBeanList = new ArrayList<>();
 
         MyLoanBean myLoanBean = new MyLoanBean();
-//        myLoanBean.loanTypeId = "1111";
-//        myLoanBean.prodcutId = "2222";
-//        myLoanBean.borrowName = "车辆抵押贷款";
-//        myLoanBean.borrowMoney = "1000";
-//        myLoanBean.borrowStat = "正在审核";
-//        myLoanBean.repayModeId = "按月付息到期还本";
-//        myLoanBean.bidDay = "5天";
-//        myLoanBean.time = "2016-09-12";
-//        myLoanBeanList.add(myLoanBean);
-//
-//        myLoanBean = new MyLoanBean();
-//        myLoanBean.loanTypeId = "1111";
-//        myLoanBean.prodcutId = "2222";
-//        myLoanBean.borrowName = "车辆抵押贷款";
-//        myLoanBean.borrowMoney = "1000";
-//        myLoanBean.borrowStat = "正在审核";
-//        myLoanBean.repayModeId = "按月付息到期还本";
-//        myLoanBean.bidDay = "5天";
-//        myLoanBean.time = "2016-09-12";
-//        myLoanBeanList.add(myLoanBean);
-//
-//        myLoanBean = new MyLoanBean();
-//        myLoanBean.loanTypeId = "1111";
-//        myLoanBean.prodcutId = "2222";
-//        myLoanBean.borrowName = "车辆抵押贷款";
-//        myLoanBean.borrowMoney = "1000";
-//        myLoanBean.borrowStat = "正在审核";
-//        myLoanBean.repayModeId = "按月付息到期还本";
-//        myLoanBean.bidDay = "5天";
-//        myLoanBean.time = "2016-09-12";
-//        myLoanBeanList.add(myLoanBean);
-//
-//        myLoanBean = new MyLoanBean();
-//        myLoanBean.loanTypeId = "1111";
-//        myLoanBean.prodcutId = "2222";
-//        myLoanBean.borrowName = "车辆抵押贷款";
-//        myLoanBean.borrowMoney = "1000";
-//        myLoanBean.borrowStat = "正在审核";
-//        myLoanBean.repayModeId = "按月付息到期还本";
-//        myLoanBean.bidDay = "5天";
-//        myLoanBean.time = "2016-09-12";
-//        myLoanBeanList.add(myLoanBean);
-//        myLoanBean = new MyLoanBean();
-//        myLoanBean.loanTypeId = "1111";
-//        myLoanBean.prodcutId = "2222";
-//        myLoanBean.borrowName = "车辆抵押贷款";
-//        myLoanBean.borrowMoney = "1000";
-//        myLoanBean.borrowStat = "正在审核";
-//        myLoanBean.repayModeId = "按月付息到期还本";
-//        myLoanBean.bidDay = "5天";
-//        myLoanBean.time = "2016-09-12";
-//        myLoanBeanList.add(myLoanBean);
-//        myLoanBean = new MyLoanBean();
-//        myLoanBean.loanTypeId = "1111";
-//        myLoanBean.prodcutId = "2222";
-//        myLoanBean.borrowName = "车辆抵押贷款";
-//        myLoanBean.borrowMoney = "1000";
-//        myLoanBean.borrowStat = "正在审核";
-//        myLoanBean.repayModeId = "按月付息到期还本";
-//        myLoanBean.bidDay = "5天";
-//        myLoanBean.time = "2016-09-12";
-//        myLoanBeanList.add(myLoanBean);
-//        myLoanBean = new MyLoanBean();
-//        myLoanBean.loanTypeId = "1111";
-//        myLoanBean.prodcutId = "2222";
-//        myLoanBean.borrowName = "车辆抵押贷款";
-//        myLoanBean.borrowMoney = "1000";
-//        myLoanBean.borrowStat = "正在审核";
-//        myLoanBean.repayModeId = "按月付息到期还本";
-//        myLoanBean.bidDay = "5天";
-//        myLoanBean.time = "2016-09-12";
-//        myLoanBeanList.add(myLoanBean);
-//        myLoanBean = new MyLoanBean();
-//        myLoanBean.loanTypeId = "1111";
-//        myLoanBean.prodcutId = "2222";
-//        myLoanBean.borrowName = "车辆抵押贷款";
-//        myLoanBean.borrowMoney = "1000";
-//        myLoanBean.borrowStat = "正在审核";
-//        myLoanBean.repayModeId = "按月付息到期还本";
-//        myLoanBean.bidDay = "5天";
-//        myLoanBean.time = "2016-09-12";
-//        myLoanBeanList.add(myLoanBean);
-//        myLoanBean = new MyLoanBean();
-//        myLoanBean.loanTypeId = "1111";
-//        myLoanBean.prodcutId = "2222";
-//        myLoanBean.borrowName = "车辆抵押贷款";
-//        myLoanBean.borrowMoney = "1000";
-//        myLoanBean.borrowStat = "正在审核";
-//        myLoanBean.repayModeId = "按月付息到期还本";
-//        myLoanBean.bidDay = "5天";
-//        myLoanBean.time = "2016-09-12";
         myLoanBeanList.add(myLoanBean);
 
         baseResultBean.data = myLoanBeanList;
@@ -1723,7 +1634,6 @@ public class TestResultUtils {
 
             list.add(auditInfo);
         }
-//        auditStateBean.products = list;
 
         baseResultBean.data = auditStateBean;
         return baseResultBean;
@@ -1747,6 +1657,51 @@ public class TestResultUtils {
 
         loanPersonInfo.loanInfos = list;
         baseResultBean.data = loanPersonInfo;
+        return baseResultBean;
+    }
+    public static BaseResultBean<RatesBean> getSussefulResult50(){
+        BaseResultBean<RatesBean> baseResultBean = new BaseResultBean<>();
+        baseResultBean.code = APIService.OK_CODE;
+        baseResultBean.msg = "获取信息成功";
+
+        List<RatesBean.Item1> list = new ArrayList<>();
+        RatesBean.Item1 item1 = null;
+        RatesBean ratesBean = new RatesBean();
+        for (int i = 0;i<10;i++)
+        {
+            item1 = ratesBean.new Item1();
+            item1.interest_rate = "0.5%";
+            item1.interest_id = "";
+            item1.interest_name = "";
+            item1.interest_beginTime = "";
+//            item1.Interest_endTime =  "";
+            list.add(item1);
+        }
+        ratesBean.item1 = list;
+        ratesBean.item2 = "加息券使用说明，。。。。。。。。。。。。。。。。。。/";
+        baseResultBean.data = ratesBean;
+        return baseResultBean;
+    }
+
+    public static BaseResultBean<List<MyRatesBean>> getSussefulResult51(){
+        BaseResultBean<List<MyRatesBean>> baseResultBean = new BaseResultBean<>();
+        baseResultBean.code = APIService.OK_CODE;
+        baseResultBean.msg = "获取信息成功";
+
+        List<MyRatesBean> list = new ArrayList<>();
+        MyRatesBean listRates = null;
+        for (int i = 0;i<23;i++)
+        {
+            listRates = new MyRatesBean();
+//            listRates.rate = "0.5%";
+//            listRates.interest_name = "2016.3.1-2017.3.3";
+            listRates.beginTime = "2016.3.1";
+            listRates.endTime = "2017.3.3";
+            listRates.rate = "0.5";
+            listRates.name = "我的加息泉";
+            list.add(listRates);
+        }
+        baseResultBean.data = list;
         return baseResultBean;
     }
 }
