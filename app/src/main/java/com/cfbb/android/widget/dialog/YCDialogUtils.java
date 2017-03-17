@@ -1,6 +1,7 @@
 package com.cfbb.android.widget.dialog;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.Context;
@@ -24,7 +25,7 @@ import com.cfbb.android.commom.utils.others.StrUtil;
  */
 public class YCDialogUtils {
 
-    private Dialog mDialog;
+    private AlertDialog mDialog;
     private Activity mActivity;
     private MyTwoBtnclickLisener myTwoBtnclickLisener;
     private MySingleBtnclickLisener mySingleBtnclickLisener;
@@ -209,7 +210,8 @@ public class YCDialogUtils {
 
             btn_ok = (Button) view.findViewById(R.id.btn_ok);
             tv_title.setText(title);
-            tv_content.setText(Html.fromHtml(showMsg));
+//            tv_content.setText(Html.fromHtml(showMsg));解决换行符不能换行
+            tv_content.setText(showMsg);
             btn_ok.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {

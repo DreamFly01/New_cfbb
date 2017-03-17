@@ -257,4 +257,5 @@
     <string name="unbindFalied">解绑失败</string>
     <string name="loanDesc">请尽可能描述您的借款用途,个人资产状况，以便我们为您提供更合适的借款方案。</string>
     <string name="pointMsg">证明材料为可选信息，如果要上传相关图片证明材料请务必遵循以下规则：1.身份证必须上传正反两张图片。 2.上传材料必须依次添加图片，即按照界面所列出的顺序依次添加。</string>
+
 </resources>

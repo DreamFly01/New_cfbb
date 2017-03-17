@@ -17,7 +17,7 @@ public class AccountInfoBean {
         public String workingTime;
         public String userName;
         public String giftNum;
-
+        public String interestConponCount;
         public int isShowHint;
         public String hintContent;
         public int turnWhere;
