@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cfbb.android">
 
-
-    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"></uses-permission>
-    <uses-permission android:name="com.huawei.permission.sec.MDM"></uses-permission>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+    <uses-permission android:name="com.huawei.permission.sec.MDM" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -283,7 +282,8 @@
         <activity android:name=".features.webview.WebActivity" />
         <activity android:name=".features.account.releaseLoan.IntroduceData" />
         <activity android:name=".features.account.releaseLoan.AddImgActivity" />
-        <activity android:name=".features.account.releaseLoan.DataActivity"></activity>
+        <activity android:name=".features.account.releaseLoan.DataActivity" />
+        <activity android:name=".features.invest.MyRatesActivity"></activity>
     </application>
 
 </manifest>
