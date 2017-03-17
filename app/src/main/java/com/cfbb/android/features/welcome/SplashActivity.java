@@ -106,11 +106,11 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
 
             @Override
             public void onYCError(APIException e) {
-                FailToCheckVersion();
+//                FailToCheckVersion();
 
-//                Bundle bundle = new Bundle();
-//                bundle.putInt(MainActivity.SHOW_FRAGMENT_INDEX, MainFragmentEnum.HOME.getValue());
-//                JumpCenter.JumpActivity(SplashActivity.this, MainActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, false);
+                Bundle bundle = new Bundle();
+                bundle.putInt(MainActivity.SHOW_FRAGMENT_INDEX, MainFragmentEnum.HOME.getValue());
+                JumpCenter.JumpActivity(SplashActivity.this, MainActivity.class, bundle, null, JumpCenter.NORMALL_REQUEST, JumpCenter.INVAILD_FLAG, true, false);
 
             }
 
@@ -300,6 +300,7 @@ public class SplashActivity extends BaseActivity implements View.OnClickListener
         //确保广告请求获取ok 和 版本信息获取Ok
 
         if (isADShowOk && isVersionOk) {
+            //广告页面之后，如果有手势密码就需要验证
             if(UserBiz.getInstance(this).Is_Setted_Gesture()&&UserBiz.getInstance(this).Is_Open_Gesture()){
                 Bundle bundle = new Bundle();
                 bundle.putString("key","key");
