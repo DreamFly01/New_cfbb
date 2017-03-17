@@ -34,6 +34,7 @@ import com.cfbb.android.features.account.releaseLoan.IntroduceLoanActivity;
 import com.cfbb.android.features.account.releaseLoan.MyLoanActivity;
 import com.cfbb.android.features.account.withdrawAndrecharge.RechargeActivity;
 import com.cfbb.android.features.authentication.RealNameAuthenticationActivity;
+import com.cfbb.android.features.invest.MyRatesActivity;
 import com.cfbb.android.features.webview.OtherActivity;
 import com.cfbb.android.protocol.APIException;
 import com.cfbb.android.protocol.APIService;
@@ -68,6 +69,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
     private TextView tv_is_show;
     private TextView tv_custom_tel;
     private TextView tv_working_time;
+    private  TextView tv_jiaxi;
     private ImageView iv_open_eye;
     private RelativeLayout rl_account_details;
     private RelativeLayout rl_my_invest;
@@ -76,6 +78,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
     private RelativeLayout rl_release_myloan;
     private RelativeLayout rl_my_bankcard_list;
     private RelativeLayout rl_my_red_paper;
+    private  RelativeLayout rl_rates;
     private TextView tv_red_pokage_num;
     private YCLoadingBg ycLoadingBg;
     private RelativeLayout rl_gift;
@@ -109,6 +112,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
         rl_release_loan.setOnClickListener(this);
         rl_release_myloan.setOnClickListener(this);
         rl_gift.setOnClickListener(this);
+        rl_rates.setOnClickListener(this);
         pullDowmView.setUpdateHandle(new PullDownView.UpdateHandle() {
             @Override
             public void onUpdate() {
@@ -163,6 +167,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
         tv_is_show = (TextView) viewHeader.findViewById(R.id.tv_06);
         tv_custom_tel = (TextView) viewHeader.findViewById(R.id.tv_07);
         tv_working_time = (TextView) viewHeader.findViewById(R.id.tv_08);
+        tv_jiaxi = (TextView)viewHeader.findViewById(R.id.tv_13);
         tv_red_pokage_num = (TextView) viewHeader.findViewById(R.id.tv_back);
         iv_open_eye = (ImageView) viewHeader.findViewById(R.id.iv_04);
 
@@ -173,8 +178,8 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
         rl_release_myloan = (RelativeLayout) viewHeader.findViewById(R.id.rl_11);
         rl_my_bankcard_list = (RelativeLayout) viewHeader.findViewById(R.id.rl_05);
         rl_my_red_paper = (RelativeLayout) viewHeader.findViewById(R.id.rl_06);
-
         rl_gift = (RelativeLayout) viewHeader.findViewById(R.id.rl_07);
+        rl_rates = (RelativeLayout)viewHeader.findViewById(R.id.rl_08);
         tv_gift = (TextView) viewHeader.findViewById(R.id.tv_12);
     }
 
@@ -202,6 +207,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
             tv_red_pokage_num.setText(accountInfoBean.myRedPakageNum);
             tv_custom_tel.setText(accountInfoBean.customerservice);
             tv_working_time.setText(accountInfoBean.workingTime);
+            tv_jiaxi.setText(accountInfoBean.interestConponCount);
             ImageWithGlideUtils.lodeFromUrlRoundTransform(accountInfoBean.userImageUrl, R.mipmap.default_user_photo_smarll_bg, iv_potoh, getActivity());
             UserBiz.getInstance(getActivity()).UpdateUserPhotoAddr(accountInfoBean.userImageUrl);
 
@@ -273,6 +279,12 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
             //我的借款
             case R.id.rl_11:
                 JumpCenter.JumpActivity(getActivity(),MyLoanActivity.class,null,null,JumpCenter.NORMALL_REQUEST,JumpCenter.INVAILD_FLAG,false,true);
+                break;
+            //我的加息券
+            case R.id.rl_08:
+                Bundle bundle = new Bundle();
+                bundle.putString("flag","acc");
+                JumpCenter.JumpActivity(getActivity(),MyRatesActivity.class,bundle,null,JumpCenter.NORMALL_REQUEST,JumpCenter.INVAILD_FLAG,false,true);
                 break;
             //充值
             case R.id.tv_02:
