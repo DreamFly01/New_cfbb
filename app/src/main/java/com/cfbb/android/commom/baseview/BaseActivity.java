@@ -73,7 +73,7 @@ public abstract class BaseActivity extends SwipeBackFragment implements View.OnC
     protected void onResume() {
         super.onResume();
         PhoneUtils.isEmulator(this);
-        CheckGestureState();
+//        CheckGestureState();
 
     }
 
